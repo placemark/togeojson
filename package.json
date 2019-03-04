@@ -26,7 +26,8 @@
     "jest": "^23.6.0",
     "rollup": "^1.4.0",
     "rollup-plugin-terser": "^4.0.4",
-    "standard-version": "^4.4.0"
+    "standard-version": "^4.4.0",
+    "xmldom": "^0.1.27"
   },
   "repository": {
     "type": "git",

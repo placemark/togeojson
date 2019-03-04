@@ -15,7 +15,7 @@ export default [
   {
     input,
     output: {
-      file: "dist/togeojson.j",
+      file: "dist/togeojson.js",
       format: "cjs",
       sourcemap
     }
