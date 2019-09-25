@@ -8853,6 +8853,16 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "cmt": "Sun Jun 24 15:08:39 2001",
+    "desc": "Riding in the Blue Hills is a mix of fast fire roads and technical rock gardens.  Oh, and there's a hill around every corner, too.
+Watch out for horses on the fire roads, and pick up a mountain bike trail map at the Headquarters trailhead.  Trails marked in red are off-limits to bikes.  Every intersection in the Blue Hills is marked with a 4 digit number, shown on the map.
+The Blue Hills are a great place to hike, as well!",
+    "keywords": "blue hills, mountain biking, milton",
+    "name": "Blue Hills Reservation",
+    "time": "2002-04-19T02:47:17Z",
+    "type": "rock",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -8910,6 +8920,9 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "time": "2007-05-11T15:22:06Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -8917,6 +8930,7 @@ Object {
 exports[`toGeoJSON 5`] = `
 Object {
   "features": Array [],
+  "properties": Object {},
   "type": "FeatureCollection",
 }
 `;
@@ -9058,6 +9072,30 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "cmt": "waypoint comment",
+    "desc": "waypoint description",
+    "links": Array [
+      Object {
+        "href": "href",
+        "text": "text",
+        "type": "type",
+      },
+      Object {
+        "href": "href2",
+        "text": "text2",
+        "type": "type2",
+      },
+      Object {
+        "href": "href3",
+        "text": "text3",
+        "type": "type3",
+      },
+    ],
+    "name": "waypoint name",
+    "time": "2007-11-25T17:58:00+01:00",
+    "type": "type",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -9829,6 +9867,16 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "links": Array [
+      Object {
+        "href": "http://www.garmin.com",
+        "text": "Garmin International",
+      },
+    ],
+    "name": "missing hr",
+    "time": "2017-05-27T04:00:00Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -41543,6 +41591,16 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "links": Array [
+      Object {
+        "href": "http://www.garmin.com",
+        "text": "Garmin International",
+      },
+    ],
+    "name": "Tag 1",
+    "time": "2008-07-14T15:35:51Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -42042,6 +42100,9 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "type": "NC",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -64514,6 +64575,11 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "desc": "dc",
+    "name": "dc.zip",
+    "time": "2007-05-11T15:22:06Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -66101,6 +66167,16 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "links": Array [
+      Object {
+        "href": "connect.garmin.com",
+        "text": "Garmin Connect",
+      },
+    ],
+    "name": "Untitled",
+    "time": "2012-10-24T23:22:51.000Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -73951,6 +74027,10 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "name": "Greeting SF with a dumb, dumb route",
+    "time": "2015-01-19T21:24:20Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -75809,6 +75889,11 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "name": "Trail Double Track",
+    "time": "2008-03-02T03:20:25.578Z",
+    "type": "WM T Double Track",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -76631,6 +76716,7 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {},
   "type": "FeatureCollection",
 }
 `;
@@ -76638,6 +76724,7 @@ Object {
 exports[`toGeoJSON 36`] = `
 Object {
   "features": Array [],
+  "properties": Object {},
   "type": "FeatureCollection",
 }
 `;
@@ -76685,6 +76772,9 @@ Object {
 exports[`toGeoJSON 38`] = `
 Object {
   "features": Array [],
+  "properties": Object {
+    "time": "2014-06-17T15:47:32Z",
+  },
   "type": "FeatureCollection",
 }
 `;
@@ -77133,6 +77223,7 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {},
   "type": "FeatureCollection",
 }
 `;
@@ -77175,6 +77266,13 @@ Object {
       "type": "Feature",
     },
   ],
+  "properties": Object {
+    "cmt": "Sun Jun 24 15:08:39 2001",
+    "desc": "",
+    "keywords": "blue hills, mountain biking, milton",
+    "name": "Blue Hills Reservation",
+    "time": "2002-04-19T02:47:17Z",
+  },
   "type": "FeatureCollection",
 }
 `;
