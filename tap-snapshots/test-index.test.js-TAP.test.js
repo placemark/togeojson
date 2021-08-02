@@ -21174,6 +21174,7 @@ Object {
           ],
         },
         "distanceMeters": 1664.4491785197054,
+        "name": "Test TCX Route",
         "totalTimeSeconds": 238.91313879712945,
       },
       "type": "Feature",
