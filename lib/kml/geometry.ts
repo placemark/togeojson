@@ -134,10 +134,12 @@ export function getGeometry(node: Element): GeometriesAndTimes {
               coords.push(ring);
             }
           }
-          geometries.push({
-            type: "Polygon",
-            coordinates: coords,
-          });
+          if (coords.length) {
+            geometries.push({
+              type: "Polygon",
+              coordinates: coords,
+            });
+          }
           break;
         }
         case "Track":

@@ -6,101 +6,10 @@ import type {
   LineString,
   Position,
 } from "geojson";
-import {
-  P,
-  $,
-  $num,
-  get,
-  nodeVal,
-  val1,
-  get1,
-  num1,
-  getMulti,
-  isElement,
-} from "./shared";
-
-interface CoordPair {
-  coordinates: Position;
-  time: string | null;
-  extendedValues: ExtendedValues;
-}
-
-type ExtendedValues = [string, string | number][];
-
-function getLineStyle(node: Element | null) {
-  return get(node, "line", (lineStyle) => {
-    const val: P = Object.assign(
-      {},
-      val1(lineStyle, "color", (color) => {
-        return { stroke: `#${color}` };
-      }),
-      $num(lineStyle, "opacity", (opacity) => {
-        return { "stroke-opacity": opacity };
-      }),
-      $num(lineStyle, "width", (width) => {
-        // GPX width is in mm, convert to px with 96 px per inch
-        return { "stroke-width": (width * 96) / 25.4 };
-      })
-    );
-    return val;
-  });
-}
-
-function getExtensions(node: Element | null): ExtendedValues {
-  let values: [string, string | number][] = [];
-  if (node !== null) {
-    for (const child of Array.from(node.childNodes)) {
-      if (!isElement(child)) continue;
-      const name = ["heart", "gpxtpx:hr", "hr"].includes(child.nodeName)
-        ? "heart"
-        : child.nodeName;
-      if (name === "gpxtpx:TrackPointExtension") {
-        // loop again for nested garmin extensions (eg. "gpxtpx:hr")
-        values = values.concat(getExtensions(child));
-      } else {
-        // push custom extension (eg. "power")
-        const val = nodeVal(child);
-        values.push([name, isNaN(parseFloat(val)) ? val : parseFloat(val)]);
-      }
-    }
-  }
-  return values;
-}
-
-function extractProperties(node: Element) {
-  const properties = getMulti(node, [
-    "name",
-    "cmt",
-    "desc",
-    "type",
-    "time",
-    "keywords",
-  ]);
-
-  const extensions = Array.from(
-    node.getElementsByTagNameNS(
-      "http://www.garmin.com/xmlschemas/GpxExtensions/v3",
-      "*"
-    )
-  );
-  for (const child of extensions) {
-    if (child.parentNode?.parentNode === node) {
-      properties[child.tagName.replace(":", "_")] = nodeVal(child);
-    }
-  }
-
-  const links = $(node, "link");
-  if (links.length) {
-    properties.links = links.map((link) =>
-      Object.assign(
-        { href: link.getAttribute("href") },
-        getMulti(link, ["text", "type"])
-      )
-    );
-  }
-
-  return properties;
-}
+import { getLineStyle } from "./gpx/line";
+import { coordPair } from "./gpx/coord_pair";
+import { extractProperties } from "./gpx/properties";
+import { P, $, get1, getMulti } from "./shared";
 
 function getPoints(node: Element, pointname: "trkpt" | "rtept") {
   const pts = $(node, pointname);
@@ -127,24 +36,6 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
     line: line,
     times: times,
     extendedValues: extendedValues,
-  };
-}
-
-function coordPair(node: Element): CoordPair {
-  const ll = [
-    parseFloat(node.getAttribute("lon") || ""),
-    parseFloat(node.getAttribute("lat") || ""),
-  ];
-
-  num1(node, "ele", (val) => {
-    ll.push(val);
-  });
-
-  const time = get1(node, "time");
-  return {
-    coordinates: ll,
-    time: time ? nodeVal(time) : null,
-    extendedValues: getExtensions(get1(node, "extensions")),
   };
 }
 
