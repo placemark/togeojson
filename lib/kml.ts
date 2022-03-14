@@ -64,7 +64,15 @@ function buildStyleMap(node: Document): StyleMap {
 }
 
 function getFolder(node: Element): Folder {
-  const props = ["name", "visibility", "description"];
+  const props = [
+    "name",
+    "visibility",
+    "open",
+    "address",
+    "description",
+    "phoneNumber",
+    "visibility",
+  ];
   const meta: P = {};
 
   for (const child of Array.from(node.childNodes)) {

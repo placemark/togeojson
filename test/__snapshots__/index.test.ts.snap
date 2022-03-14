@@ -23297,6 +23297,7 @@ Object {
       "children": Array [],
       "meta": Object {
         "name": "Features",
+        "open": "0",
       },
       "type": "folder",
     },

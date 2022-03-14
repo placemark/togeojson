@@ -97,6 +97,7 @@ import { kml } from "@tmcw/togeojson";
 - [x] Tracks & MultiTracks with `gx:coords`, including altitude
 - [x] [TimeSpan](https://developers.google.com/kml/documentation/kmlreference#timespan)
 - [x] [TimeStamp](https://developers.google.com/kml/documentation/kmlreference#timestamp)
+- [x] Folders (with kmlWithFolders)
 - [ ] NetworkLinks
 - [ ] GroundOverlays
 

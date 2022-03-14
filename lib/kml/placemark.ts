@@ -77,7 +77,14 @@ export function getPlacemark(
     type: "Feature",
     geometry: geometryListToGeometry(geometries),
     properties: Object.assign(
-      getMulti(node, ["name", "address", "visibility", "description"]),
+      getMulti(node, [
+        "name",
+        "address",
+        "visibility",
+        "open",
+        "phoneNumber",
+        "description",
+      ]),
       extractCascadedStyle(node, styleMap),
       extractStyle(node),
       extractExtendedData(node),
