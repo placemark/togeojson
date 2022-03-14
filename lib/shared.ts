@@ -61,11 +61,11 @@ export function get(
 export function val1(
   node: Element,
   tagName: string,
-  callback: (val: string) => unknown
-) {
+  callback: (val: string) => P | void
+): P {
   const val = nodeVal(get1(node, tagName));
-  if (val && callback) return callback(val);
-  return val;
+  if (val && callback) return callback(val) || {};
+  return {};
 }
 
 export function $num(
