@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@placemarkio/check-geojson": "^0.1.8",
-    "@rollup/plugin-typescript": "^8.3.1",
     "@types/geojson": "^7946.0.8",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
@@ -39,8 +38,6 @@
     "jest": "^27.5.1",
     "microbundle": "^0.14.2",
     "prettier": "^2.5.1",
-    "rollup": "^2.70.0",
-    "rollup-plugin-terser": "^7.0.2",
     "standard-version": "^9.3.2",
     "ts-jest": "^27.1.3",
     "typedoc": "^0.22.13",
