@@ -1,4 +1,4 @@
-import { P, get, nodeVal, num1, val1 } from "../shared";
+import { P, get, num1, nodeVal, val1 } from "../shared";
 import { fixColor } from "./fixColor";
 
 function numericProperty(node: Element, source: string, target: string): P {
