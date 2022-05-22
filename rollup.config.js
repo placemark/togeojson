@@ -1,6 +1,6 @@
 import { terser } from "rollup-plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts"
+import dts from "rollup-plugin-dts";
 
 const input = "./lib/index.ts";
 const sourcemap = true;
@@ -9,7 +9,7 @@ export default [
   {
     input,
     output: {
-      file: "dist/togeojson.es.js",
+      file: "dist/togeojson.es.mjs",
       format: "es",
       sourcemap,
     },

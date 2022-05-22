@@ -8,11 +8,11 @@
   "types": "dist/index.d.ts",
   "browser": "dist/togeojson.umd.js",
   "jsdelivr": "dist/togeojson.umd.js",
-  "module": "dist/togeojson.es.js",
+  "module": "dist/togeojson.es.mjs",
   "main": "dist/togeojson.cjs",
   "exports": {
     "require": "./dist/togeojson.cjs",
-    "default": "./dist/togeojson.es.js"
+    "default": "./dist/togeojson.es.mjs"
   },
   "files": [
     "dist"
