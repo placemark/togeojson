@@ -67,6 +67,21 @@ function extractCascadedStyle(node: Element, styleMap: StyleMap): P {
   });
 }
 
+function getMaybeHTMLDescription(node: Element) {
+  const descriptionNode = get1(node, "description");
+  for (const c of Array.from(descriptionNode?.childNodes || [])) {
+    if (c.nodeType === 4) {
+      return {
+        description: {
+          type: "@html",
+          value: nodeVal(c as Element),
+        },
+      };
+    }
+  }
+  return {};
+}
+
 export function getPlacemark(
   node: Element,
   styleMap: StyleMap
@@ -85,6 +100,7 @@ export function getPlacemark(
         "phoneNumber",
         "description",
       ]),
+      getMaybeHTMLDescription(node),
       extractCascadedStyle(node, styleMap),
       extractStyle(node),
       extractExtendedData(node),

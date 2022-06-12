@@ -9509,11 +9509,13 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "description": "
-      
+        "description": Object {
+          "type": "@html",
+          "value": "
 
              Here is some text
       ",
+        },
       },
       "type": "Feature",
     },
@@ -9535,11 +9537,13 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "description": "
-      
+        "description": Object {
+          "type": "@html",
+          "value": "
 
              Here is some text
       ",
+        },
       },
       "type": "Feature",
     },
@@ -13005,8 +13009,9 @@ course à pied
         "type": "Point",
       },
       "properties": Object {
-        "description": "
-Créé par Google Mes parcours sur Android
+        "description": Object {
+          "type": "@html",
+          "value": "Créé par Google Mes parcours sur Android
 
 Nom : 12/04/2014 11:24 AM
 Type d'activité : course à pied
@@ -13026,8 +13031,8 @@ Dénivelé : 1095 m (3593 pi)
 Inclinaison max. : 21 %
 Inclinaison min. : -24 %
 Date d'enregistrement : 12/04/2014 11:24 AM
-
-   ",
+",
+        },
         "icon": "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
         "icon-offset": Array [
           32,
@@ -13295,8 +13300,9 @@ course à pied
         "type": "Point",
       },
       "properties": Object {
-        "description": "
-Créé par Google Mes parcours sur Android
+        "description": Object {
+          "type": "@html",
+          "value": "Créé par Google Mes parcours sur Android
 
 Nom : 12/04/2014 11:24 AM
 Type d'activité : course à pied
@@ -13316,8 +13322,8 @@ Dénivelé : 1095 m (3593 pi)
 Inclinaison max. : 21 %
 Inclinaison min. : -24 %
 Date d'enregistrement : 12/04/2014 11:24 AM
-
-   ",
+",
+        },
         "icon": "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
         "icon-offset": Array [
           32,
@@ -23037,7 +23043,10 @@ Object {
       },
       "id": "00A083AD2520769B213A",
       "properties": Object {
-        "description": "<div>Ahoj <b>PM</b></div>",
+        "description": Object {
+          "type": "@html",
+          "value": "<div>Ahoj <b>PM</b></div>",
+        },
         "fill": "#ffffff",
         "fill-opacity": 0.25098039215686274,
         "icon": "https://earth.google.com/earth/rpc/cc/icon?color=1976d2&id=2006&scale=4",
@@ -23137,7 +23146,10 @@ Object {
       },
       "id": "00A083AD2520769B213A",
       "properties": Object {
-        "description": "<div>Ahoj <b>PM</b></div>",
+        "description": Object {
+          "type": "@html",
+          "value": "<div>Ahoj <b>PM</b></div>",
+        },
         "fill": "#ffffff",
         "fill-opacity": 0.25098039215686274,
         "icon": "https://earth.google.com/earth/rpc/cc/icon?color=1976d2&id=2006&scale=4",
