@@ -73,7 +73,7 @@ function getMaybeHTMLDescription(node: Element) {
     if (c.nodeType === 4) {
       return {
         description: {
-          type: "@html",
+          "@type": "html",
           value: nodeVal(c as Element),
         },
       };

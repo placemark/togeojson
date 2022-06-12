@@ -9510,7 +9510,7 @@ Object {
       },
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "
 
              Here is some text
@@ -9538,7 +9538,7 @@ Object {
       },
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "
 
              Here is some text
@@ -13010,7 +13010,7 @@ course à pied
       },
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "Créé par Google Mes parcours sur Android
 
 Nom : 12/04/2014 11:24 AM
@@ -13301,7 +13301,7 @@ course à pied
       },
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "Créé par Google Mes parcours sur Android
 
 Nom : 12/04/2014 11:24 AM
@@ -23044,7 +23044,7 @@ Object {
       "id": "00A083AD2520769B213A",
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "<div>Ahoj <b>PM</b></div>",
         },
         "fill": "#ffffff",
@@ -23147,7 +23147,7 @@ Object {
       "id": "00A083AD2520769B213A",
       "properties": Object {
         "description": Object {
-          "type": "@html",
+          "@type": "html",
           "value": "<div>Ahoj <b>PM</b></div>",
         },
         "fill": "#ffffff",
