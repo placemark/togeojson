@@ -13,7 +13,8 @@ export function coord1(value: string): Position {
     .replace(removeSpace, "")
     .split(",")
     .map(parseFloat)
-    .filter((num) => !isNaN(num));
+    .filter((num) => !isNaN(num))
+    .slice(0, 3);
 }
 
 /**

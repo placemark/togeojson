@@ -18468,6 +18468,54 @@ Object {
 }
 `;
 
+exports[`toGeoJSON point_extra_coordinates.kml 1`] = `
+Object {
+  "features": Array [
+    Object {
+      "geometry": Object {
+        "coordinates": Array [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": Object {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON point_extra_coordinates.kml 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "geometry": Object {
+        "coordinates": Array [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": Object {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON point_id.kml 1`] = `
 Object {
   "features": Array [
