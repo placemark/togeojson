@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/placemarkio/togeojson.git"
+    "url": "git://github.com/placemark/togeojson.git"
   },
   "license": "BSD-2-Clause",
   "keywords": [
