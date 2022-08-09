@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.2](https://github.com/placemark/togeojson/compare/v5.2.1...v5.2.2) (2022-08-09)
+
 ### [5.2.1](https://github.com/placemarkio/togeojson/compare/v5.2.0...v5.2.1) (2022-06-15)
 
 
