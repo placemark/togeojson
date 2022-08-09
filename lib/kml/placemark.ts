@@ -116,6 +116,10 @@ export function getPlacemark(
     ),
   };
 
+  if (feature.properties?.visibility !== undefined) {
+    feature.properties.visibility = feature.properties.visibility !== "0";
+  }
+
   const id = node.getAttribute("id");
   if (id !== null && id !== "") feature.id = id;
   return feature;

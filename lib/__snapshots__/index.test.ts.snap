@@ -14340,7 +14340,7 @@ Object {
       },
       "properties": Object {
         "name": "SF Marina Harbor Master",
-        "visibility": "0",
+        "visibility": false,
       },
       "type": "Feature",
     },
@@ -14390,7 +14390,7 @@ Object {
       },
       "properties": Object {
         "name": "SF Marina Harbor Master",
-        "visibility": "0",
+        "visibility": false,
       },
       "type": "Feature",
     },
@@ -14433,7 +14433,7 @@ Object {
       },
       "properties": Object {
         "name": "SF Marina Harbor Master",
-        "visibility": "0",
+        "visibility": false,
       },
       "type": "Feature",
     },
@@ -14476,7 +14476,7 @@ Object {
       },
       "properties": Object {
         "name": "SF Marina Harbor Master",
-        "visibility": "0",
+        "visibility": false,
       },
       "type": "Feature",
     },
