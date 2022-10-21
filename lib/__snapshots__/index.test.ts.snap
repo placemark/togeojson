@@ -14485,6 +14485,1684 @@ Object {
 }
 `;
 
+exports[`toGeoJSON multigeometry_sibling.kml 1`] = `
+Object {
+  "features": Array [
+    Object {
+      "geometry": Object {
+        "geometries": Array [
+          Object {
+            "coordinates": Array [
+              Array [
+                147.038241604,
+                -36.04795368,
+              ],
+              Array [
+                147.0371,
+                -36.04781,
+              ],
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+              Array [
+                147.01366,
+                -36.04891,
+              ],
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+              Array [
+                147.01298,
+                -36.0525299999999,
+              ],
+              Array [
+                147.0128,
+                -36.05326,
+              ],
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+              Array [
+                147.01173,
+                -36.05889,
+              ],
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+              Array [
+                147.01031,
+                -36.06657,
+              ],
+              Array [
+                147.01022,
+                -36.0667999999999,
+              ],
+              Array [
+                147.01001,
+                -36.06704,
+              ],
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+              Array [
+                147.00517,
+                -36.0682899999999,
+              ],
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+              Array [
+                147.00127,
+                -36.0672499999999,
+              ],
+              Array [
+                147.00085,
+                -36.0671199999999,
+              ],
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+              Array [
+                146.99772,
+                -36.0658099999999,
+              ],
+              Array [
+                146.99714,
+                -36.0656299999999,
+              ],
+              Array [
+                146.99654,
+                -36.06549,
+              ],
+              Array [
+                146.99557,
+                -36.0653399999999,
+              ],
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+              Array [
+                146.99205,
+                -36.06485,
+              ],
+              Array [
+                146.99033,
+                -36.06468,
+              ],
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+              Array [
+                146.98888,
+                -36.06479,
+              ],
+              Array [
+                146.98824,
+                -36.06496,
+              ],
+              Array [
+                146.98729,
+                -36.06537,
+              ],
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+              Array [
+                146.98612,
+                -36.066,
+              ],
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+              Array [
+                146.98497,
+                -36.0664399999999,
+              ],
+              Array [
+                146.98421,
+                -36.06659,
+              ],
+              Array [
+                146.98265,
+                -36.06673,
+              ],
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+              Array [
+                146.97915,
+                -36.0669399999999,
+              ],
+              Array [
+                146.97775,
+                -36.06709,
+              ],
+              Array [
+                146.97724,
+                -36.0671599999999,
+              ],
+              Array [
+                146.97663,
+                -36.06729,
+              ],
+              Array [
+                146.976252415,
+                -36.0673731969999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.038241604,
+                -36.04795368,
+              ],
+              Array [
+                147.0371,
+                -36.04781,
+              ],
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+              Array [
+                147.01366,
+                -36.04891,
+              ],
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+              Array [
+                147.01298,
+                -36.0525299999999,
+              ],
+              Array [
+                147.0128,
+                -36.05326,
+              ],
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+              Array [
+                147.01173,
+                -36.05889,
+              ],
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+              Array [
+                147.01031,
+                -36.06657,
+              ],
+              Array [
+                147.01022,
+                -36.0667999999999,
+              ],
+              Array [
+                147.01001,
+                -36.06704,
+              ],
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+              Array [
+                147.00517,
+                -36.0682899999999,
+              ],
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+              Array [
+                147.00127,
+                -36.0672499999999,
+              ],
+              Array [
+                147.00085,
+                -36.0671199999999,
+              ],
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+              Array [
+                146.99772,
+                -36.0658099999999,
+              ],
+              Array [
+                146.99714,
+                -36.0656299999999,
+              ],
+              Array [
+                146.99654,
+                -36.06549,
+              ],
+              Array [
+                146.99557,
+                -36.0653399999999,
+              ],
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+              Array [
+                146.99205,
+                -36.06485,
+              ],
+              Array [
+                146.99033,
+                -36.06468,
+              ],
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+              Array [
+                146.98888,
+                -36.06479,
+              ],
+              Array [
+                146.98824,
+                -36.06496,
+              ],
+              Array [
+                146.98729,
+                -36.06537,
+              ],
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+              Array [
+                146.98612,
+                -36.066,
+              ],
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+              Array [
+                146.98497,
+                -36.0664399999999,
+              ],
+              Array [
+                146.98421,
+                -36.06659,
+              ],
+              Array [
+                146.98265,
+                -36.06673,
+              ],
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+              Array [
+                146.97915,
+                -36.0669399999999,
+              ],
+              Array [
+                146.97775,
+                -36.06709,
+              ],
+              Array [
+                146.97724,
+                -36.0671599999999,
+              ],
+              Array [
+                146.97663,
+                -36.06729,
+              ],
+              Array [
+                146.976252415,
+                -36.0673731969999,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": Object {},
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON multigeometry_sibling.kml 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "geometry": Object {
+        "geometries": Array [
+          Object {
+            "coordinates": Array [
+              Array [
+                147.038241604,
+                -36.04795368,
+              ],
+              Array [
+                147.0371,
+                -36.04781,
+              ],
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+              Array [
+                147.01366,
+                -36.04891,
+              ],
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+              Array [
+                147.01298,
+                -36.0525299999999,
+              ],
+              Array [
+                147.0128,
+                -36.05326,
+              ],
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+              Array [
+                147.01173,
+                -36.05889,
+              ],
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+              Array [
+                147.01031,
+                -36.06657,
+              ],
+              Array [
+                147.01022,
+                -36.0667999999999,
+              ],
+              Array [
+                147.01001,
+                -36.06704,
+              ],
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+              Array [
+                147.00517,
+                -36.0682899999999,
+              ],
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+              Array [
+                147.00127,
+                -36.0672499999999,
+              ],
+              Array [
+                147.00085,
+                -36.0671199999999,
+              ],
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+              Array [
+                146.99772,
+                -36.0658099999999,
+              ],
+              Array [
+                146.99714,
+                -36.0656299999999,
+              ],
+              Array [
+                146.99654,
+                -36.06549,
+              ],
+              Array [
+                146.99557,
+                -36.0653399999999,
+              ],
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+              Array [
+                146.99205,
+                -36.06485,
+              ],
+              Array [
+                146.99033,
+                -36.06468,
+              ],
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+              Array [
+                146.98888,
+                -36.06479,
+              ],
+              Array [
+                146.98824,
+                -36.06496,
+              ],
+              Array [
+                146.98729,
+                -36.06537,
+              ],
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+              Array [
+                146.98612,
+                -36.066,
+              ],
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+              Array [
+                146.98497,
+                -36.0664399999999,
+              ],
+              Array [
+                146.98421,
+                -36.06659,
+              ],
+              Array [
+                146.98265,
+                -36.06673,
+              ],
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+              Array [
+                146.97915,
+                -36.0669399999999,
+              ],
+              Array [
+                146.97775,
+                -36.06709,
+              ],
+              Array [
+                146.97724,
+                -36.0671599999999,
+              ],
+              Array [
+                146.97663,
+                -36.06729,
+              ],
+              Array [
+                146.976252415,
+                -36.0673731969999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.038241604,
+                -36.04795368,
+              ],
+              Array [
+                147.0371,
+                -36.04781,
+              ],
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.03421,
+                -36.04745,
+              ],
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0217,
+                -36.0458399999999,
+              ],
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01798,
+                -36.04538,
+              ],
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01441,
+                -36.0449399999999,
+              ],
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0142,
+                -36.0461,
+              ],
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01402,
+                -36.04705,
+              ],
+              Array [
+                147.01366,
+                -36.04891,
+              ],
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01353,
+                -36.04945,
+              ],
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01302,
+                -36.05222,
+              ],
+              Array [
+                147.01298,
+                -36.0525299999999,
+              ],
+              Array [
+                147.0128,
+                -36.05326,
+              ],
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01264,
+                -36.05411,
+              ],
+              Array [
+                147.01173,
+                -36.05889,
+              ],
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01076,
+                -36.06375,
+              ],
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01073,
+                -36.0639199999999,
+              ],
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.01045,
+                -36.06562,
+              ],
+              Array [
+                147.01031,
+                -36.06657,
+              ],
+              Array [
+                147.01022,
+                -36.0667999999999,
+              ],
+              Array [
+                147.01001,
+                -36.06704,
+              ],
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.009285404,
+                -36.067721041,
+              ],
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00818,
+                -36.0687599999999,
+              ],
+              Array [
+                147.00517,
+                -36.0682899999999,
+              ],
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.00347,
+                -36.06791,
+              ],
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                147.0034,
+                -36.06789,
+              ],
+              Array [
+                147.00127,
+                -36.0672499999999,
+              ],
+              Array [
+                147.00085,
+                -36.0671199999999,
+              ],
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99911,
+                -36.06645,
+              ],
+              Array [
+                146.99772,
+                -36.0658099999999,
+              ],
+              Array [
+                146.99714,
+                -36.0656299999999,
+              ],
+              Array [
+                146.99654,
+                -36.06549,
+              ],
+              Array [
+                146.99557,
+                -36.0653399999999,
+              ],
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.99317,
+                -36.0650199999999,
+              ],
+              Array [
+                146.99205,
+                -36.06485,
+              ],
+              Array [
+                146.99033,
+                -36.06468,
+              ],
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.9893,
+                -36.0647099999999,
+              ],
+              Array [
+                146.98888,
+                -36.06479,
+              ],
+              Array [
+                146.98824,
+                -36.06496,
+              ],
+              Array [
+                146.98729,
+                -36.06537,
+              ],
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98634,
+                -36.0658999999999,
+              ],
+              Array [
+                146.98612,
+                -36.066,
+              ],
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98562,
+                -36.0661899999999,
+              ],
+              Array [
+                146.98497,
+                -36.0664399999999,
+              ],
+              Array [
+                146.98421,
+                -36.06659,
+              ],
+              Array [
+                146.98265,
+                -36.06673,
+              ],
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          Object {
+            "coordinates": Array [
+              Array [
+                146.98057,
+                -36.0668499999999,
+              ],
+              Array [
+                146.97915,
+                -36.0669399999999,
+              ],
+              Array [
+                146.97775,
+                -36.06709,
+              ],
+              Array [
+                146.97724,
+                -36.0671599999999,
+              ],
+              Array [
+                146.97663,
+                -36.06729,
+              ],
+              Array [
+                146.976252415,
+                -36.0673731969999,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": Object {},
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON multitrack.kml 1`] = `
 Object {
   "features": Array [

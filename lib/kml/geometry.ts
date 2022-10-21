@@ -99,10 +99,21 @@ export function getGeometry(node: Element): GeometriesAndTimes {
   const geometries: Geometry[] = [];
   const coordTimes = [];
   for (const t of ["MultiGeometry", "MultiTrack", "gx:MultiTrack"]) {
-    const elem = get1(node, t);
-    if (elem) {
-      return getGeometry(elem);
+    const n = node.getElementsByTagName(t);
+    if (n.length === 0) {
+      continue;
     }
+
+    const result: GeometriesAndTimes = {
+      geometries: [],
+      coordTimes: []
+    };
+    for (let i = 0; i < n.length; i++) {
+      const { geometries, coordTimes } = getGeometry(n[i]);
+      result.geometries.push(...geometries);
+      result.coordTimes.push(...coordTimes);
+    }
+    return result;
   }
   for (const geoType of GEO_TYPES) {
     for (const geomNode of $(node, geoType)) {
