@@ -78,14 +78,6 @@ export function fixRing(ring: Position[]) {
   return ring;
 }
 
-const GEO_TYPES = [
-  "Polygon",
-  "LineString",
-  "Point",
-  "Track",
-  "gx:Track",
-] as const;
-
 function getCoordinates(node: Element) {
   return nodeVal(get1(node, "coordinates"));
 }
@@ -96,8 +88,8 @@ interface GeometriesAndTimes {
 }
 
 export function getGeometry(node: Element): GeometriesAndTimes {
-  let geometries: Geometry[] = []
-  let coordTimes: string[][] = []
+  let geometries: Geometry[] = [];
+  let coordTimes: string[][] = [];
 
   for (let i = 0; i < node.childNodes.length; i++) {
     const child = node.childNodes.item(i);
@@ -111,7 +103,6 @@ export function getGeometry(node: Element): GeometriesAndTimes {
           coordTimes = coordTimes.concat(childGeometries.coordTimes);
           break;
         }
-
         case "Point": {
           const coordinates = coord1(getCoordinates(child));
           if (coordinates.length >= 2) {
