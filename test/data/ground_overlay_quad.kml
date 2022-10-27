@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+ xmlns:gx="http://www.google.com/kml/ext/2.2">
+<GroundOverlay>
+  <name>gx:LatLonQuad Example</name>
+  <Icon>
+    <href>http://developers.google.com/kml/documentation/images/rectangle.gif</href>
+    <viewBoundScale>0.75</viewBoundScale>
+  </Icon>
+  <gx:LatLonQuad>
+    <coordinates>
+      81.601884,44.160723 83.529902,43.665148 82.947737,44.248831 81.509322,44.321015
+    </coordinates>
+  </gx:LatLonQuad>
+</GroundOverlay>
+</kml>

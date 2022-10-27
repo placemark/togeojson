@@ -78,7 +78,7 @@ export function fixRing(ring: Position[]) {
   return ring;
 }
 
-function getCoordinates(node: Element) {
+export function getCoordinates(node: Element) {
   return nodeVal(get1(node, "coordinates"));
 }
 

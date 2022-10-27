@@ -1,5 +1,6 @@
 import { extractStyle } from "./kml/extractStyle";
 import { getPlacemark } from "./kml/placemark";
+import { getGroundOverlay } from "./kml/ground_overlay";
 import { FeatureCollection, Geometry } from "geojson";
 import {
   $,
@@ -179,6 +180,10 @@ export function* kmlGen(node: Document): Generator<F> {
   const styleMap = buildStyleMap(node);
   for (const placemark of $(node, "Placemark")) {
     const feature = getPlacemark(placemark, styleMap);
+    if (feature) yield feature;
+  }
+  for (const groundOverlay of $(node, "GroundOverlay")) {
+    const feature = getGroundOverlay(groundOverlay, styleMap);
     if (feature) yield feature;
   }
 }

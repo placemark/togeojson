@@ -13,6 +13,15 @@ function getColor(node: Element, output: string): P {
   return get(node, "color", (elem) => fixColor(nodeVal(elem), output));
 }
 
+export function extractIconHref(node: Element) {
+  return get(node, "Icon", (icon, properties) => {
+    val1(icon, "href", (href) => {
+      properties.icon = href;
+    });
+    return properties;
+  });
+}
+
 export function extractIcon(node: Element) {
   return get(node, "IconStyle", (iconStyle) => {
     return Object.assign(
@@ -31,12 +40,7 @@ export function extractIcon(node: Element) {
           };
         return {};
       }),
-      get(iconStyle, "Icon", (icon, properties) => {
-        val1(icon, "href", (href) => {
-          properties.icon = href;
-        });
-        return properties;
-      })
+      extractIconHref(iconStyle)
     );
   });
 }
