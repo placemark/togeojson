@@ -3,23 +3,5 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: yarn install, build, and test
-      run: |
-        yarn install
-        yarn test --reporters=github-actions
-      env:
-        CI: true
+  test:
+    uses: "placemark/workflows/.github/workflows/nodejs.yml@v2"
