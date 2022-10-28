@@ -1,4 +1,4 @@
-import { Feature, Geometry } from "geojson";
+import { Feature, Polygon } from "geojson";
 import { StyleMap, get1, num1, getMulti } from "../shared";
 import {
   extractCascadedStyle,
@@ -10,7 +10,7 @@ import {
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
 
-function getGroundOverlayBox(node: Element): Geometry | null {
+function getGroundOverlayBox(node: Element): Polygon | null {
   const latLonQuad = get1(node, "gx:LatLonQuad");
 
   if (latLonQuad) {
@@ -21,6 +21,10 @@ function getGroundOverlayBox(node: Element): Geometry | null {
     };
   }
 
+  return getLatLonBox(node);
+}
+
+function getLatLonBox(node: Element): Polygon | null {
   const latLonBox = get1(node, "LatLonBox");
 
   if (latLonBox) {
@@ -28,9 +32,6 @@ function getGroundOverlayBox(node: Element): Geometry | null {
     const west = num1(latLonBox, "west");
     const east = num1(latLonBox, "east");
     const south = num1(latLonBox, "south");
-
-    // FIXME: rotation support
-    // const rotation = num1(latLonBox, "rotation");
 
     if (
       typeof north === "number" &&
@@ -59,13 +60,18 @@ function getGroundOverlayBox(node: Element): Geometry | null {
 export function getGroundOverlay(
   node: Element,
   styleMap: StyleMap
-): Feature<Geometry | null> {
+): Feature<Polygon | null> {
   const geometry = getGroundOverlayBox(node);
 
-  const feature: Feature<Geometry | null> = {
+  const feature: Feature<Polygon | null> = {
     type: "Feature",
     geometry,
     properties: Object.assign(
+      /**
+       * Related to
+       * https://gist.github.com/tmcw/037a1cb6660d74a392e9da7446540f46
+       */
+      { "@geometry-type": "groundoverlay" },
       getMulti(node, [
         "name",
         "address",

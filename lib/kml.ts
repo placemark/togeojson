@@ -126,6 +126,23 @@ function getFolder(node: Element): Folder {
  *   ]
  * }
  * ```
+ *
+ * ### GroundOverlay
+ *
+ * GroundOverlay elements are converted into
+ * `Feature` objects with `Polygon` geometries,
+ * a property like:
+ *
+ * ```json
+ * {
+ *   "@geometry-type": "groundoverlay"
+ * }
+ * ```
+ *
+ * And the ground overlay's image URL in the `href`
+ * property. Ground overlays will need to be displayed
+ * with a separate method to other features, depending
+ * on which map framework you're using.
  */
 export function kmlWithFolders(node: Document): Root {
   const styleMap = buildStyleMap(node);
@@ -142,6 +159,14 @@ export function kmlWithFolders(node: Document): Root {
   ) {
     if (isElement(node)) {
       switch (node.tagName) {
+        case "GroundOverlay": {
+          placemarks.push(node);
+          const placemark = getGroundOverlay(node, styleMap);
+          if (placemark) {
+            pointer.children.push(placemark);
+          }
+          break;
+        }
         case "Placemark": {
           placemarks.push(node);
           const placemark = getPlacemark(node, styleMap);

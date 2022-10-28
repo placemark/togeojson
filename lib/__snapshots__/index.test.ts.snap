@@ -12797,6 +12797,7 @@ Object {
         "type": "Polygon",
       },
       "properties": Object {
+        "@geometry-type": "groundoverlay",
         "description": "Overlay shows Mount Etna erupting 
           on July 13th, 2001.",
         "icon": "https://developers.google.com/kml/documentation/images/etna.jpg",
@@ -12813,7 +12814,45 @@ exports[`toGeoJSON ground_overlay.kml 2`] = `
 Object {
   "children": Array [
     Object {
-      "children": Array [],
+      "children": Array [
+        Object {
+          "geometry": Object {
+            "coordinates": Array [
+              Array [
+                Array [
+                  14.60128369746704,
+                  37.46543388598137,
+                ],
+                Array [
+                  14.60128369746704,
+                  37.91904192681665,
+                ],
+                Array [
+                  15.35832653742206,
+                  37.91904192681665,
+                ],
+                Array [
+                  14.60128369746704,
+                  37.91904192681665,
+                ],
+                Array [
+                  14.60128369746704,
+                  37.46543388598137,
+                ],
+              ],
+            ],
+            "type": "Polygon",
+          },
+          "properties": Object {
+            "@geometry-type": "groundoverlay",
+            "description": "Overlay shows Mount Etna erupting 
+          on July 13th, 2001.",
+            "icon": "https://developers.google.com/kml/documentation/images/etna.jpg",
+            "name": "Large-scale overlay on terrain",
+          },
+          "type": "Feature",
+        },
+      ],
       "meta": Object {
         "description": "Examples of ground overlays",
         "name": "Ground Overlays",
@@ -12857,6 +12896,7 @@ Object {
         "type": "Polygon",
       },
       "properties": Object {
+        "@geometry-type": "groundoverlay",
         "icon": "http://developers.google.com/kml/documentation/images/rectangle.gif",
         "name": "gx:LatLonQuad Example",
       },
@@ -12869,7 +12909,43 @@ Object {
 
 exports[`toGeoJSON ground_overlay_quad.kml 2`] = `
 Object {
-  "children": Array [],
+  "children": Array [
+    Object {
+      "geometry": Object {
+        "coordinates": Array [
+          Array [
+            Array [
+              81.601884,
+              44.160723,
+            ],
+            Array [
+              83.529902,
+              43.665148,
+            ],
+            Array [
+              82.947737,
+              44.248831,
+            ],
+            Array [
+              81.509322,
+              44.321015,
+            ],
+            Array [
+              81.601884,
+              44.160723,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": Object {
+        "@geometry-type": "groundoverlay",
+        "icon": "http://developers.google.com/kml/documentation/images/rectangle.gif",
+        "name": "gx:LatLonQuad Example",
+      },
+      "type": "Feature",
+    },
+  ],
   "type": "root",
 }
 `;
