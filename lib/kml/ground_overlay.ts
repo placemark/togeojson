@@ -24,6 +24,32 @@ function getGroundOverlayBox(node: Element): Polygon | null {
   return getLatLonBox(node);
 }
 
+type BBox = [number, number, number, number];
+
+const DEGREES_TO_RADIANS = Math.PI / 180;
+
+function rotateBox(
+  bbox: BBox,
+  coordinates: Polygon["coordinates"],
+  rotation: number
+): Polygon["coordinates"] {
+  const center = [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2];
+
+  return [
+    coordinates[0].map((coordinate) => {
+      const dy = coordinate[1] - center[1];
+      const dx = coordinate[0] - center[0];
+      const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+      const angle = Math.atan2(dy, dx) - rotation * DEGREES_TO_RADIANS;
+
+      return [
+        center[0] + Math.cos(angle) * distance,
+        center[1] + Math.sin(angle) * distance,
+      ];
+    }),
+  ];
+}
+
 function getLatLonBox(node: Element): Polygon | null {
   const latLonBox = get1(node, "LatLonBox");
 
@@ -32,6 +58,7 @@ function getLatLonBox(node: Element): Polygon | null {
     const west = num1(latLonBox, "west");
     const east = num1(latLonBox, "east");
     const south = num1(latLonBox, "south");
+    const rotation = num1(latLonBox, "rotation");
 
     if (
       typeof north === "number" &&
@@ -39,17 +66,22 @@ function getLatLonBox(node: Element): Polygon | null {
       typeof west === "number" &&
       typeof east === "number"
     ) {
+      const bbox: BBox = [west, south, east, north];
+      let coordinates = [
+        [
+          [west, south], // bottom left
+          [west, north], // top left
+          [east, north], // top right
+          [west, north], // bottom right
+          [west, south], // bottom left (again)
+        ],
+      ];
+      if (typeof rotation === "number") {
+        coordinates = rotateBox(bbox, coordinates, rotation);
+      }
       return {
         type: "Polygon",
-        coordinates: [
-          [
-            [west, south], // bottom left
-            [west, north], // top left
-            [east, north], // top right
-            [west, north], // bottom right
-            [west, south], // bottom left (again)
-          ],
-        ],
+        coordinates,
       };
     }
   }

@@ -40,6 +40,18 @@ also encodes parts of KML, GPX, and TCX files that otherwise would be lost.
 This also emits the [geojson-coordinate-properties](https://github.com/mapbox/geojson-coordinate-properties) format
 to include time and other attributes that apply to each coordinate of a LineString.
 
+## Ground overlays
+
+KML GroundOverlays are now supported, and transformed into Features
+with Polygon geometries. They have two defined properties:
+
+```json
+{
+  "@geometry-type": "groundoverlay",
+  "icon": "https://url.to.image…"
+}
+```
+
 ## CLI
 
 Use [@tmcw/togeojson-cli](https://github.com/tmcw/togeojson-cli) to use this
@@ -100,8 +112,8 @@ import { kml } from "@tmcw/togeojson";
 - [x] [TimeSpan](https://developers.google.com/kml/documentation/kmlreference#timespan)
 - [x] [TimeStamp](https://developers.google.com/kml/documentation/kmlreference#timestamp)
 - [x] Folders (with kmlWithFolders)
+- [x] GroundOverlays
 - [ ] NetworkLinks
-- [ ] GroundOverlays
 
 ### GPX Feature Support
 
@@ -145,15 +157,6 @@ step if desired.
 
 This module should support converting all KML and GPX features that have commonplace
 equivalents in GeoJSON.
-
-KML is a very complex format with many features. Some of these features, like NetworkLinks,
-folders, and GroundOverlays, don't have a GeoJSON equivalent. In these cases,
-toGeoJSON doesn't convert the features. It also doesn't crash on these constructs:
-toGeoJSON should be able to run on all valid KML and GPX files without crashing:
-but for some files it may have no output.
-
-We encourage other libraries to look into supporting these features, but
-support for them is out of scope for toGeoJSON.
 
 ## Protips:
 
