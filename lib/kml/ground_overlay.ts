@@ -72,8 +72,8 @@ function getLatLonBox(node: Element): Polygon | null {
           [west, north], // top left
           [east, north], // top right
           [east, south], // top right
-          [west, south], // bottom left (again)
-          [west, north], // top left
+          [west, south], // bottom left
+          [west, north], // top left (again)
         ],
       ];
       if (typeof rotation === "number") {

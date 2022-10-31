@@ -42,6 +42,8 @@ to include time and other attributes that apply to each coordinate of a LineStri
 
 ## Ground overlays
 
+[Example of working with Ground Overlays in Mapbox GL JS](https://observablehq.com/@tmcw/togeojson-kml-ground-overlay-support)
+
 KML GroundOverlays are now supported, and transformed into Features
 with Polygon geometries. They have two defined properties:
 
@@ -51,6 +53,8 @@ with Polygon geometries. They have two defined properties:
   "icon": "https://url.to.image…"
 }
 ```
+
+Both `gx:LatLonQuad` and `LatLonBox`-based ground overlays are supported.
 
 ## CLI
 
