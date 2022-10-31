@@ -69,11 +69,11 @@ function getLatLonBox(node: Element): Polygon | null {
       const bbox: BBox = [west, south, east, north];
       let coordinates = [
         [
-          [west, south], // bottom left
           [west, north], // top left
           [east, north], // top right
           [east, south], // top right
           [west, south], // bottom left (again)
+          [west, north], // top left
         ],
       ];
       if (typeof rotation === "number") {
