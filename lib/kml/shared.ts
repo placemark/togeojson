@@ -9,7 +9,22 @@ import {
   val1,
 } from "../shared";
 
-export function extractExtendedData(node: Element) {
+export type TypeConverter = (x: string) => unknown;
+export type Schema = { [key: string]: TypeConverter };
+
+const toNumber: TypeConverter = (x) => Number(x);
+export const typeConverters: Record<string, TypeConverter> = {
+  string: (x) => x,
+  int: toNumber,
+  uint: toNumber,
+  short: toNumber,
+  ushort: toNumber,
+  float: toNumber,
+  double: toNumber,
+  bool: (x) => Boolean(x),
+};
+
+export function extractExtendedData(node: Element, schema: Schema) {
   return get(node, "ExtendedData", (extendedData, properties) => {
     for (const data of $(extendedData, "Data")) {
       properties[data.getAttribute("name") || ""] = nodeVal(
@@ -17,7 +32,9 @@ export function extractExtendedData(node: Element) {
       );
     }
     for (const simpleData of $(extendedData, "SimpleData")) {
-      properties[simpleData.getAttribute("name") || ""] = nodeVal(simpleData);
+      const name = simpleData.getAttribute("name") || "";
+      const typeConverter = schema[name] || typeConverters.string;
+      properties[name] = typeConverter(nodeVal(simpleData));
     }
     return properties;
   });

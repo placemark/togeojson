@@ -6,6 +6,7 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
+  Schema,
 } from "./shared";
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
@@ -91,7 +92,8 @@ function getLatLonBox(node: Element): Polygon | null {
 
 export function getGroundOverlay(
   node: Element,
-  styleMap: StyleMap
+  styleMap: StyleMap,
+  schema: Schema
 ): Feature<Polygon | null> {
   const geometry = getGroundOverlayBox(node);
 
@@ -116,7 +118,7 @@ export function getGroundOverlay(
       extractCascadedStyle(node, styleMap),
       extractStyle(node),
       extractIconHref(node),
-      extractExtendedData(node),
+      extractExtendedData(node, schema),
       extractTimeSpan(node),
       extractTimeStamp(node)
     ),

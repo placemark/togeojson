@@ -6,6 +6,7 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
+  Schema,
 } from "./shared";
 import { extractStyle } from "./extractStyle";
 import { getGeometry } from "./geometry";
@@ -23,7 +24,8 @@ function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
 
 export function getPlacemark(
   node: Element,
-  styleMap: StyleMap
+  styleMap: StyleMap,
+  schema: Schema
 ): Feature<Geometry | null> {
   const { coordTimes, geometries } = getGeometry(node);
 
@@ -42,7 +44,7 @@ export function getPlacemark(
       getMaybeHTMLDescription(node),
       extractCascadedStyle(node, styleMap),
       extractStyle(node),
-      extractExtendedData(node),
+      extractExtendedData(node, schema),
       extractTimeSpan(node),
       extractTimeStamp(node),
       coordTimes.length

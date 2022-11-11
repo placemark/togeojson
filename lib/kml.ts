@@ -12,6 +12,7 @@ import {
   isElement,
   normalizeId,
 } from "./shared";
+import { Schema, typeConverters } from "./kml/shared";
 
 /**
  * A folder including metadata. Folders
@@ -76,6 +77,16 @@ function buildStyleMap(node: Document): StyleMap {
     });
   }
   return styleMap;
+}
+
+function buildSchema(node: Document): Schema {
+  const schema: Schema = {};
+  for (const field of $(node, "SimpleField")) {
+    schema[field.getAttribute("name") || ""] =
+      typeConverters[field.getAttribute("type") || ""] ||
+      typeConverters["string"];
+  }
+  return schema;
 }
 
 const FOLDER_PROPS = [
@@ -146,6 +157,7 @@ function getFolder(node: Element): Folder {
  */
 export function kmlWithFolders(node: Document): Root {
   const styleMap = buildStyleMap(node);
+  const schema = buildSchema(node);
 
   // atomic geospatial types supported by KML - MultiGeometry is
   // handled separately
@@ -161,7 +173,7 @@ export function kmlWithFolders(node: Document): Root {
       switch (node.tagName) {
         case "GroundOverlay": {
           placemarks.push(node);
-          const placemark = getGroundOverlay(node, styleMap);
+          const placemark = getGroundOverlay(node, styleMap, schema);
           if (placemark) {
             pointer.children.push(placemark);
           }
@@ -169,7 +181,7 @@ export function kmlWithFolders(node: Document): Root {
         }
         case "Placemark": {
           placemarks.push(node);
-          const placemark = getPlacemark(node, styleMap);
+          const placemark = getPlacemark(node, styleMap, schema);
           if (placemark) {
             pointer.children.push(placemark);
           }
@@ -203,12 +215,13 @@ export function kmlWithFolders(node: Document): Root {
  */
 export function* kmlGen(node: Document): Generator<F> {
   const styleMap = buildStyleMap(node);
+  const schema = buildSchema(node);
   for (const placemark of $(node, "Placemark")) {
-    const feature = getPlacemark(placemark, styleMap);
+    const feature = getPlacemark(placemark, styleMap, schema);
     if (feature) yield feature;
   }
   for (const groundOverlay of $(node, "GroundOverlay")) {
-    const feature = getGroundOverlay(groundOverlay, styleMap);
+    const feature = getGroundOverlay(groundOverlay, styleMap, schema);
     if (feature) yield feature;
   }
 }

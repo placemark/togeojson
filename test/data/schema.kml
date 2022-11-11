@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document id="root_doc">
+		<Schema name="TES_124_167_28_JUL_2022_1109" id="TES_124_167_28_JUL_2022_1109">
+			<SimpleField name="gid" type="float"></SimpleField>
+			<SimpleField name="plotno_plot_number" type="float"></SimpleField>
+			<SimpleField name="tream_treatment_number" type="string"></SimpleField>
+			<SimpleField name="block_block_number" type="float"></SimpleField>
+			<SimpleField name="random" type="float"></SimpleField>
+			<SimpleField name="random_2" type="float"></SimpleField>
+			<SimpleField name="random_trial" type="int"></SimpleField>
+			<SimpleField name="random_2_trial" type="int"></SimpleField>
+			<SimpleField name="random_block" type="int"></SimpleField>
+			<SimpleField name="random_2_block" type="int"></SimpleField>
+			<SimpleField name="cn_cv_1109" type="string"></SimpleField>
+		</Schema>
+		<Folder>
+			<name>TES_124_167_28_JUL_2022_1109</name>
+			<Placemark>
+				<Style>
+					<LineStyle>
+						<color>ff0000ff</color>
+					</LineStyle>
+					<PolyStyle>
+						<fill>0</fill>
+					</PolyStyle>
+				</Style>
+				<ExtendedData>
+					<SchemaData schemaUrl="#TES_124_167_28_JUL_2022_1109">
+						<SimpleData name="gid">167001</SimpleData>
+						<SimpleData name="plotno_plot_number">167001</SimpleData>
+						<SimpleData name="tream_treatment_number">16</SimpleData>
+						<SimpleData name="block_block_number">1</SimpleData>
+						<SimpleData name="random">0.9</SimpleData>
+						<SimpleData name="random_2">0.4</SimpleData>
+						<SimpleData name="random_trial">96</SimpleData>
+						<SimpleData name="random_2_trial">39</SimpleData>
+						<SimpleData name="random_block">98</SimpleData>
+						<SimpleData name="random_2_block">41</SimpleData>
+						<SimpleData name="cn_cv_1109">89%</SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>12.8206124,55.9654246 12.8204862,55.9654342 12.8204902,55.9654507 12.8206164,55.9654411 12.8206124,55.9654246</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

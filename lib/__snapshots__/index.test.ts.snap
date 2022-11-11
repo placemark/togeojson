@@ -21730,6 +21730,122 @@ Object {
 }
 `;
 
+exports[`toGeoJSON schema.kml 1`] = `
+Object {
+  "features": Array [
+    Object {
+      "geometry": Object {
+        "coordinates": Array [
+          Array [
+            Array [
+              12.8206124,
+              55.9654246,
+            ],
+            Array [
+              12.8204862,
+              55.9654342,
+            ],
+            Array [
+              12.8204902,
+              55.9654507,
+            ],
+            Array [
+              12.8206164,
+              55.9654411,
+            ],
+            Array [
+              12.8206124,
+              55.9654246,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": Object {
+        "block_block_number": 1,
+        "cn_cv_1109": "89%",
+        "fill-opacity": 0,
+        "gid": 167001,
+        "plotno_plot_number": 167001,
+        "random": 0.9,
+        "random_2": 0.4,
+        "random_2_block": 41,
+        "random_2_trial": 39,
+        "random_block": 98,
+        "random_trial": 96,
+        "stroke": "#ff0000",
+        "stroke-opacity": 1,
+        "tream_treatment_number": "16",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON schema.kml 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "geometry": Object {
+            "coordinates": Array [
+              Array [
+                Array [
+                  12.8206124,
+                  55.9654246,
+                ],
+                Array [
+                  12.8204862,
+                  55.9654342,
+                ],
+                Array [
+                  12.8204902,
+                  55.9654507,
+                ],
+                Array [
+                  12.8206164,
+                  55.9654411,
+                ],
+                Array [
+                  12.8206124,
+                  55.9654246,
+                ],
+              ],
+            ],
+            "type": "Polygon",
+          },
+          "properties": Object {
+            "block_block_number": 1,
+            "cn_cv_1109": "89%",
+            "fill-opacity": 0,
+            "gid": 167001,
+            "plotno_plot_number": 167001,
+            "random": 0.9,
+            "random_2": 0.4,
+            "random_2_block": 41,
+            "random_2_trial": 39,
+            "random_block": 98,
+            "random_trial": 96,
+            "stroke": "#ff0000",
+            "stroke-opacity": 1,
+            "tream_treatment_number": "16",
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": Object {
+        "name": "TES_124_167_28_JUL_2022_1109",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON selfclosing.kml 1`] = `
 Object {
   "features": Array [
@@ -21772,9 +21888,9 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "ElevationGain": "10",
+        "ElevationGain": 10,
         "TrailHeadName": "Pi in the sky",
-        "TrailLength": "3.14159",
+        "TrailLength": 3.14159,
         "name": "Easy trail",
         "styleUrl": "#trailhead-balloon-template",
       },
@@ -21789,9 +21905,9 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "ElevationGain": "10000",
+        "ElevationGain": 10000,
         "TrailHeadName": "Mount Everest",
-        "TrailLength": "347.45",
+        "TrailLength": 347.45,
         "name": "Difficult trail",
         "styleUrl": "#trailhead-balloon-template",
       },
@@ -21814,9 +21930,9 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "ElevationGain": "10",
+        "ElevationGain": 10,
         "TrailHeadName": "Pi in the sky",
-        "TrailLength": "3.14159",
+        "TrailLength": 3.14159,
         "name": "Easy trail",
         "styleUrl": "#trailhead-balloon-template",
       },
@@ -21831,9 +21947,9 @@ Object {
         "type": "Point",
       },
       "properties": Object {
-        "ElevationGain": "10000",
+        "ElevationGain": 10000,
         "TrailHeadName": "Mount Everest",
-        "TrailLength": "347.45",
+        "TrailLength": 347.45,
         "name": "Difficult trail",
         "styleUrl": "#trailhead-balloon-template",
       },
