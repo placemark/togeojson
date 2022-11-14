@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import fs from "fs";
 import path from "path";
 import { check } from "@placemarkio/check-geojson";
@@ -35,45 +36,45 @@ describe("mini cases", () => {
   it("folder nesting", () => {
     expect(tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml"))))
       .toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
-                "geometry": Object {
-                  "coordinates": Array [
-                    Array [
-                      2.3101624,
-                      48.7301875,
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "geometry": {
+                    "coordinates": [
+                      [
+                        2.3101624,
+                        48.7301875,
+                      ],
+                      [
+                        2.3098714,
+                        48.7300247,
+                      ],
+                      [
+                        2.3098051,
+                        48.7299542,
+                      ],
                     ],
-                    Array [
-                      2.3098714,
-                      48.7300247,
-                    ],
-                    Array [
-                      2.3098051,
-                      48.7299542,
-                    ],
-                  ],
-                  "type": "LineString",
+                    "type": "LineString",
+                  },
+                  "properties": {
+                    "name": "With all inline styles",
+                    "stroke": "#ff0000",
+                    "stroke-opacity": 1,
+                    "stroke-width": 3,
+                  },
+                  "type": "Feature",
                 },
-                "properties": Object {
-                  "name": "With all inline styles",
-                  "stroke": "#ff0000",
-                  "stroke-opacity": 1,
-                  "stroke-width": 3,
-                },
-                "type": "Feature",
+              ],
+              "meta": {
+                "name": "Inline style test",
               },
-            ],
-            "meta": Object {
-              "name": "Inline style test",
+              "type": "folder",
             },
-            "type": "folder",
-          },
-        ],
-        "type": "root",
-      }
-    `);
+          ],
+          "type": "root",
+        }
+      `);
   });
 });

@@ -1,4 +1,5 @@
 import { extractStyle } from "./extractStyle";
+import { describe, it, expect } from "vitest";
 import xmldom from "@xmldom/xmldom";
 
 function parse(xml: string): Element {
@@ -31,15 +32,15 @@ describe("extractStyle", () => {
 </Style>`)
       )
     ).toMatchInlineSnapshot(`
-      Object {
+      {
         "fill": "#ffee58",
         "fill-opacity": 0.25098039215686274,
         "icon": "https://earth.google.com/earth/rpc/cc/icon?color=1976d2&id=2000&scale=4",
-        "icon-offset": Array [
+        "icon-offset": [
           64,
           128,
         ],
-        "icon-offset-units": Array [
+        "icon-offset-units": [
           "pixels",
           "insetPixels",
         ],
@@ -70,14 +71,14 @@ describe("extractStyle", () => {
     </Style>`)
       )
     ).toMatchInlineSnapshot(`
-      Object {
+      {
         "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png",
         "icon-color": "#0288d1",
-        "icon-offset": Array [
+        "icon-offset": [
           32,
           64,
         ],
-        "icon-offset-units": Array [
+        "icon-offset-units": [
           "pixels",
           "insetPixels",
         ],
