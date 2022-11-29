@@ -30,7 +30,6 @@
   "devDependencies": {
     "@placemarkio/check-geojson": "^0.1.12",
     "@rollup/plugin-typescript": "^8.3.3",
-    "@swc/core": "^1.2.204",
     "@types/geojson": "^7946.0.8",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
