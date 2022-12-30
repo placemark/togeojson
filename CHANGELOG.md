@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.6.0](https://github.com/placemark/togeojson/compare/v5.5.0...v5.6.0) (2022-12-30)
+
+
+### Features
+
+* Support LinearRing as direct descendent of a Placemark element ([#105](https://github.com/placemark/togeojson/issues/105)) ([3673a7f](https://github.com/placemark/togeojson/commit/3673a7fa4c7c2d8ed0403b94fb663654016200f7))
+
+
+### Bug Fixes
+
+* Export F type ([#106](https://github.com/placemark/togeojson/issues/106)) ([c9870b2](https://github.com/placemark/togeojson/commit/c9870b27f5043f24effcc9dce89ce4f2c633ca60))
+
 ## [5.5.0](https://github.com/placemark/togeojson/compare/v5.4.0...v5.5.0) (2022-11-12)
 
 
