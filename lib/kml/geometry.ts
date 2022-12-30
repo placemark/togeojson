@@ -114,6 +114,7 @@ export function getGeometry(node: Element): GeometriesAndTimes {
           }
           break;
         }
+        case "LinearRing":
         case "LineString": {
           const coordinates = coord(getCoordinates(child));
           if (coordinates.length >= 2) {
