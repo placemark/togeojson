@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.6.1](https://github.com/placemark/togeojson/compare/v5.6.0...v5.6.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* adds types definitions to exports in package.json ([#109](https://github.com/placemark/togeojson/issues/109)) ([f382d30](https://github.com/placemark/togeojson/commit/f382d30126104433b203acc70e14d056f57df0d2))
+
 ## [5.6.0](https://github.com/placemark/togeojson/compare/v5.5.0...v5.6.0) (2022-12-30)
 
 
