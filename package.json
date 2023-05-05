@@ -11,6 +11,7 @@
   "module": "dist/togeojson.es.mjs",
   "main": "dist/togeojson.cjs",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/togeojson.cjs",
     "default": "./dist/togeojson.es.mjs"
   },
