@@ -31011,6 +31011,7 @@ exports[`toGeoJSON > zero_elevation.gpx 1`] = `
           [
             -71.09622,
             42.210031,
+            0,
           ],
           [
             -71.096284,

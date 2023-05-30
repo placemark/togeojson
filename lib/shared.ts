@@ -86,7 +86,7 @@ export function num1(
 ) {
   const val = parseFloat(nodeVal(get1(node, tagName)));
   if (isNaN(val)) return undefined;
-  if (val && callback) callback(val);
+  if (callback) callback(val);
   return val;
 }
 

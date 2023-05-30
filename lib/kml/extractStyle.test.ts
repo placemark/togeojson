@@ -84,6 +84,7 @@ describe("extractStyle", () => {
         ],
         "icon-opacity": 1,
         "icon-scale": 1,
+        "label-scale": 0,
       }
     `);
   });
