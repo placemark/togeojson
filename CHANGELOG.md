@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.6.2](https://github.com/placemark/togeojson/compare/v5.6.1...v5.6.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* Zero elevation data in GPX should still be included ([6457106](https://github.com/placemark/togeojson/commit/6457106b98f174d7b3d1299748168351ae649696))
+
 ### [5.6.1](https://github.com/placemark/togeojson/compare/v5.6.0...v5.6.1) (2023-05-05)
 
 
