@@ -11,14 +11,21 @@ import {
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
 
-function getGroundOverlayBox(node: Element): Polygon | null {
+interface BoxGeometry {
+  bbox?: BBox;
+  geometry: Polygon;
+}
+
+function getGroundOverlayBox(node: Element): BoxGeometry | null {
   const latLonQuad = get1(node, "gx:LatLonQuad");
 
   if (latLonQuad) {
     const ring = fixRing(coord(getCoordinates(node)));
     return {
-      type: "Polygon",
-      coordinates: [ring],
+      geometry: {
+        type: "Polygon",
+        coordinates: [ring],
+      },
     };
   }
 
@@ -51,7 +58,7 @@ function rotateBox(
   ];
 }
 
-function getLatLonBox(node: Element): Polygon | null {
+function getLatLonBox(node: Element): BoxGeometry | null {
   const latLonBox = get1(node, "LatLonBox");
 
   if (latLonBox) {
@@ -81,8 +88,11 @@ function getLatLonBox(node: Element): Polygon | null {
         coordinates = rotateBox(bbox, coordinates, rotation);
       }
       return {
-        type: "Polygon",
-        coordinates,
+        bbox,
+        geometry: {
+          type: "Polygon",
+          coordinates,
+        },
       };
     }
   }
@@ -95,11 +105,11 @@ export function getGroundOverlay(
   styleMap: StyleMap,
   schema: Schema
 ): Feature<Polygon | null> {
-  const geometry = getGroundOverlayBox(node);
+  const box = getGroundOverlayBox(node);
 
   const feature: Feature<Polygon | null> = {
     type: "Feature",
-    geometry,
+    geometry: box?.geometry || null,
     properties: Object.assign(
       /**
        * Related to
@@ -123,6 +133,10 @@ export function getGroundOverlay(
       extractTimeStamp(node)
     ),
   };
+
+  if (box?.bbox) {
+    feature.bbox = box.bbox;
+  }
 
   if (feature.properties?.visibility !== undefined) {
     feature.properties.visibility = feature.properties.visibility !== "0";

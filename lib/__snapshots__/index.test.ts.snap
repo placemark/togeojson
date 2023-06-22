@@ -12769,6 +12769,12 @@ exports[`toGeoJSON > ground_overlay.kml 1`] = `
 {
   "features": [
     {
+      "bbox": [
+        14.60128369746704,
+        37.46543388598137,
+        15.35832653742206,
+        37.91904192681665,
+      ],
       "geometry": {
         "coordinates": [
           [
@@ -12816,6 +12822,12 @@ exports[`toGeoJSON > ground_overlay.kml 2`] = `
     {
       "children": [
         {
+          "bbox": [
+            14.60128369746704,
+            37.46543388598137,
+            15.35832653742206,
+            37.91904192681665,
+          ],
           "geometry": {
             "coordinates": [
               [
