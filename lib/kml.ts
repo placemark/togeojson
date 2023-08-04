@@ -14,6 +14,21 @@ import {
 } from "./shared";
 import { Schema, typeConverters } from "./kml/shared";
 
+/**
+ * Options to customize KML output.
+ *
+ * The only option currently
+ * is `skipNullGeometry`. Both the KML and GeoJSON formats support
+ * the idea of features that don't have geometries: in KML,
+ * this is a Placemark without a Point, etc element, and in GeoJSON
+ * it's a geometry member with a value of `null`.
+ *
+ * toGeoJSON, by default, translates null geometries in KML to
+ * null geometries in GeoJSON. For systems that use GeoJSON but
+ * don't support null geometries, you can specify `skipNullGeometry`
+ * to omit these features entirely and only include
+ * features that have a geometry defined.
+ */
 export interface KMLOptions {
   skipNullGeometry?: boolean;
 }
