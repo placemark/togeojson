@@ -21,8 +21,8 @@
   "scripts": {
     "test": "vitest run",
     "lint": "eslint",
-    "doc": "typedoc --options ./typedoc.json",
-    "prepare": "rollup -c rollup.config.js && npm run doc && cp CNAME docs/CNAME",
+    "doc": "typedoc --options ./typedoc.json && cp CNAME docs/CNAME",
+    "prepare": "rollup -c rollup.config.js",
     "release": "standard-version"
   },
   "peerDependencies": {
