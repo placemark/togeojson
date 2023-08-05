@@ -10,6 +10,7 @@ import {
 } from "./shared";
 import { extractStyle } from "./extractStyle";
 import { getGeometry } from "./geometry";
+import { KMLOptions } from "lib/kml";
 
 function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
   return geometries.length === 0
@@ -25,13 +26,20 @@ function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
 export function getPlacemark(
   node: Element,
   styleMap: StyleMap,
-  schema: Schema
-): Feature<Geometry | null> {
+  schema: Schema,
+  options: KMLOptions
+): Feature<Geometry | null> | null {
   const { coordTimes, geometries } = getGeometry(node);
+
+  const geometry = geometryListToGeometry(geometries);
+
+  if (!geometry && options.skipNullGeometry) {
+    return null;
+  }
 
   const feature: Feature<Geometry | null> = {
     type: "Feature",
-    geometry: geometryListToGeometry(geometries),
+    geometry,
     properties: Object.assign(
       getMulti(node, [
         "name",

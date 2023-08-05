@@ -538,6 +538,163 @@ exports[`toGeoJSON > addresses.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > addresses.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          100.5513698,
+          13.7987389,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "Moving",
+        "Distance": "173",
+        "description": " Moving from 2015-08-01T00:00:00.000Z to 2015-08-01T09:04:32.323Z. Distance 173m ",
+        "name": "Moving",
+        "timespan": {
+          "begin": "2015-08-01T00:00:00.000Z",
+          "end": "2015-08-01T09:04:32.323Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.5343967,
+          13.745564,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "On the subway",
+        "Distance": "4470",
+        "description": " On the subway from 2015-08-01T09:16:56.610Z to 2015-08-01T09:43:53.321Z. Distance 4470m ",
+        "name": "On the subway",
+        "timespan": {
+          "begin": "2015-08-01T09:16:56.610Z",
+          "end": "2015-08-01T09:43:53.321Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.52868400000001,
+          13.746737,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "Budget Hotel",
+        "Distance": "0",
+        "address": "925/9 Rama 1 Rd. Wangmai, Pathum Wan, Bangkok 10330, Thailand",
+        "description": " Budget Hotel from 2015-08-01T09:43:58.715Z to 2015-08-01T16:31:30.753Z. Distance 0m ",
+        "name": "Lub d - Bangkok Siam",
+        "timespan": {
+          "begin": "2015-08-01T09:43:58.715Z",
+          "end": "2015-08-01T16:31:30.753Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.52868400000001,
+          13.746737,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "In transit",
+        "Distance": "0",
+        "description": " In transit from 2015-08-01T16:31:30.753Z to 2015-08-01T16:55:33.088Z. Distance 0m ",
+        "name": "In transit",
+        "timespan": {
+          "begin": "2015-08-01T16:31:30.753Z",
+          "end": "2015-08-01T16:55:33.088Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.59150720000001,
+          13.749175999999999,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "Sublocality2",
+        "Distance": "0",
+        "address": "Huai Khwang, Bangkok, Thailand",
+        "description": " Sublocality2 from 2015-08-01T16:55:39.324Z to 2015-08-01T17:13:08.282Z. Distance 0m ",
+        "name": "Bang Kapi",
+        "timespan": {
+          "begin": "2015-08-01T16:55:39.324Z",
+          "end": "2015-08-01T17:13:08.282Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.57488623703713,
+          13.752278881572217,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "Driving",
+        "Distance": "0",
+        "description": " Driving from 2015-08-01T17:13:08.282Z to 2015-08-01T17:34:21.480Z. Distance 0m ",
+        "name": "Driving",
+        "timespan": {
+          "begin": "2015-08-01T17:13:08.282Z",
+          "end": "2015-08-01T17:34:21.480Z",
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          100.5481932,
+          13.7562302,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "Category": "Driving",
+        "Distance": "885",
+        "description": " Driving from 2015-08-01T19:29:38.452Z to 2015-08-01T19:35:18.504Z. Distance 885m ",
+        "name": "Driving",
+        "timespan": {
+          "begin": "2015-08-01T19:29:38.452Z",
+          "end": "2015-08-01T19:35:18.504Z",
+        },
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > apple_watch_route.gpx 1`] = `
 {
   "features": [
@@ -1068,6 +1225,13 @@ exports[`toGeoJSON > bad.kml 2`] = `
       "type": "Feature",
     },
   ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > bad.kml 3`] = `
+{
+  "children": [],
   "type": "root",
 }
 `;
@@ -9552,6 +9716,34 @@ exports[`toGeoJSON > cdata.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > cdata.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": {
+          "@type": "html",
+          "value": "
+
+             Here is some text
+      ",
+        },
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > empty_ele.gpx 1`] = `
 {
   "features": [
@@ -9619,6 +9811,31 @@ exports[`toGeoJSON > extended_data.kml 1`] = `
 `;
 
 exports[`toGeoJSON > extended_data.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "foo": "bar",
+        "name": "Extended data placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > extended_data.kml 3`] = `
 {
   "children": [
     {
@@ -12876,6 +13093,66 @@ exports[`toGeoJSON > ground_overlay.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > ground_overlay.kml 3`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "bbox": [
+            14.60128369746704,
+            37.46543388598137,
+            15.35832653742206,
+            37.91904192681665,
+          ],
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  14.600668902543442,
+                  37.91801270483731,
+                ],
+                [
+                  15.35770894852841,
+                  37.92006947469352,
+                ],
+                [
+                  15.358941332345658,
+                  37.466463107960706,
+                ],
+                [
+                  14.60190128636069,
+                  37.464406338104496,
+                ],
+                [
+                  14.600668902543442,
+                  37.91801270483731,
+                ],
+              ],
+            ],
+            "type": "Polygon",
+          },
+          "properties": {
+            "@geometry-type": "groundoverlay",
+            "description": "Overlay shows Mount Etna erupting 
+          on July 13th, 2001.",
+            "icon": "https://developers.google.com/kml/documentation/images/etna.jpg",
+            "name": "Large-scale overlay on terrain",
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "description": "Examples of ground overlays",
+        "name": "Ground Overlays",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > ground_overlay_quad.kml 1`] = `
 {
   "features": [
@@ -12920,6 +13197,49 @@ exports[`toGeoJSON > ground_overlay_quad.kml 1`] = `
 `;
 
 exports[`toGeoJSON > ground_overlay_quad.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              81.601884,
+              44.160723,
+            ],
+            [
+              83.529902,
+              43.665148,
+            ],
+            [
+              82.947737,
+              44.248831,
+            ],
+            [
+              81.509322,
+              44.321015,
+            ],
+            [
+              81.601884,
+              44.160723,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": {
+        "@geometry-type": "groundoverlay",
+        "icon": "http://developers.google.com/kml/documentation/images/rectangle.gif",
+        "name": "gx:LatLonQuad Example",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > ground_overlay_quad.kml 3`] = `
 {
   "children": [
     {
@@ -13544,6 +13864,297 @@ Date d'enregistrement : 12/04/2014 11:24 AM
 }
 `;
 
+exports[`toGeoJSON > gxmultitrack.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -71.324739,
+          -40.139527,
+          791.5999755859375,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "
+
+   ",
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "
+12/04/2014 11:24 AM (départ)
+   ",
+        "styleUrl": "#start",
+        "timestamp": "2014-04-12T14:26:16.702Z",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                -71.324739,
+                -40.139527,
+                791.5999755859375,
+              ],
+              [
+                -71.324819,
+                -40.139536,
+                772,
+              ],
+              [
+                -71.324824,
+                -40.139537,
+                771.800048828125,
+              ],
+              [
+                -71.324828,
+                -40.139538,
+                771.699951171875,
+              ],
+              [
+                -71.324839,
+                -40.139552,
+                772.5999755859375,
+              ],
+              [
+                -71.324839,
+                -40.139556,
+                773,
+              ],
+              [
+                -71.324843,
+                -40.139555,
+                773.199951171875,
+              ],
+              [
+                -71.324848,
+                -40.139563,
+                774,
+              ],
+              [
+                -71.324879,
+                -40.139559,
+                774.300048828125,
+              ],
+              [
+                -71.324871,
+                -40.139579,
+                774.5999755859375,
+              ],
+              [
+                -71.32487,
+                -40.139578,
+                774.699951171875,
+              ],
+              [
+                -71.324874,
+                -40.139583,
+                774.5,
+              ],
+              [
+                -71.324879,
+                -40.139577,
+                774.4000244140625,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                -72.324739,
+                -40.139527,
+                791.5999755859375,
+              ],
+              [
+                -72.324819,
+                -40.139536,
+                772,
+              ],
+              [
+                -72.324824,
+                -40.139537,
+                771.800048828125,
+              ],
+              [
+                -72.324828,
+                -40.139538,
+                771.699951171875,
+              ],
+              [
+                -72.324839,
+                -40.139552,
+                772.5999755859375,
+              ],
+              [
+                -71.324839,
+                -40.139556,
+                773,
+              ],
+              [
+                -71.324843,
+                -40.139555,
+                773.199951171875,
+              ],
+              [
+                -71.324848,
+                -40.139563,
+                774,
+              ],
+              [
+                -71.324879,
+                -40.139559,
+                774.300048828125,
+              ],
+              [
+                -71.324871,
+                -40.139579,
+                774.5999755859375,
+              ],
+              [
+                -71.32487,
+                -40.139578,
+                774.699951171875,
+              ],
+              [
+                -71.324874,
+                -40.139583,
+                774.5,
+              ],
+              [
+                -71.324879,
+                -40.139577,
+                774.4000244140625,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "id": "tour",
+      "properties": {
+        "coordinateProperties": {
+          "times": [
+            [
+              "2014-04-12T14:26:16.702Z",
+              "2014-04-12T14:26:52.761Z",
+              "2014-04-12T14:26:53.745Z",
+              "2014-04-12T14:26:56.656Z",
+              "2014-04-12T14:26:57.639Z",
+              "2014-04-12T14:26:58.658Z",
+              "2014-04-12T14:26:59.744Z",
+              "2014-04-12T14:27:16.749Z",
+              "2014-04-12T14:27:17.741Z",
+              "2014-04-12T14:27:19.657Z",
+              "2014-04-12T14:27:20.643Z",
+              "2014-04-12T14:27:23.687Z",
+              "2014-04-12T14:27:24.638Z",
+            ],
+            [
+              "2014-04-12T14:26:16.702Z",
+              "2014-04-12T14:26:52.761Z",
+              "2014-04-12T14:26:53.745Z",
+              "2014-04-12T14:26:56.656Z",
+              "2014-04-12T14:26:57.639Z",
+              "2014-04-12T14:26:58.658Z",
+              "2014-04-12T14:26:59.744Z",
+              "2014-04-12T14:27:16.749Z",
+              "2014-04-12T14:27:17.741Z",
+              "2014-04-12T14:27:19.657Z",
+              "2014-04-12T14:27:20.643Z",
+              "2014-04-12T14:27:23.687Z",
+              "2014-04-12T14:27:24.638Z",
+            ],
+          ],
+        },
+        "description": "
+
+   ",
+        "icon": "http://earth.google.com/images/kml-icons/track-directional/track-0.png",
+        "icon-scale": 1.3,
+        "name": "
+12/04/2014 11:24 AM
+   ",
+        "stroke": "#ff0000",
+        "stroke-opacity": 0.4980392156862745,
+        "stroke-width": 4,
+        "styleUrl": "#track",
+        "type": "
+course à pied
+     ",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -71.353544,
+          -40.157777,
+          677.300048828125,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": {
+          "@type": "html",
+          "value": "Créé par Google Mes parcours sur Android
+
+Nom : 12/04/2014 11:24 AM
+Type d'activité : course à pied
+Description : -
+Distance totale : 10,43 km (6,5 mi)
+Durée totale : 1:13:38
+Durée du déplacement : 1:08:20
+Vitesse moyenne : 8,49 km/h (5,3 mi/h)
+Vitesse moyenne de déplacement : 9,16 km/h (5,7 mi/h)
+Vitesse max. : 12,84 km/h (8,0 mi/h)
+Vitesse moyenne : 7:04 min/km (11:22 min/mi)
+Allure moyenne : 6:33 min/km (10:33 min/mi)
+Vitesse maximale : 4:40 min/km (7:31 min/mi)
+Élévation max. : 1020 m (3347 pi)
+Élévation min. : 678 m (2223 pi)
+Dénivelé : 1095 m (3593 pi)
+Inclinaison max. : 21 %
+Inclinaison min. : -24 %
+Date d'enregistrement : 12/04/2014 11:24 AM
+",
+        },
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "
+12/04/2014 11:24 AM (fin)
+   ",
+        "styleUrl": "#end",
+        "timestamp": "2014-04-12T15:38:07.678Z",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > gxtrack.kml 1`] = `
 {
   "features": [
@@ -13609,6 +14220,76 @@ exports[`toGeoJSON > gxtrack.kml 1`] = `
 `;
 
 exports[`toGeoJSON > gxtrack.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                -122.207881,
+                37.371915,
+                156,
+              ],
+              [
+                -122.205712,
+                37.373288,
+                152,
+              ],
+              [
+                -122.204678,
+                37.373939,
+                147,
+              ],
+              [
+                -122.203572,
+                37.37463,
+                142.199997,
+              ],
+              [
+                -122.203451,
+                37.374706,
+                141.800003,
+              ],
+              [
+                -122.203329,
+                37.37478,
+                141.199997,
+              ],
+              [
+                -122.203207,
+                37.374857,
+                140.199997,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "coordinateProperties": {
+              "times": [
+                "2010-05-28T02:02:09Z",
+                "2010-05-28T02:02:35Z",
+                "2010-05-28T02:02:44Z",
+                "2010-05-28T02:02:53Z",
+                "2010-05-28T02:02:54Z",
+                "2010-05-28T02:02:55Z",
+                "2010-05-28T02:02:56Z",
+              ],
+            },
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {},
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > gxtrack.kml 3`] = `
 {
   "children": [
     {
@@ -14014,6 +14695,178 @@ exports[`toGeoJSON > inline_style.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > inline_style.kml 3`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+              [
+                2.3098051,
+                48.7299542,
+              ],
+              [
+                2.3098493,
+                48.7298813,
+              ],
+              [
+                2.309934,
+                48.7298108,
+              ],
+              [
+                2.3100372,
+                48.729806,
+              ],
+              [
+                2.3101293,
+                48.7298424,
+              ],
+              [
+                2.3101772,
+                48.7298862,
+              ],
+              [
+                2.3101661,
+                48.7299542,
+              ],
+              [
+                2.3101587,
+                48.7300538,
+              ],
+              [
+                2.3101624,
+                48.7301875,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "fill": "#ff1100",
+            "fill-opacity": 1,
+            "name": "With all inline styles",
+            "stroke": "#ff0000",
+            "stroke-opacity": 1,
+            "stroke-width": 3,
+          },
+          "type": "Feature",
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+              [
+                2.3098051,
+                48.7299542,
+              ],
+              [
+                2.3098493,
+                48.7298813,
+              ],
+              [
+                2.309934,
+                48.7298108,
+              ],
+              [
+                2.3100372,
+                48.729806,
+              ],
+              [
+                2.3101293,
+                48.7298424,
+              ],
+              [
+                2.3101772,
+                48.7298862,
+              ],
+              [
+                2.3101661,
+                48.7299542,
+              ],
+              [
+                2.3101587,
+                48.7300538,
+              ],
+              [
+                2.3101624,
+                48.7301875,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "name": "With some inline styles",
+            "stroke": "#ff0000",
+            "stroke-opacity": 1,
+          },
+          "type": "Feature",
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3131898,
+                48.7315075,
+              ],
+              [
+                2.3123173,
+                48.7309455,
+              ],
+              [
+                2.312019,
+                48.7308143,
+              ],
+              [
+                2.3114185,
+                48.730671,
+              ],
+              [
+                2.310796,
+                48.7305252,
+              ],
+              [
+                2.3104424,
+                48.7303916,
+              ],
+              [
+                2.3101624,
+                48.7301875,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "name": "Without inline style",
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > inline_style_mini.kml 1`] = `
 {
   "features": [
@@ -14049,6 +14902,48 @@ exports[`toGeoJSON > inline_style_mini.kml 1`] = `
 `;
 
 exports[`toGeoJSON > inline_style_mini.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+              [
+                2.3098051,
+                48.7299542,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "name": "With all inline styles",
+            "stroke": "#ff0000",
+            "stroke-opacity": 1,
+            "stroke-width": 3,
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > inline_style_mini.kml 3`] = `
 {
   "children": [
     {
@@ -15906,6 +16801,918 @@ exports[`toGeoJSON > linear_ring.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > linear_ring.kml 3`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                -126,
+                24,
+                0,
+              ],
+              [
+                -126,
+                25,
+                0,
+              ],
+              [
+                -126,
+                26,
+                0,
+              ],
+              [
+                -126,
+                27,
+                0,
+              ],
+              [
+                -126,
+                28,
+                0,
+              ],
+              [
+                -126,
+                29,
+                0,
+              ],
+              [
+                -126,
+                30,
+                0,
+              ],
+              [
+                -126,
+                31,
+                0,
+              ],
+              [
+                -126,
+                32,
+                0,
+              ],
+              [
+                -126,
+                33,
+                0,
+              ],
+              [
+                -126,
+                34,
+                0,
+              ],
+              [
+                -126,
+                35,
+                0,
+              ],
+              [
+                -126,
+                36,
+                0,
+              ],
+              [
+                -126,
+                37,
+                0,
+              ],
+              [
+                -126,
+                38,
+                0,
+              ],
+              [
+                -126,
+                39,
+                0,
+              ],
+              [
+                -126,
+                40,
+                0,
+              ],
+              [
+                -126,
+                41,
+                0,
+              ],
+              [
+                -126,
+                42,
+                0,
+              ],
+              [
+                -126,
+                43,
+                0,
+              ],
+              [
+                -126,
+                44,
+                0,
+              ],
+              [
+                -126,
+                45,
+                0,
+              ],
+              [
+                -126,
+                46,
+                0,
+              ],
+              [
+                -126,
+                47,
+                0,
+              ],
+              [
+                -126,
+                48,
+                0,
+              ],
+              [
+                -126,
+                49,
+                0,
+              ],
+              [
+                -126,
+                50,
+                0,
+              ],
+              [
+                -126,
+                50,
+                0,
+              ],
+              [
+                -125,
+                50,
+                0,
+              ],
+              [
+                -124,
+                50,
+                0,
+              ],
+              [
+                -123,
+                50,
+                0,
+              ],
+              [
+                -122,
+                50,
+                0,
+              ],
+              [
+                -121,
+                50,
+                0,
+              ],
+              [
+                -120,
+                50,
+                0,
+              ],
+              [
+                -119,
+                50,
+                0,
+              ],
+              [
+                -118,
+                50,
+                0,
+              ],
+              [
+                -117,
+                50,
+                0,
+              ],
+              [
+                -116,
+                50,
+                0,
+              ],
+              [
+                -115,
+                50,
+                0,
+              ],
+              [
+                -114,
+                50,
+                0,
+              ],
+              [
+                -113,
+                50,
+                0,
+              ],
+              [
+                -112,
+                50,
+                0,
+              ],
+              [
+                -111,
+                50,
+                0,
+              ],
+              [
+                -110,
+                50,
+                0,
+              ],
+              [
+                -109,
+                50,
+                0,
+              ],
+              [
+                -108,
+                50,
+                0,
+              ],
+              [
+                -107,
+                50,
+                0,
+              ],
+              [
+                -106,
+                50,
+                0,
+              ],
+              [
+                -105,
+                50,
+                0,
+              ],
+              [
+                -104,
+                50,
+                0,
+              ],
+              [
+                -103,
+                50,
+                0,
+              ],
+              [
+                -102,
+                50,
+                0,
+              ],
+              [
+                -101,
+                50,
+                0,
+              ],
+              [
+                -100,
+                50,
+                0,
+              ],
+              [
+                -99,
+                50,
+                0,
+              ],
+              [
+                -98,
+                50,
+                0,
+              ],
+              [
+                -97,
+                50,
+                0,
+              ],
+              [
+                -96,
+                50,
+                0,
+              ],
+              [
+                -95,
+                50,
+                0,
+              ],
+              [
+                -94,
+                50,
+                0,
+              ],
+              [
+                -93,
+                50,
+                0,
+              ],
+              [
+                -92,
+                50,
+                0,
+              ],
+              [
+                -91,
+                50,
+                0,
+              ],
+              [
+                -90,
+                50,
+                0,
+              ],
+              [
+                -89,
+                50,
+                0,
+              ],
+              [
+                -88,
+                50,
+                0,
+              ],
+              [
+                -87,
+                50,
+                0,
+              ],
+              [
+                -86,
+                50,
+                0,
+              ],
+              [
+                -85,
+                50,
+                0,
+              ],
+              [
+                -84,
+                50,
+                0,
+              ],
+              [
+                -83,
+                50,
+                0,
+              ],
+              [
+                -82,
+                50,
+                0,
+              ],
+              [
+                -81,
+                50,
+                0,
+              ],
+              [
+                -80,
+                50,
+                0,
+              ],
+              [
+                -79,
+                50,
+                0,
+              ],
+              [
+                -78,
+                50,
+                0,
+              ],
+              [
+                -77,
+                50,
+                0,
+              ],
+              [
+                -76,
+                50,
+                0,
+              ],
+              [
+                -75,
+                50,
+                0,
+              ],
+              [
+                -74,
+                50,
+                0,
+              ],
+              [
+                -73,
+                50,
+                0,
+              ],
+              [
+                -72,
+                50,
+                0,
+              ],
+              [
+                -71,
+                50,
+                0,
+              ],
+              [
+                -70,
+                50,
+                0,
+              ],
+              [
+                -69,
+                50,
+                0,
+              ],
+              [
+                -68,
+                50,
+                0,
+              ],
+              [
+                -67,
+                50,
+                0,
+              ],
+              [
+                -66,
+                50,
+                0,
+              ],
+              [
+                -66,
+                50,
+                0,
+              ],
+              [
+                -66,
+                49,
+                0,
+              ],
+              [
+                -66,
+                48,
+                0,
+              ],
+              [
+                -66,
+                47,
+                0,
+              ],
+              [
+                -66,
+                46,
+                0,
+              ],
+              [
+                -66,
+                45,
+                0,
+              ],
+              [
+                -66,
+                44,
+                0,
+              ],
+              [
+                -66,
+                43,
+                0,
+              ],
+              [
+                -66,
+                42,
+                0,
+              ],
+              [
+                -66,
+                41,
+                0,
+              ],
+              [
+                -66,
+                40,
+                0,
+              ],
+              [
+                -66,
+                39,
+                0,
+              ],
+              [
+                -66,
+                38,
+                0,
+              ],
+              [
+                -66,
+                37,
+                0,
+              ],
+              [
+                -66,
+                36,
+                0,
+              ],
+              [
+                -66,
+                35,
+                0,
+              ],
+              [
+                -66,
+                34,
+                0,
+              ],
+              [
+                -66,
+                33,
+                0,
+              ],
+              [
+                -66,
+                32,
+                0,
+              ],
+              [
+                -66,
+                31,
+                0,
+              ],
+              [
+                -66,
+                30,
+                0,
+              ],
+              [
+                -66,
+                29,
+                0,
+              ],
+              [
+                -66,
+                28,
+                0,
+              ],
+              [
+                -66,
+                27,
+                0,
+              ],
+              [
+                -66,
+                26,
+                0,
+              ],
+              [
+                -66,
+                25,
+                0,
+              ],
+              [
+                -66,
+                24,
+                0,
+              ],
+              [
+                -66,
+                24,
+                0,
+              ],
+              [
+                -67,
+                24,
+                0,
+              ],
+              [
+                -68,
+                24,
+                0,
+              ],
+              [
+                -69,
+                24,
+                0,
+              ],
+              [
+                -70,
+                24,
+                0,
+              ],
+              [
+                -71,
+                24,
+                0,
+              ],
+              [
+                -72,
+                24,
+                0,
+              ],
+              [
+                -73,
+                24,
+                0,
+              ],
+              [
+                -74,
+                24,
+                0,
+              ],
+              [
+                -75,
+                24,
+                0,
+              ],
+              [
+                -76,
+                24,
+                0,
+              ],
+              [
+                -77,
+                24,
+                0,
+              ],
+              [
+                -78,
+                24,
+                0,
+              ],
+              [
+                -79,
+                24,
+                0,
+              ],
+              [
+                -80,
+                24,
+                0,
+              ],
+              [
+                -81,
+                24,
+                0,
+              ],
+              [
+                -82,
+                24,
+                0,
+              ],
+              [
+                -83,
+                24,
+                0,
+              ],
+              [
+                -84,
+                24,
+                0,
+              ],
+              [
+                -85,
+                24,
+                0,
+              ],
+              [
+                -86,
+                24,
+                0,
+              ],
+              [
+                -87,
+                24,
+                0,
+              ],
+              [
+                -88,
+                24,
+                0,
+              ],
+              [
+                -89,
+                24,
+                0,
+              ],
+              [
+                -90,
+                24,
+                0,
+              ],
+              [
+                -91,
+                24,
+                0,
+              ],
+              [
+                -92,
+                24,
+                0,
+              ],
+              [
+                -93,
+                24,
+                0,
+              ],
+              [
+                -94,
+                24,
+                0,
+              ],
+              [
+                -95,
+                24,
+                0,
+              ],
+              [
+                -96,
+                24,
+                0,
+              ],
+              [
+                -97,
+                24,
+                0,
+              ],
+              [
+                -98,
+                24,
+                0,
+              ],
+              [
+                -99,
+                24,
+                0,
+              ],
+              [
+                -100,
+                24,
+                0,
+              ],
+              [
+                -101,
+                24,
+                0,
+              ],
+              [
+                -102,
+                24,
+                0,
+              ],
+              [
+                -103,
+                24,
+                0,
+              ],
+              [
+                -104,
+                24,
+                0,
+              ],
+              [
+                -105,
+                24,
+                0,
+              ],
+              [
+                -106,
+                24,
+                0,
+              ],
+              [
+                -107,
+                24,
+                0,
+              ],
+              [
+                -108,
+                24,
+                0,
+              ],
+              [
+                -109,
+                24,
+                0,
+              ],
+              [
+                -110,
+                24,
+                0,
+              ],
+              [
+                -111,
+                24,
+                0,
+              ],
+              [
+                -112,
+                24,
+                0,
+              ],
+              [
+                -113,
+                24,
+                0,
+              ],
+              [
+                -114,
+                24,
+                0,
+              ],
+              [
+                -115,
+                24,
+                0,
+              ],
+              [
+                -116,
+                24,
+                0,
+              ],
+              [
+                -117,
+                24,
+                0,
+              ],
+              [
+                -118,
+                24,
+                0,
+              ],
+              [
+                -119,
+                24,
+                0,
+              ],
+              [
+                -120,
+                24,
+                0,
+              ],
+              [
+                -121,
+                24,
+                0,
+              ],
+              [
+                -122,
+                24,
+                0,
+              ],
+              [
+                -123,
+                24,
+                0,
+              ],
+              [
+                -124,
+                24,
+                0,
+              ],
+              [
+                -125,
+                24,
+                0,
+              ],
+              [
+                -126,
+                24,
+                0,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "description": {
+              "@type": "html",
+              "value": " Area of interest",
+            },
+            "name": " AOI ",
+            "styleUrl": "# AOI_boundary ",
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": " Area of Interest Boundary ",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > linestring.kml 1`] = `
 {
   "features": [
@@ -15957,6 +17764,56 @@ exports[`toGeoJSON > linestring.kml 1`] = `
 `;
 
 exports[`toGeoJSON > linestring.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -122.364383,
+            37.824664,
+            0,
+          ],
+          [
+            -122.364152,
+            37.824322,
+            0,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "properties": {
+        "name": "unextruded",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -122.364167,
+            37.824787,
+            50,
+          ],
+          [
+            -122.363917,
+            37.824423,
+            50,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "properties": {
+        "name": "extruded",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > linestring.kml 3`] = `
 {
   "children": [
     {
@@ -16074,6 +17931,81 @@ exports[`toGeoJSON > literal_color.kml 1`] = `
 `;
 
 exports[`toGeoJSON > literal_color.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+              [
+                2.3098051,
+                48.7299542,
+              ],
+              [
+                2.3098493,
+                48.7298813,
+              ],
+              [
+                2.309934,
+                48.7298108,
+              ],
+              [
+                2.3100372,
+                48.729806,
+              ],
+              [
+                2.3101293,
+                48.7298424,
+              ],
+              [
+                2.3101772,
+                48.7298862,
+              ],
+              [
+                2.3101661,
+                48.7299542,
+              ],
+              [
+                2.3101587,
+                48.7300538,
+              ],
+              [
+                2.3101624,
+                48.7301875,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "fill": "#ff0011",
+            "name": "With all inline styles",
+            "stroke": "#ff0",
+            "stroke-opacity": 0,
+            "stroke-width": 3,
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > literal_color.kml 3`] = `
 {
   "children": [
     {
@@ -16412,6 +18344,56 @@ exports[`toGeoJSON > multigeometry.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > multigeometry.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                -122.4425587930444,
+                37.80666418607323,
+                0,
+              ],
+              [
+                -122.4428379594768,
+                37.80663578323093,
+                0,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                -122.4425509770566,
+                37.80662588061205,
+                0,
+              ],
+              [
+                -122.4428340530617,
+                37.8065999493009,
+                0,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {
+        "name": "SF Marina Harbor Master",
+        "visibility": false,
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > multigeometry_discrete.kml 1`] = `
 {
   "features": [
@@ -16456,6 +18438,49 @@ exports[`toGeoJSON > multigeometry_discrete.kml 1`] = `
 `;
 
 exports[`toGeoJSON > multigeometry_discrete.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                -122.4425587930444,
+                37.80666418607323,
+                0,
+              ],
+              [
+                -122.4428379594768,
+                37.80663578323093,
+                0,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              -122.4428340530617,
+              37.8065999493009,
+              0,
+            ],
+            "type": "Point",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {
+        "name": "SF Marina Harbor Master",
+        "visibility": false,
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > multigeometry_discrete.kml 3`] = `
 {
   "children": [
     {
@@ -17354,6 +19379,434 @@ exports[`toGeoJSON > multigeometry_sibling.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > multigeometry_sibling.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                147.038241604,
+                -36.04795368,
+              ],
+              [
+                147.0371,
+                -36.04781,
+              ],
+              [
+                147.03421,
+                -36.04745,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.03421,
+                -36.04745,
+              ],
+              [
+                147.0217,
+                -36.0458399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.0217,
+                -36.0458399999999,
+              ],
+              [
+                147.01798,
+                -36.04538,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01798,
+                -36.04538,
+              ],
+              [
+                147.01441,
+                -36.0449399999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01441,
+                -36.0449399999999,
+              ],
+              [
+                147.0142,
+                -36.0461,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.0142,
+                -36.0461,
+              ],
+              [
+                147.01402,
+                -36.04705,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01402,
+                -36.04705,
+              ],
+              [
+                147.01366,
+                -36.04891,
+              ],
+              [
+                147.01353,
+                -36.04945,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01353,
+                -36.04945,
+              ],
+              [
+                147.01302,
+                -36.05222,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01302,
+                -36.05222,
+              ],
+              [
+                147.01298,
+                -36.0525299999999,
+              ],
+              [
+                147.0128,
+                -36.05326,
+              ],
+              [
+                147.01264,
+                -36.05411,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01264,
+                -36.05411,
+              ],
+              [
+                147.01173,
+                -36.05889,
+              ],
+              [
+                147.01076,
+                -36.06375,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01076,
+                -36.06375,
+              ],
+              [
+                147.01073,
+                -36.0639199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01073,
+                -36.0639199999999,
+              ],
+              [
+                147.01045,
+                -36.06562,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.01045,
+                -36.06562,
+              ],
+              [
+                147.01031,
+                -36.06657,
+              ],
+              [
+                147.01022,
+                -36.0667999999999,
+              ],
+              [
+                147.01001,
+                -36.06704,
+              ],
+              [
+                147.009285404,
+                -36.067721041,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.009285404,
+                -36.067721041,
+              ],
+              [
+                147.00818,
+                -36.0687599999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.00818,
+                -36.0687599999999,
+              ],
+              [
+                147.00517,
+                -36.0682899999999,
+              ],
+              [
+                147.00347,
+                -36.06791,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.00347,
+                -36.06791,
+              ],
+              [
+                147.0034,
+                -36.06789,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                147.0034,
+                -36.06789,
+              ],
+              [
+                147.00127,
+                -36.0672499999999,
+              ],
+              [
+                147.00085,
+                -36.0671199999999,
+              ],
+              [
+                146.99911,
+                -36.06645,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.99911,
+                -36.06645,
+              ],
+              [
+                146.99772,
+                -36.0658099999999,
+              ],
+              [
+                146.99714,
+                -36.0656299999999,
+              ],
+              [
+                146.99654,
+                -36.06549,
+              ],
+              [
+                146.99557,
+                -36.0653399999999,
+              ],
+              [
+                146.99317,
+                -36.0650199999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.99317,
+                -36.0650199999999,
+              ],
+              [
+                146.99205,
+                -36.06485,
+              ],
+              [
+                146.99033,
+                -36.06468,
+              ],
+              [
+                146.9893,
+                -36.0647099999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.9893,
+                -36.0647099999999,
+              ],
+              [
+                146.98888,
+                -36.06479,
+              ],
+              [
+                146.98824,
+                -36.06496,
+              ],
+              [
+                146.98729,
+                -36.06537,
+              ],
+              [
+                146.98634,
+                -36.0658999999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.98634,
+                -36.0658999999999,
+              ],
+              [
+                146.98612,
+                -36.066,
+              ],
+              [
+                146.98562,
+                -36.0661899999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.98562,
+                -36.0661899999999,
+              ],
+              [
+                146.98497,
+                -36.0664399999999,
+              ],
+              [
+                146.98421,
+                -36.06659,
+              ],
+              [
+                146.98265,
+                -36.06673,
+              ],
+              [
+                146.98057,
+                -36.0668499999999,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                146.98057,
+                -36.0668499999999,
+              ],
+              [
+                146.97915,
+                -36.0669399999999,
+              ],
+              [
+                146.97775,
+                -36.06709,
+              ],
+              [
+                146.97724,
+                -36.0671599999999,
+              ],
+              [
+                146.97663,
+                -36.06729,
+              ],
+              [
+                146.976252415,
+                -36.0673731969999,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {},
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > multitrack.kml 1`] = `
 {
   "features": [
@@ -17534,6 +19987,185 @@ exports[`toGeoJSON > multitrack.kml 1`] = `
 `;
 
 exports[`toGeoJSON > multitrack.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          3.682555,
+          51.050362,
+          50.599998474121094,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20 (Start)",
+        "styleUrl": "#start",
+        "timestamp": "2013-08-08T15:20:40.000Z",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            3.68217,
+            51.050583,
+            54.599998474121094,
+          ],
+          [
+            3.68211,
+            51.050596,
+            54.79999923706055,
+          ],
+          [
+            3.68209,
+            51.050598,
+            55.400001525878906,
+          ],
+          [
+            3.682043,
+            51.050609,
+            55.70000076293945,
+          ],
+          [
+            3.682012,
+            51.050618,
+            54.5,
+          ],
+          [
+            3.68198,
+            51.050629,
+            54.29999923706055,
+          ],
+          [
+            3.681945,
+            51.050638,
+            54.79999923706055,
+          ],
+          [
+            3.681907,
+            51.050647,
+            54.900001525878906,
+          ],
+          [
+            3.68187,
+            51.050656,
+            54.599998474121094,
+          ],
+          [
+            3.681834,
+            51.050664,
+            54,
+          ],
+          [
+            3.681797,
+            51.050669,
+            55.29999923706055,
+          ],
+          [
+            3.681759,
+            51.050673,
+            55.400001525878906,
+          ],
+          [
+            3.681721,
+            51.050677,
+            55.20000076293945,
+          ],
+          [
+            3.681682,
+            51.050682,
+            54.70000076293945,
+          ],
+          [
+            3.681637,
+            51.050685,
+            55.20000076293945,
+          ],
+          [
+            3.681589,
+            51.050687,
+            55,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "id": "tour",
+      "properties": {
+        "coordinateProperties": {
+          "times": [
+            "2013-08-08T15:24:47.000Z",
+            "2013-08-08T15:24:48.000Z",
+            "2013-08-08T15:24:50.000Z",
+            "2013-08-08T15:24:51.000Z",
+            "2013-08-08T15:24:52.000Z",
+            "2013-08-08T15:24:53.000Z",
+            "2013-08-08T15:24:54.000Z",
+            "2013-08-08T15:24:55.000Z",
+            "2013-08-08T15:24:56.000Z",
+            "2013-08-08T15:24:57.000Z",
+            "2013-08-08T15:24:58.000Z",
+            "2013-08-08T15:24:59.000Z",
+            "2013-08-08T15:25:00.000Z",
+            "2013-08-08T15:25:01.000Z",
+            "2013-08-08T15:25:02.000Z",
+            "2013-08-08T15:25:03.000Z",
+          ],
+        },
+        "icon": "http://earth.google.com/images/kml-icons/track-directional/track-0.png",
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20",
+        "stroke": "#ff0000",
+        "stroke-opacity": 0.4980392156862745,
+        "stroke-width": 4,
+        "styleUrl": "#track",
+        "type": "walking",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          3.682725,
+          51.050615,
+          61.5,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20 (End)",
+        "styleUrl": "#end",
+        "timestamp": "2013-08-08T16:25:57.000Z",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > multitrack.kml 3`] = `
 {
   "children": [
     {
@@ -18528,6 +21160,21 @@ exports[`toGeoJSON > nogeomplacemark.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > nogeomplacemark.kml 3`] = `
+{
+  "children": [
+    {
+      "children": [],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > non_gx_multitrack.kml 1`] = `
 {
   "features": [
@@ -18886,6 +21533,185 @@ exports[`toGeoJSON > non_gx_multitrack.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > non_gx_multitrack.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          3.682555,
+          51.050362,
+          50.599998474121094,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20 (Start)",
+        "styleUrl": "#start",
+        "timestamp": "2013-08-08T15:20:40.000Z",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            3.68217,
+            51.050583,
+            54.599998474121094,
+          ],
+          [
+            3.68211,
+            51.050596,
+            54.79999923706055,
+          ],
+          [
+            3.68209,
+            51.050598,
+            55.400001525878906,
+          ],
+          [
+            3.682043,
+            51.050609,
+            55.70000076293945,
+          ],
+          [
+            3.682012,
+            51.050618,
+            54.5,
+          ],
+          [
+            3.68198,
+            51.050629,
+            54.29999923706055,
+          ],
+          [
+            3.681945,
+            51.050638,
+            54.79999923706055,
+          ],
+          [
+            3.681907,
+            51.050647,
+            54.900001525878906,
+          ],
+          [
+            3.68187,
+            51.050656,
+            54.599998474121094,
+          ],
+          [
+            3.681834,
+            51.050664,
+            54,
+          ],
+          [
+            3.681797,
+            51.050669,
+            55.29999923706055,
+          ],
+          [
+            3.681759,
+            51.050673,
+            55.400001525878906,
+          ],
+          [
+            3.681721,
+            51.050677,
+            55.20000076293945,
+          ],
+          [
+            3.681682,
+            51.050682,
+            54.70000076293945,
+          ],
+          [
+            3.681637,
+            51.050685,
+            55.20000076293945,
+          ],
+          [
+            3.681589,
+            51.050687,
+            55,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "id": "tour",
+      "properties": {
+        "coordinateProperties": {
+          "times": [
+            "2013-08-08T15:24:47.000Z",
+            "2013-08-08T15:24:48.000Z",
+            "2013-08-08T15:24:50.000Z",
+            "2013-08-08T15:24:51.000Z",
+            "2013-08-08T15:24:52.000Z",
+            "2013-08-08T15:24:53.000Z",
+            "2013-08-08T15:24:54.000Z",
+            "2013-08-08T15:24:55.000Z",
+            "2013-08-08T15:24:56.000Z",
+            "2013-08-08T15:24:57.000Z",
+            "2013-08-08T15:24:58.000Z",
+            "2013-08-08T15:24:59.000Z",
+            "2013-08-08T15:25:00.000Z",
+            "2013-08-08T15:25:01.000Z",
+            "2013-08-08T15:25:02.000Z",
+            "2013-08-08T15:25:03.000Z",
+          ],
+        },
+        "icon": "http://earth.google.com/images/kml-icons/track-directional/track-0.png",
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20",
+        "stroke": "#ff0000",
+        "stroke-opacity": 0.4980392156862745,
+        "stroke-width": 4,
+        "styleUrl": "#track",
+        "type": "walking",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          3.682725,
+          51.050615,
+          61.5,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+        "icon-offset": [
+          32,
+          1,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels",
+        ],
+        "icon-scale": 1.3,
+        "name": "8/8/2013 17:20 (End)",
+        "styleUrl": "#end",
+        "timestamp": "2013-08-08T16:25:57.000Z",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > noname.kml 1`] = `
 {
   "features": [
@@ -18953,6 +21779,80 @@ exports[`toGeoJSON > noname.kml 1`] = `
 `;
 
 exports[`toGeoJSON > noname.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+              [
+                2.3098051,
+                48.7299542,
+              ],
+              [
+                2.3098493,
+                48.7298813,
+              ],
+              [
+                2.309934,
+                48.7298108,
+              ],
+              [
+                2.3100372,
+                48.729806,
+              ],
+              [
+                2.3101293,
+                48.7298424,
+              ],
+              [
+                2.3101772,
+                48.7298862,
+              ],
+              [
+                2.3101661,
+                48.7299542,
+              ],
+              [
+                2.3101587,
+                48.7300538,
+              ],
+              [
+                2.3101624,
+                48.7301875,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "fill": "#ff0011",
+            "stroke": "#ff0",
+            "stroke-opacity": 0,
+            "stroke-width": 3,
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > noname.kml 3`] = `
 {
   "children": [
     {
@@ -19310,6 +22210,47 @@ exports[`toGeoJSON > north_core.gpx 1`] = `
 }
 `;
 
+exports[`toGeoJSON > null_geometry.kml 1`] = `
+{
+  "features": [
+    {
+      "geometry": null,
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON > null_geometry.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": null,
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > null_geometry.kml 3`] = `
+{
+  "children": [],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > opacity_override.kml 1`] = `
 {
   "features": [
@@ -19341,6 +22282,44 @@ exports[`toGeoJSON > opacity_override.kml 1`] = `
 `;
 
 exports[`toGeoJSON > opacity_override.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                2.3101624,
+                48.7301875,
+              ],
+              [
+                2.3098714,
+                48.7300247,
+              ],
+            ],
+            "type": "LineString",
+          },
+          "properties": {
+            "fill": "#1100ff",
+            "fill-opacity": 0.8,
+            "stroke-opacity": 0,
+            "stroke-width": 3,
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Inline style test",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > opacity_override.kml 3`] = `
 {
   "children": [
     {
@@ -21337,6 +24316,30 @@ exports[`toGeoJSON > point.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > point.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > point_extra_coordinates.kml 1`] = `
 {
   "features": [
@@ -21385,6 +24388,30 @@ exports[`toGeoJSON > point_extra_coordinates.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > point_extra_coordinates.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > point_id.kml 1`] = `
 {
   "features": [
@@ -21410,6 +24437,30 @@ exports[`toGeoJSON > point_id.kml 1`] = `
 `;
 
 exports[`toGeoJSON > point_id.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > point_id.kml 3`] = `
 {
   "children": [
     {
@@ -21507,6 +24558,79 @@ exports[`toGeoJSON > polygon.kml 1`] = `
 `;
 
 exports[`toGeoJSON > polygon.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.366278,
+              37.818844,
+              30,
+            ],
+            [
+              -122.365248,
+              37.819267,
+              30,
+            ],
+            [
+              -122.36564,
+              37.819861,
+              30,
+            ],
+            [
+              -122.366669,
+              37.819429,
+              30,
+            ],
+            [
+              -122.366278,
+              37.818844,
+              30,
+            ],
+          ],
+          [
+            [
+              -122.366212,
+              37.818977,
+              30,
+            ],
+            [
+              -122.365424,
+              37.819294,
+              30,
+            ],
+            [
+              -122.365704,
+              37.819731,
+              30,
+            ],
+            [
+              -122.366488,
+              37.819402,
+              30,
+            ],
+            [
+              -122.366212,
+              37.818977,
+              30,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": {
+        "name": "hollow box",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > polygon.kml 3`] = `
 {
   "children": [
     {
@@ -23674,6 +26798,68 @@ exports[`toGeoJSON > schema.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > schema.kml 3`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  12.8206124,
+                  55.9654246,
+                ],
+                [
+                  12.8204862,
+                  55.9654342,
+                ],
+                [
+                  12.8204902,
+                  55.9654507,
+                ],
+                [
+                  12.8206164,
+                  55.9654411,
+                ],
+                [
+                  12.8206124,
+                  55.9654246,
+                ],
+              ],
+            ],
+            "type": "Polygon",
+          },
+          "properties": {
+            "block_block_number": 1,
+            "cn_cv_1109": "89%",
+            "fill-opacity": 0,
+            "gid": 167001,
+            "plotno_plot_number": 167001,
+            "random": 0.9,
+            "random_2": 0.4,
+            "random_2_block": 41,
+            "random_2_trial": 39,
+            "random_block": 98,
+            "random_trial": 96,
+            "stroke": "#ff0000",
+            "stroke-opacity": 1,
+            "tream_treatment_number": "16",
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "TES_124_167_28_JUL_2022_1109",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > selfclosing.kml 1`] = `
 {
   "features": [
@@ -23700,6 +26886,13 @@ exports[`toGeoJSON > selfclosing.kml 2`] = `
       "type": "Feature",
     },
   ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > selfclosing.kml 3`] = `
+{
+  "children": [],
   "type": "root",
 }
 `;
@@ -23747,6 +26940,48 @@ exports[`toGeoJSON > simpledata.kml 1`] = `
 `;
 
 exports[`toGeoJSON > simpledata.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122,
+          37.002,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "ElevationGain": 10,
+        "TrailHeadName": "Pi in the sky",
+        "TrailLength": 3.14159,
+        "name": "Easy trail",
+        "styleUrl": "#trailhead-balloon-template",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -121.998,
+          37.0078,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "ElevationGain": 10000,
+        "TrailHeadName": "Mount Everest",
+        "TrailLength": 347.45,
+        "name": "Difficult trail",
+        "styleUrl": "#trailhead-balloon-template",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > simpledata.kml 3`] = `
 {
   "children": [
     {
@@ -25822,6 +29057,74 @@ exports[`toGeoJSON > style.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > style.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Here is some descriptive text",
+        "icon": "http://myserver.com/icon.jpg",
+        "icon-color": "#ff00ff",
+        "icon-opacity": 0.6313725490196078,
+        "icon-scale": 1.399999976158142,
+        "name": "Google Earth - New Polygon",
+        "styleUrl": "#a",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://myserver.com/icon.jpg",
+        "icon-color": "#ff00ff",
+        "icon-opacity": 0.6313725490196078,
+        "icon-scale": 1.399999976158142,
+        "name": "Google Earth - New Path",
+        "styleUrl": "#b",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "icon": "http://myserver.com/icon.jpg",
+        "icon-color": "#ff00ff",
+        "icon-opacity": 0.6313725490196078,
+        "icon-scale": 1.399999976158142,
+        "label-color": "#000000",
+        "label-opacity": 1,
+        "name": "Google Earth - New Label",
+        "styleUrl": "#c",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > style_url.kml 1`] = `
 {
   "features": [
@@ -26062,6 +29365,126 @@ exports[`toGeoJSON > style_url.kml 2`] = `
 }
 `;
 
+exports[`toGeoJSON > style_url.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.0857412771483,
+              37.42227033155257,
+              17,
+            ],
+            [
+              -122.0858169768481,
+              37.42231408832346,
+              17,
+            ],
+            [
+              -122.085852582875,
+              37.42230337469744,
+              17,
+            ],
+            [
+              -122.0858799945639,
+              37.42225686138789,
+              17,
+            ],
+            [
+              -122.0858860101409,
+              37.4222311076138,
+              17,
+            ],
+            [
+              -122.0858069157288,
+              37.42220250173855,
+              17,
+            ],
+            [
+              -122.0858379542653,
+              37.42214027058678,
+              17,
+            ],
+            [
+              -122.0856732640519,
+              37.42208690214408,
+              17,
+            ],
+            [
+              -122.0856022926407,
+              37.42214885429042,
+              17,
+            ],
+            [
+              -122.0855902778436,
+              37.422128290487,
+              17,
+            ],
+            [
+              -122.0855841672237,
+              37.42208171967246,
+              17,
+            ],
+            [
+              -122.0854852065741,
+              37.42210455874995,
+              17,
+            ],
+            [
+              -122.0855067264352,
+              37.42214267949824,
+              17,
+            ],
+            [
+              -122.0854430712915,
+              37.42212783846172,
+              17,
+            ],
+            [
+              -122.0850990714904,
+              37.42251282407603,
+              17,
+            ],
+            [
+              -122.0856769818632,
+              37.42281815323651,
+              17,
+            ],
+            [
+              -122.0860162273783,
+              37.42244918858722,
+              17,
+            ],
+            [
+              -122.0857260327004,
+              37.42229239604253,
+              17,
+            ],
+            [
+              -122.0857412771483,
+              37.42227033155257,
+              17,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": {
+        "fill": "#0000ff",
+        "fill-opacity": 0.49019607843137253,
+        "name": "Building 41",
+        "stroke-width": 1.5,
+        "styleUrl": "#transBluePoly",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > styles.kml 1`] = `
 {
   "features": [
@@ -26159,6 +29582,109 @@ exports[`toGeoJSON > styles.kml 1`] = `
 `;
 
 exports[`toGeoJSON > styles.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [],
+      "meta": {
+        "name": "Untitled Folder",
+      },
+      "type": "folder",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          21.00062301000721,
+          48.77257131826958,
+          1011.317797185818,
+        ],
+        "type": "Point",
+      },
+      "id": "00A083AD2520769B213A",
+      "properties": {
+        "description": {
+          "@type": "html",
+          "value": "<div>Ahoj <b>PM</b></div>",
+        },
+        "fill": "#ffffff",
+        "fill-opacity": 0.25098039215686274,
+        "icon": "https://earth.google.com/earth/rpc/cc/icon?color=1976d2&id=2006&scale=4",
+        "icon-offset": [
+          64,
+          128,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "insetPixels",
+        ],
+        "name": "Untitled Placemark",
+        "stroke": "#fbc02d",
+        "stroke-opacity": 1,
+        "stroke-width": 2.13333,
+        "styleUrl": "#__managed_style_04D1BA179420769B4A67",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              20.99533143425753,
+              48.76385474037835,
+              817.5844849086294,
+            ],
+            [
+              21.00506376944139,
+              48.76355632184772,
+              896.3736545453368,
+            ],
+            [
+              21.00499721332549,
+              48.77057344889175,
+              1026.856093377534,
+            ],
+            [
+              20.99495695589513,
+              48.77073832155815,
+              991.0859038879247,
+            ],
+            [
+              20.99533143425753,
+              48.76385474037835,
+              817.5844849086294,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "id": "0F66A23B9820769D44FC",
+      "properties": {
+        "fill": "#ffee58",
+        "fill-opacity": 0.25098039215686274,
+        "icon": "https://earth.google.com/earth/rpc/cc/icon?color=1976d2&id=2000&scale=4",
+        "icon-offset": [
+          64,
+          128,
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "insetPixels",
+        ],
+        "name": "Untitled Polygon",
+        "stroke": "#303f9f",
+        "stroke-opacity": 1,
+        "stroke-width": 2.13333,
+        "styleUrl": "#__managed_style_01C13F4A1E20769D5922",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > styles.kml 3`] = `
 {
   "children": [
     {
@@ -26513,6 +30039,61 @@ exports[`toGeoJSON > timespan.kml 1`] = `
 `;
 
 exports[`toGeoJSON > timespan.kml 2`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  115.87726,
+                  24.93583,
+                  0,
+                ],
+                [
+                  115.87075,
+                  24.93053,
+                  0,
+                ],
+                [
+                  115.87439,
+                  24.90768,
+                  0,
+                ],
+                [
+                  115.87726,
+                  24.93583,
+                  0,
+                ],
+              ],
+            ],
+            "type": "Polygon",
+          },
+          "properties": {
+            "name": "1",
+            "styleUrl": "#FEATURES",
+            "timespan": {
+              "begin": "0725",
+              "end": "0733",
+            },
+          },
+          "type": "Feature",
+        },
+      ],
+      "meta": {
+        "name": "Features",
+        "open": "0",
+      },
+      "type": "folder",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > timespan.kml 3`] = `
 {
   "children": [
     {
@@ -30515,6 +34096,46 @@ exports[`toGeoJSON > twopoints.kml 1`] = `
 `;
 
 exports[`toGeoJSON > twopoints.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "coordinates": [
+          -122.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -120.0822035425683,
+          37.42228990140251,
+          0,
+        ],
+        "type": "Point",
+      },
+      "properties": {
+        "description": "Attached to the ground. Intelligently places itself 
+       at the height of the underlying terrain.",
+        "name": "Simple placemark two",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > twopoints.kml 3`] = `
 {
   "children": [
     {

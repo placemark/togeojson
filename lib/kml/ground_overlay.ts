@@ -10,6 +10,7 @@ import {
 } from "./shared";
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
+import { KMLOptions } from "lib/kml";
 
 interface BoxGeometry {
   bbox?: BBox;
@@ -103,13 +104,20 @@ function getLatLonBox(node: Element): BoxGeometry | null {
 export function getGroundOverlay(
   node: Element,
   styleMap: StyleMap,
-  schema: Schema
-): Feature<Polygon | null> {
+  schema: Schema,
+  options: KMLOptions
+): Feature<Polygon | null> | null {
   const box = getGroundOverlayBox(node);
+
+  const geometry = box?.geometry || null;
+
+  if (!geometry && options.skipNullGeometry) {
+    return null;
+  }
 
   const feature: Feature<Polygon | null> = {
     type: "Feature",
-    geometry: box?.geometry || null,
+    geometry,
     properties: Object.assign(
       /**
        * Related to

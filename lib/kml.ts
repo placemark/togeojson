@@ -15,6 +15,25 @@ import {
 import { Schema, typeConverters } from "./kml/shared";
 
 /**
+ * Options to customize KML output.
+ *
+ * The only option currently
+ * is `skipNullGeometry`. Both the KML and GeoJSON formats support
+ * the idea of features that don't have geometries: in KML,
+ * this is a Placemark without a Point, etc element, and in GeoJSON
+ * it's a geometry member with a value of `null`.
+ *
+ * toGeoJSON, by default, translates null geometries in KML to
+ * null geometries in GeoJSON. For systems that use GeoJSON but
+ * don't support null geometries, you can specify `skipNullGeometry`
+ * to omit these features entirely and only include
+ * features that have a geometry defined.
+ */
+export interface KMLOptions {
+  skipNullGeometry?: boolean;
+}
+
+/**
  * A folder including metadata. Folders
  * may contain other folders or features,
  * or nothing at all.
@@ -155,7 +174,12 @@ function getFolder(node: Element): Folder {
  * with a separate method to other features, depending
  * on which map framework you're using.
  */
-export function kmlWithFolders(node: Document): Root {
+export function kmlWithFolders(
+  node: Document,
+  options: KMLOptions = {
+    skipNullGeometry: false,
+  }
+): Root {
   const styleMap = buildStyleMap(node);
   const schema = buildSchema(node);
 
@@ -167,13 +191,14 @@ export function kmlWithFolders(node: Document): Root {
 
   function traverse(
     node: Document | ChildNode | Element,
-    pointer: TreeContainer
+    pointer: TreeContainer,
+    options: KMLOptions
   ) {
     if (isElement(node)) {
       switch (node.tagName) {
         case "GroundOverlay": {
           placemarks.push(node);
-          const placemark = getGroundOverlay(node, styleMap, schema);
+          const placemark = getGroundOverlay(node, styleMap, schema, options);
           if (placemark) {
             pointer.children.push(placemark);
           }
@@ -181,7 +206,7 @@ export function kmlWithFolders(node: Document): Root {
         }
         case "Placemark": {
           placemarks.push(node);
-          const placemark = getPlacemark(node, styleMap, schema);
+          const placemark = getPlacemark(node, styleMap, schema, options);
           if (placemark) {
             pointer.children.push(placemark);
           }
@@ -198,12 +223,12 @@ export function kmlWithFolders(node: Document): Root {
 
     if (node.childNodes) {
       for (let i = 0; i < node.childNodes.length; i++) {
-        traverse(node.childNodes[i], pointer);
+        traverse(node.childNodes[i], pointer, options);
       }
     }
   }
 
-  traverse(node, tree);
+  traverse(node, tree, options);
 
   return tree;
 }
@@ -213,15 +238,20 @@ export function kmlWithFolders(node: Document): Root {
  * a [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
  * that yields output feature by feature.
  */
-export function* kmlGen(node: Document): Generator<F> {
+export function* kmlGen(
+  node: Document,
+  options: KMLOptions = {
+    skipNullGeometry: false,
+  }
+): Generator<F> {
   const styleMap = buildStyleMap(node);
   const schema = buildSchema(node);
   for (const placemark of $(node, "Placemark")) {
-    const feature = getPlacemark(placemark, styleMap, schema);
+    const feature = getPlacemark(placemark, styleMap, schema, options);
     if (feature) yield feature;
   }
   for (const groundOverlay of $(node, "GroundOverlay")) {
-    const feature = getGroundOverlay(groundOverlay, styleMap, schema);
+    const feature = getGroundOverlay(groundOverlay, styleMap, schema, options);
     if (feature) yield feature;
   }
 }
@@ -236,9 +266,14 @@ export function* kmlGen(node: Document): Generator<F> {
  * with [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
  * or use it directly in libraries.
  */
-export function kml(node: Document): FeatureCollection<Geometry | null> {
+export function kml(
+  node: Document,
+  options: KMLOptions = {
+    skipNullGeometry: false,
+  }
+): FeatureCollection<Geometry | null> {
   return {
     type: "FeatureCollection",
-    features: Array.from(kmlGen(node)),
+    features: Array.from(kmlGen(node, options)),
   };
 }

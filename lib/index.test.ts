@@ -27,12 +27,29 @@ describe("toGeoJSON", () => {
 
       if (ext === "kml") {
         expect(tj.kmlWithFolders(dom)).toMatchSnapshot();
+        expect(
+          tj.kmlWithFolders(dom, {
+            skipNullGeometry: true,
+          })
+        ).toMatchSnapshot();
       }
     });
   }
 });
 
 describe("mini cases", () => {
+  it("skip null geometries", () => {
+    expect(
+      tj.kml(parse(path.join(d, "null_geometry.kml")), {
+        skipNullGeometry: true,
+      }).features
+    ).toHaveLength(0);
+    expect(
+      tj.kml(parse(path.join(d, "null_geometry.kml")), {
+        skipNullGeometry: false,
+      }).features
+    ).toHaveLength(1);
+  });
   it("folder nesting", () => {
     expect(tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml"))))
       .toMatchInlineSnapshot(`
