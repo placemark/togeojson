@@ -49,7 +49,7 @@ function rotateBox(
       const dy = coordinate[1] - center[1];
       const dx = coordinate[0] - center[0];
       const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
-      const angle = Math.atan2(dy, dx) - rotation * DEGREES_TO_RADIANS;
+      const angle = Math.atan2(dy, dx) + rotation * DEGREES_TO_RADIANS;
 
       return [
         center[0] + Math.cos(angle) * distance,
