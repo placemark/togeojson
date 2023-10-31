@@ -5,9 +5,11 @@ import type {
   MultiLineString,
   LineString,
   Position,
+  Polygon,
 } from "geojson";
 import { getLineStyle } from "./gpx/line";
 import { coordPair } from "./gpx/coord_pair";
+import { extractMetadata } from "./gpx/metadata";
 import { extractProperties } from "./gpx/properties";
 import { P, $, get1, getMulti } from "./shared";
 
@@ -43,6 +45,26 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
     line: line,
     times: times,
     extendedValues: extendedValues,
+  };
+}
+
+/**
+ * Extract Metadata info from a document
+ * element.
+ */
+function getMetadata(node: Document): Feature<Polygon> | undefined {
+  const props = extractMetadata(node);
+  if (!Object.keys(props).length) return;
+  return {
+    type: "Feature",
+    properties: Object.assign(
+      { _gpxType: "metadata" },
+      extractMetadata(node)
+    ),
+    geometry: {
+      coordinates: [],
+      type: "Polygon",
+    },
   };
 }
 
@@ -162,6 +184,10 @@ function getPoint(node: Element): Feature<Point> | null {
  * that yields output feature by feature.
  */
 export function* gpxGen(node: Document): Generator<Feature> {
+
+  const feature = getMetadata(node);
+  if (feature) yield feature;
+
   for (const track of $(node, "trk")) {
     const feature = getTrack(track);
     if (feature) yield feature;
