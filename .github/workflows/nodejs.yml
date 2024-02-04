@@ -4,4 +4,4 @@ on: [push]
 
 jobs:
   test:
-    uses: "placemark/workflows/.github/workflows/vitest.yml@v4"
+    uses: "placemark/workflows/.github/workflows/vitest.yml@v5"
