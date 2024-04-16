@@ -1,5 +1,7 @@
 # Convert KML, GPX, and TCX to GeoJSON.
 
+[![NPM Version](https://img.shields.io/npm/v/%40tmcw%2Ftogeojson)](https://www.npmjs.com/package/@tmcw/togeojson)
+
 _togeojson development is supported by 🌎 [placemark.io](https://placemark.io/)_
 
 This converts [KML](https://developers.google.com/kml/documentation/), [TCX](https://en.wikipedia.org/wiki/Training_Center_XML), & [GPX](http://www.topografix.com/gpx.asp)
