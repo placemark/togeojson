@@ -1,6 +1,7 @@
 import { get, P, val1, $num } from "../shared";
+import type xmldom from "@xmldom/xmldom";
 
-export function getLineStyle(node: Element | null) {
+export function getLineStyle(node: Element | xmldom.Element | null) {
   return get(node, "line", (lineStyle) => {
     const val: P = Object.assign(
       {},

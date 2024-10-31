@@ -8,6 +8,7 @@ import {
   StyleMap,
   val1,
 } from "../shared";
+import type xmldom from "@xmldom/xmldom";
 
 export type TypeConverter = (x: string) => unknown;
 export type Schema = { [key: string]: TypeConverter };
@@ -24,7 +25,7 @@ export const typeConverters: Record<string, TypeConverter> = {
   bool: (x) => Boolean(x),
 };
 
-export function extractExtendedData(node: Element, schema: Schema) {
+export function extractExtendedData(node: Element | xmldom.Element, schema: Schema) {
   return get(node, "ExtendedData", (extendedData, properties) => {
     for (const data of $(extendedData, "Data")) {
       properties[data.getAttribute("name") || ""] = nodeVal(
@@ -40,14 +41,14 @@ export function extractExtendedData(node: Element, schema: Schema) {
   });
 }
 
-export function getMaybeHTMLDescription(node: Element) {
+export function getMaybeHTMLDescription(node: Element | xmldom.Element) {
   const descriptionNode = get1(node, "description");
-  for (const c of Array.from(descriptionNode?.childNodes || [])) {
+  for (const c of [...(descriptionNode?.childNodes || [])]) {
     if (c.nodeType === 4) {
       return {
         description: {
           "@type": "html",
-          value: nodeVal(c as Element),
+          value: nodeVal(c as Element | xmldom.Element),
         },
       };
     }
@@ -55,7 +56,7 @@ export function getMaybeHTMLDescription(node: Element) {
   return {};
 }
 
-export function extractTimeSpan(node: Element): P {
+export function extractTimeSpan(node: Element | xmldom.Element): P {
   return get(node, "TimeSpan", (timeSpan) => {
     return {
       timespan: {
@@ -66,13 +67,13 @@ export function extractTimeSpan(node: Element): P {
   });
 }
 
-export function extractTimeStamp(node: Element): P {
+export function extractTimeStamp(node: Element | xmldom.Element): P {
   return get(node, "TimeStamp", (timeStamp) => {
     return { timestamp: nodeVal(get1(timeStamp, "when")) };
   });
 }
 
-export function extractCascadedStyle(node: Element, styleMap: StyleMap): P {
+export function extractCascadedStyle(node: Element | xmldom.Element, styleMap: StyleMap): P {
   return val1(node, "styleUrl", (styleUrl) => {
     styleUrl = normalizeId(styleUrl);
     if (styleMap[styleUrl]) {

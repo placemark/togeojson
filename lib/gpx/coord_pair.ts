@@ -1,6 +1,7 @@
 import { Position } from "geojson";
 import { num1, get1, nodeVal } from "../shared";
 import { ExtendedValues, getExtensions } from "./extensions";
+import type xmldom from "@xmldom/xmldom";
 
 interface CoordPair {
   coordinates: Position;
@@ -8,7 +9,7 @@ interface CoordPair {
   extendedValues: ExtendedValues;
 }
 
-export function coordPair(node: Element): CoordPair | null {
+export function coordPair(node: Element | xmldom.Element): CoordPair | null {
   const ll = [
     parseFloat(node.getAttribute("lon") || ""),
     parseFloat(node.getAttribute("lat") || ""),

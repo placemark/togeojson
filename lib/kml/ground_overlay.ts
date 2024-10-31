@@ -11,13 +11,14 @@ import {
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
 import { KMLOptions } from "lib/kml";
+import type xmldom from "@xmldom/xmldom";
 
 interface BoxGeometry {
   bbox?: BBox;
   geometry: Polygon;
 }
 
-function getGroundOverlayBox(node: Element): BoxGeometry | null {
+function getGroundOverlayBox(node: Element | xmldom.Element): BoxGeometry | null {
   const latLonQuad = get1(node, "gx:LatLonQuad");
 
   if (latLonQuad) {
@@ -59,7 +60,7 @@ function rotateBox(
   ];
 }
 
-function getLatLonBox(node: Element): BoxGeometry | null {
+function getLatLonBox(node: Element | xmldom.Element): BoxGeometry | null {
   const latLonBox = get1(node, "LatLonBox");
 
   if (latLonBox) {
@@ -102,7 +103,7 @@ function getLatLonBox(node: Element): BoxGeometry | null {
 }
 
 export function getGroundOverlay(
-  node: Element,
+  node: Element | xmldom.Element,
   styleMap: StyleMap,
   schema: Schema,
   options: KMLOptions

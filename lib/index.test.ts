@@ -8,7 +8,7 @@ import xmldom from "@xmldom/xmldom";
 const d = "./test/data/";
 
 function parse(file: string) {
-  return new xmldom.DOMParser().parseFromString(fs.readFileSync(file, "utf8"));
+  return new xmldom.DOMParser().parseFromString(fs.readFileSync(file, "utf8"), xmldom.MIME_TYPE.XML_TEXT);
 }
 
 describe("toGeoJSON", () => {
