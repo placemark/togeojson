@@ -11,6 +11,7 @@ import {
 import { extractStyle } from "./extractStyle";
 import { getGeometry } from "./geometry";
 import { KMLOptions } from "lib/kml";
+import type xmldom from "@xmldom/xmldom";
 
 function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
   return geometries.length === 0
@@ -24,7 +25,7 @@ function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
 }
 
 export function getPlacemark(
-  node: Element,
+  node: Element | xmldom.Element,
   styleMap: StyleMap,
   schema: Schema,
   options: KMLOptions

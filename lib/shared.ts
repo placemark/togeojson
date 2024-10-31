@@ -1,7 +1,8 @@
 import type { Feature, Geometry } from "geojson";
+import xmldom from "@xmldom/xmldom";
 
-export function $(element: Element | Document, tagName: string): Element[] {
-  return Array.from(element.getElementsByTagName(tagName));
+export function $(element: Element | xmldom.Element | Document | xmldom.Document, tagName: string) {
+  return [...element.getElementsByTagName(tagName)];
 }
 
 export type P = NonNullable<Feature["properties"]>;
@@ -14,17 +15,17 @@ export function normalizeId(id: string) {
 }
 
 export function $ns(
-  element: Element | Document,
+  element: Element | xmldom.Element | Document | xmldom.Document,
   tagName: string,
   ns: string
-): Element[] {
-  return Array.from(element.getElementsByTagNameNS(ns, tagName));
+) {
+  return [...element.getElementsByTagNameNS(ns, tagName)];
 }
 
 /**
  * get the content of a text node, if any
  */
-export function nodeVal(node: Element | null) {
+export function nodeVal(node: Element | xmldom.Element | null) {
   node?.normalize();
   return (node && node.textContent) || "";
 }
@@ -33,9 +34,9 @@ export function nodeVal(node: Element | null) {
  * Get one Y child of X, if any, otherwise null
  */
 export function get1(
-  node: Element,
+  node: Element | xmldom.Element,
   tagName: string,
-  callback?: (elem: Element) => unknown
+  callback?: (elem: Element | xmldom.Element) => unknown
 ) {
   const n = node.getElementsByTagName(tagName);
   const result = n.length ? n[0] : null;
@@ -44,9 +45,9 @@ export function get1(
 }
 
 export function get(
-  node: Element | null,
+  node: Element | xmldom.Element | null,
   tagName: string,
-  callback?: (elem: Element, properties: P) => P
+  callback?: (elem: Element | xmldom.Element, properties: P) => P
 ) {
   const properties: Feature["properties"] = {};
   if (!node) return properties;
@@ -59,7 +60,7 @@ export function get(
 }
 
 export function val1(
-  node: Element,
+  node: Element | xmldom.Element,
   tagName: string,
   callback: (val: string) => P | void
 ): P {
@@ -69,7 +70,7 @@ export function val1(
 }
 
 export function $num(
-  node: Element,
+  node: Element | xmldom.Element,
   tagName: string,
   callback: (val: number) => Feature["properties"]
 ) {
@@ -80,7 +81,7 @@ export function $num(
 }
 
 export function num1(
-  node: Element,
+  node: Element | xmldom.Element,
   tagName: string,
   callback?: (val: number) => unknown
 ) {
@@ -90,7 +91,7 @@ export function num1(
   return val;
 }
 
-export function getMulti(node: Element, propertyNames: string[]): P {
+export function getMulti(node: Element | xmldom.Element, propertyNames: string[]): P {
   const properties: P = {};
   for (const property of propertyNames) {
     val1(node, property, (val) => {
@@ -100,6 +101,6 @@ export function getMulti(node: Element, propertyNames: string[]): P {
   return properties;
 }
 
-export function isElement(node: Node | null): node is Element {
-  return node?.nodeType === 1;
+export function isElement(node: Node | xmldom.Node | null): node is Element | xmldom.Element {
+  return node?.nodeType === xmldom.Node.ELEMENT_NODE;
 }

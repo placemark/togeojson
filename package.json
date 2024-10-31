@@ -35,7 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "@vitest/coverage-c8": "^0.25.2",
-    "@xmldom/xmldom": "^0.8.2",
+    "@xmldom/xmldom": "^0.9.5",
     "eslint": "^8.18.0",
     "prettier": "^2.7.1",
     "rollup": "^2.75.7",

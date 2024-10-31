@@ -1,9 +1,16 @@
 import { extractStyle } from "./extractStyle";
 import { describe, it, expect } from "vitest";
 import xmldom from "@xmldom/xmldom";
+import {isElement} from '../shared';
 
-function parse(xml: string): Element {
-  return new xmldom.DOMParser().parseFromString(xml).firstChild as Element;
+function parse(xml: string) {
+  const { firstChild } = new xmldom.DOMParser().parseFromString(xml, xmldom.MIME_TYPE.XML_TEXT);
+
+  if(isElement(firstChild)) {
+    return firstChild;
+  }
+
+  throw new Error("parse didn't have firstChild of type Element")
 }
 
 describe("extractStyle", () => {

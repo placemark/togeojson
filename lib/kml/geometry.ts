@@ -1,5 +1,6 @@
 import { Position, Point, LineString, Geometry } from "geojson";
 import { $, $ns, nodeVal, get1, isElement } from "../shared";
+import type xmldom from "@xmldom/xmldom";
 
 const removeSpace = /\s*/g;
 const trimSpace = /^\s*|\s*$/g;
@@ -31,7 +32,7 @@ export function coord(value: string): Position[] {
 }
 
 function gxCoords(
-  node: Element
+  node: Element | xmldom.Element
 ): { geometry: Point | LineString; times: string[] } | null {
   let elems = $(node, "coord");
   if (elems.length === 0) {
@@ -78,7 +79,7 @@ export function fixRing(ring: Position[]) {
   return ring;
 }
 
-export function getCoordinates(node: Element) {
+export function getCoordinates(node: Element | xmldom.Element) {
   return nodeVal(get1(node, "coordinates"));
 }
 
@@ -87,7 +88,7 @@ interface GeometriesAndTimes {
   coordTimes: string[][];
 }
 
-export function getGeometry(node: Element): GeometriesAndTimes {
+export function getGeometry(node: Element | xmldom.Element): GeometriesAndTimes {
   let geometries: Geometry[] = [];
   let coordTimes: string[][] = [];
 

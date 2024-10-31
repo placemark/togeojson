@@ -1,7 +1,8 @@
 import { P, get, num1, nodeVal, val1 } from "../shared";
 import { fixColor } from "./fixColor";
+import type xmldom from "@xmldom/xmldom";
 
-function numericProperty(node: Element, source: string, target: string): P {
+function numericProperty(node: Element | xmldom.Element, source: string, target: string): P {
   const properties: P = {};
   num1(node, source, (val) => {
     properties[target] = val;
@@ -9,11 +10,11 @@ function numericProperty(node: Element, source: string, target: string): P {
   return properties;
 }
 
-function getColor(node: Element, output: string): P {
+function getColor(node: Element | xmldom.Element, output: string): P {
   return get(node, "color", (elem) => fixColor(nodeVal(elem), output));
 }
 
-export function extractIconHref(node: Element) {
+export function extractIconHref(node: Element | xmldom.Element) {
   return get(node, "Icon", (icon, properties) => {
     val1(icon, "href", (href) => {
       properties.icon = href;
@@ -22,7 +23,7 @@ export function extractIconHref(node: Element) {
   });
 }
 
-export function extractIcon(node: Element) {
+export function extractIcon(node: Element | xmldom.Element) {
   return get(node, "IconStyle", (iconStyle) => {
     return Object.assign(
       getColor(iconStyle, "icon"),
@@ -45,7 +46,7 @@ export function extractIcon(node: Element) {
   });
 }
 
-export function extractLabel(node: Element) {
+export function extractLabel(node: Element | xmldom.Element) {
   return get(node, "LabelStyle", (labelStyle) => {
     return Object.assign(
       getColor(labelStyle, "label"),
@@ -54,7 +55,7 @@ export function extractLabel(node: Element) {
   });
 }
 
-export function extractLine(node: Element) {
+export function extractLine(node: Element | xmldom.Element) {
   return get(node, "LineStyle", (lineStyle) => {
     return Object.assign(
       getColor(lineStyle, "stroke"),
@@ -63,7 +64,7 @@ export function extractLine(node: Element) {
   });
 }
 
-export function extractPoly(node: Element) {
+export function extractPoly(node: Element | xmldom.Element) {
   return get(node, "PolyStyle", (polyStyle, properties) => {
     return Object.assign(
       properties,
@@ -78,7 +79,7 @@ export function extractPoly(node: Element) {
   });
 }
 
-export function extractStyle(node: Element) {
+export function extractStyle(node: Element | xmldom.Element) {
   return Object.assign(
     {},
     extractPoly(node),

@@ -1,6 +1,7 @@
 import { $, getMulti, nodeVal } from "../shared";
+import type xmldom from "@xmldom/xmldom";
 
-export function extractProperties(node: Element) {
+export function extractProperties(node: Element | xmldom.Element) {
   const properties = getMulti(node, [
     "name",
     "cmt",
@@ -10,12 +11,7 @@ export function extractProperties(node: Element) {
     "keywords",
   ]);
 
-  const extensions = Array.from(
-    node.getElementsByTagNameNS(
-      "http://www.garmin.com/xmlschemas/GpxExtensions/v3",
-      "*"
-    )
-  );
+  const extensions = [...node.getElementsByTagNameNS("http://www.garmin.com/xmlschemas/GpxExtensions/v3", "*")];
   for (const child of extensions) {
     if (child.parentNode?.parentNode === node) {
       properties[child.tagName.replace(":", "_")] = nodeVal(child);

@@ -1,11 +1,12 @@
 import { isElement, nodeVal } from "../shared";
+import type xmldom from "@xmldom/xmldom";
 
 export type ExtendedValues = [string, string | number][];
 
-export function getExtensions(node: Element | null): ExtendedValues {
+export function getExtensions(node: Element | xmldom.Element | null): ExtendedValues {
   let values: [string, string | number][] = [];
   if (node === null) return values;
-  for (const child of Array.from(node.childNodes)) {
+  for (const child of [...node.childNodes]) {
     if (!isElement(child)) continue;
     const name = abbreviateName(child.nodeName);
     if (name === "gpxtpx:TrackPointExtension") {

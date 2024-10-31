@@ -10,11 +10,12 @@ import { getLineStyle } from "./gpx/line";
 import { coordPair } from "./gpx/coord_pair";
 import { extractProperties } from "./gpx/properties";
 import { P, $, get1, getMulti } from "./shared";
+import type xmldom from "@xmldom/xmldom";
 
 /**
  * Extract points from a trkseg or rte element.
  */
-function getPoints(node: Element, pointname: "trkpt" | "rtept") {
+function getPoints(node: Element | xmldom.Element, pointname: "trkpt" | "rtept") {
   const pts = $(node, pointname);
   const line: Position[] = [];
   const times = [];
@@ -50,7 +51,7 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
  * Extract a LineString geometry from a rte
  * element.
  */
-function getRoute(node: Element): Feature<LineString> | undefined {
+function getRoute(node: Element | xmldom.Element): Feature<LineString> | undefined {
   const line = getPoints(node, "rtept");
   if (!line) return;
   return {
@@ -67,7 +68,7 @@ function getRoute(node: Element): Feature<LineString> | undefined {
   };
 }
 
-function getTrack(node: Element): Feature<LineString | MultiLineString> | null {
+function getTrack(node: Element | xmldom.Element): Feature<LineString | MultiLineString> | null {
   const segments = $(node, "trkseg");
   const track = [];
   const times = [];
@@ -139,7 +140,7 @@ function getTrack(node: Element): Feature<LineString | MultiLineString> | null {
  * Extract a point, if possible, from a given node,
  * which is usually a wpt or trkpt
  */
-function getPoint(node: Element): Feature<Point> | null {
+function getPoint(node: Element | xmldom.Element): Feature<Point> | null {
   const properties: Feature["properties"] = Object.assign(
     extractProperties(node),
     getMulti(node, ["sym"])
@@ -161,7 +162,7 @@ function getPoint(node: Element): Feature<Point> | null {
  * a [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
  * that yields output feature by feature.
  */
-export function* gpxGen(node: Document): Generator<Feature> {
+export function* gpxGen(node: Document | xmldom.Document): Generator<Feature> {
   for (const track of $(node, "trk")) {
     const feature = getTrack(track);
     if (feature) yield feature;
@@ -189,7 +190,7 @@ export function* gpxGen(node: Document): Generator<Feature> {
  * addition of a `_gpxType` property on each `LineString` feature that indicates whether
  * the feature was encoded as a route (`rte`) or track (`trk`) in the GPX document.
  */
-export function gpx(node: Document): FeatureCollection {
+export function gpx(node: Document | xmldom.Document): FeatureCollection {
   return {
     type: "FeatureCollection",
     features: Array.from(gpxGen(node)),

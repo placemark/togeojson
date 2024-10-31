@@ -13,6 +13,7 @@ import {
   normalizeId,
 } from "./shared";
 import { Schema, typeConverters } from "./kml/shared";
+import type xmldom from "@xmldom/xmldom";
 
 /**
  * Options to customize KML output.
@@ -68,7 +69,7 @@ export interface Root {
 
 type TreeContainer = Root | Folder;
 
-function getStyleId(style: Element) {
+function getStyleId(style: Element | xmldom.Element) {
   let id = style.getAttribute("id");
   const parentNode = style.parentNode;
   if (
@@ -81,7 +82,7 @@ function getStyleId(style: Element) {
   return normalizeId(id || "");
 }
 
-function buildStyleMap(node: Document): StyleMap {
+function buildStyleMap(node: Document | xmldom.Document): StyleMap {
   const styleMap: StyleMap = {};
   for (const style of $(node, "Style")) {
     styleMap[getStyleId(style)] = extractStyle(style);
@@ -98,7 +99,7 @@ function buildStyleMap(node: Document): StyleMap {
   return styleMap;
 }
 
-function buildSchema(node: Document): Schema {
+function buildSchema(node: Document | xmldom.Document): Schema {
   const schema: Schema = {};
   for (const field of $(node, "SimpleField")) {
     schema[field.getAttribute("name") || ""] =
@@ -118,10 +119,10 @@ const FOLDER_PROPS = [
   "visibility",
 ] as const;
 
-function getFolder(node: Element): Folder {
+function getFolder(node: Element | xmldom.Element): Folder {
   const meta: P = {};
 
-  for (const child of Array.from(node.childNodes)) {
+  for (const child of [...node.childNodes]) {
     if (isElement(child) && FOLDER_PROPS.includes(child.tagName as any)) {
       meta[child.tagName] = nodeVal(child);
     }
@@ -175,7 +176,7 @@ function getFolder(node: Element): Folder {
  * on which map framework you're using.
  */
 export function kmlWithFolders(
-  node: Document,
+  node: Document | xmldom.Document,
   options: KMLOptions = {
     skipNullGeometry: false,
   }
@@ -190,7 +191,7 @@ export function kmlWithFolders(
   const tree: Root = { type: "root", children: [] };
 
   function traverse(
-    node: Document | ChildNode | Element,
+    node: Document | xmldom.Document | Node | xmldom.Node | Element | xmldom.Element,
     pointer: TreeContainer,
     options: KMLOptions
   ) {
@@ -239,7 +240,7 @@ export function kmlWithFolders(
  * that yields output feature by feature.
  */
 export function* kmlGen(
-  node: Document,
+  node: Document | xmldom.Document,
   options: KMLOptions = {
     skipNullGeometry: false,
   }
@@ -267,7 +268,7 @@ export function* kmlGen(
  * or use it directly in libraries.
  */
 export function kml(
-  node: Document,
+  node: Document | xmldom.Document,
   options: KMLOptions = {
     skipNullGeometry: false,
   }

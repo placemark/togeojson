@@ -1,5 +1,6 @@
 import { Feature, FeatureCollection, Position } from "geojson";
 import { P, $, get, num1, nodeVal, get1 } from "./shared";
+import type xmldom from "@xmldom/xmldom";
 
 type PropertyMapping = readonly [string, string][];
 
@@ -26,7 +27,7 @@ const LAP_ATTRIBUTES: PropertyMapping = [
   ["MaxWatts", "maxWatts"],
 ];
 
-function getProperties(node: Element, attributeNames: PropertyMapping) {
+function getProperties(node: Element | xmldom.Element, attributeNames: PropertyMapping) {
   const properties = [];
 
   for (const [tag, alias] of attributeNames) {
@@ -46,7 +47,7 @@ function getProperties(node: Element, attributeNames: PropertyMapping) {
   return properties;
 }
 
-function coordPair(node: Element) {
+function coordPair(node: Element | xmldom.Element) {
   const ll = [num1(node, "LongitudeDegrees"), num1(node, "LatitudeDegrees")];
   if (
     ll[0] === undefined ||
@@ -72,7 +73,7 @@ function coordPair(node: Element) {
   };
 }
 
-function getPoints(node: Element) {
+function getPoints(node: Element | xmldom.Element) {
   const pts = $(node, "Trackpoint");
   const line: Position[] = [];
   const times = [];
@@ -102,7 +103,7 @@ function getPoints(node: Element) {
   });
 }
 
-function getLap(node: Element): Feature | null {
+function getLap(node: Element | xmldom.Element): Feature | null {
   const segments = $(node, "Track");
   const track = [];
   const times = [];
@@ -181,7 +182,7 @@ function getLap(node: Element): Feature | null {
  * first argument, `doc`, must be a TCX
  * document as an XML DOM - not as a string.
  */
-export function* tcxGen(node: Document): Generator<Feature> {
+export function* tcxGen(node: Document | xmldom.Document): Generator<Feature> {
   for (const lap of $(node, "Lap")) {
     const feature = getLap(lap);
     if (feature) yield feature;
@@ -197,7 +198,7 @@ export function* tcxGen(node: Document): Generator<Feature> {
  * Convert a TCX document to GeoJSON. The first argument, `doc`, must be a TCX
  * document as an XML DOM - not as a string.
  */
-export function tcx(node: Document): FeatureCollection {
+export function tcx(node: Document | xmldom.Document): FeatureCollection {
   return {
     type: "FeatureCollection",
     features: Array.from(tcxGen(node)),
