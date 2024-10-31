@@ -1,5 +1,5 @@
 import type { Feature, Geometry } from "geojson";
-import xmldom from "@xmldom/xmldom";
+import type xmldom from "@xmldom/xmldom";
 
 export function $(element: Element | xmldom.Element | Document | xmldom.Document, tagName: string) {
   return [...element.getElementsByTagName(tagName)];
@@ -102,5 +102,5 @@ export function getMulti(node: Element | xmldom.Element, propertyNames: string[]
 }
 
 export function isElement(node: Node | xmldom.Node | null): node is Element | xmldom.Element {
-  return node?.nodeType === xmldom.Node.ELEMENT_NODE;
+  return node?.nodeType === 1;
 }
