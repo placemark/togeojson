@@ -1,16 +1,16 @@
-import { extractStyle } from "./extractStyle";
-import { describe, it, expect } from "vitest";
 import xmldom from "@xmldom/xmldom";
+import { describe, expect, it } from "vitest";
+import { extractStyle } from "./extractStyle";
 
 function parse(xml: string): Element {
-  return new xmldom.DOMParser().parseFromString(xml).firstChild as Element;
+	return new xmldom.DOMParser().parseFromString(xml).firstChild as Element;
 }
 
 describe("extractStyle", () => {
-  it("passes-through CSS colors", () => {
-    expect(
-      extractStyle(
-        parse(`<Style>
+	it("passes-through CSS colors", () => {
+		expect(
+			extractStyle(
+				parse(`<Style>
 <IconStyle>
 <Icon>
 <href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
@@ -29,9 +29,9 @@ describe("extractStyle", () => {
 <BalloonStyle>
 <displayMode>hide</displayMode>
 </BalloonStyle>
-</Style>`)
-      )
-    ).toMatchInlineSnapshot(`
+</Style>`),
+			),
+		).toMatchInlineSnapshot(`
       {
         "fill": "#ffee58",
         "fill-opacity": 0.25098039215686274,
@@ -49,11 +49,11 @@ describe("extractStyle", () => {
         "stroke-width": 2.13333,
       }
     `);
-  });
-  it("passes-through CSS colors", () => {
-    expect(
-      extractStyle(
-        parse(`<Style>
+	});
+	it("passes-through CSS colors", () => {
+		expect(
+			extractStyle(
+				parse(`<Style>
       <IconStyle>
         <color>ffd18802</color>
         <scale>1</scale>
@@ -68,9 +68,9 @@ describe("extractStyle", () => {
       <BalloonStyle>
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
-    </Style>`)
-      )
-    ).toMatchInlineSnapshot(`
+    </Style>`),
+			),
+		).toMatchInlineSnapshot(`
       {
         "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png",
         "icon-color": "#0288d1",
@@ -87,5 +87,5 @@ describe("extractStyle", () => {
         "label-scale": 0,
       }
     `);
-  });
+	});
 });
