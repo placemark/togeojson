@@ -12780,6 +12780,8 @@ exports[`toGeoJSON > garmin_extensions.gpx 1`] = `
       "properties": {
         "_gpxType": "trk",
         "coordinateProperties": {},
+        "gpxx_DisplayColor": "Magenta",
+        "gpxx_TrackExtension": "Magenta",
         "name": "track name",
       },
       "type": "Feature",
@@ -18234,9 +18236,7 @@ exports[`toGeoJSON > missing_hr.gpx 1`] = `
             ],
           ],
         },
-        "gpxtpx_TrackPointExtension": "
-						131
-					",
+        "gpxtpx_TrackPointExtension": "131",
         "gpxtpx_hr": "131",
         "name": "missing hr",
         "time": "2017-05-27T04:00:00Z",
@@ -20591,6 +20591,8 @@ exports[`toGeoJSON > multitrackgpx.gpx 1`] = `
             "2008-07-12T10:05:33Z",
           ],
         },
+        "gpxx_DisplayColor": "Transparent",
+        "gpxx_TrackExtension": "Transparent",
         "name": "Tag 1",
         "time": "2008-07-12T09:58:23Z",
       },
@@ -20998,6 +21000,8 @@ exports[`toGeoJSON > multitrackgpx.gpx 1`] = `
             "2008-07-13T08:13:33Z",
           ],
         },
+        "gpxx_DisplayColor": "Transparent",
+        "gpxx_TrackExtension": "Transparent",
         "name": "Tag 2",
         "time": "2008-07-13T07:57:31Z",
       },
@@ -21099,6 +21103,8 @@ exports[`toGeoJSON > multitrackgpx.gpx 1`] = `
             "2008-07-14T07:09:43Z",
           ],
         },
+        "gpxx_DisplayColor": "Transparent",
+        "gpxx_TrackExtension": "Transparent",
         "name": "Tag 3",
         "time": "2008-07-14T07:08:19Z",
       },
@@ -22518,9 +22524,7 @@ exports[`toGeoJSON > opencpn.gpx 1`] = `
       "properties": {
         "_gpxType": "rte",
         "gpxx_IsAutoNamed": "false",
-        "gpxx_RouteExtension": "
-        false
-      ",
+        "gpxx_RouteExtension": "false",
         "name": "Around Orcas",
         "opencpn_arrival_radius": "0.050",
         "opencpn_auto_name": "1",
@@ -26346,9 +26350,7 @@ exports[`toGeoJSON > run.gpx 1`] = `
             "2012-10-24T23:45:28.000Z",
           ],
         },
-        "gpxtpx_TrackPointExtension": "
-            186
-          ",
+        "gpxtpx_TrackPointExtension": "186",
         "gpxtpx_hr": "186",
         "name": "Untitled",
         "time": "2012-10-24T23:29:40.000Z",
@@ -26671,9 +26673,7 @@ exports[`toGeoJSON > run_gpxtpx.gpx 1`] = `
             "2015-01-19T21:25:01Z",
           ],
         },
-        "gpxtpx_TrackPointExtension": "
-      150
-     ",
+        "gpxtpx_TrackPointExtension": "150",
         "gpxtpx_hr": "150",
         "name": "Greeting SF with a dumb, dumb route",
         "time": "2015-01-19T21:24:20Z",
@@ -27269,12 +27269,10 @@ exports[`toGeoJSON > strava.gpx 1`] = `
           ],
         },
         "desc": "Strava sample file based on: https://github.com/sports-alliance/sports-lib/blob/develop/samples/gpx/strava.gpx",
-        "gpxtpx_TrackPointExtension": "
-            9
+        "gpxtpx_TrackPointExtension": "9
             160
             85
-            21
-          ",
+            21",
         "gpxtpx_atemp": "21",
         "gpxtpx_cad": "85",
         "gpxtpx_hr": "160",

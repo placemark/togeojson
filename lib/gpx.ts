@@ -165,12 +165,14 @@ function getPoint(ns: NS, node: Element): Feature<Point> | null {
  * that yields output feature by feature.
  */
 export function* gpxGen(node: Document): Generator<Feature> {
+	const GPXX = "gpxx";
+	const GPXX_URI = "http://www.garmin.com/xmlschemas/GpxExtensions/v3";
 	// Namespaces
-	const ns: NS = [];
+	const ns: NS = [[GPXX, GPXX_URI]];
 	const attrs = node.getElementsByTagName("gpx")[0]?.attributes;
 	if (attrs) {
 		for (const attr of Array.from(attrs)) {
-			if (attr.name?.startsWith("xmlns:")) {
+			if (attr.name?.startsWith("xmlns:") && attr.value !== GPXX_URI) {
 				ns.push([attr.name, attr.value]);
 			}
 		}

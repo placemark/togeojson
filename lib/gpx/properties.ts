@@ -12,7 +12,7 @@ export function extractProperties(ns: NS, node: Element) {
 
 	for (const [n, url] of ns) {
 		for (const child of Array.from(node.getElementsByTagNameNS(url, "*"))) {
-			properties[child.tagName.replace(":", "_")] = nodeVal(child);
+			properties[child.tagName.replace(":", "_")] = nodeVal(child)?.trim();
 		}
 	}
 
