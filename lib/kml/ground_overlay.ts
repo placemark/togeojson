@@ -40,7 +40,7 @@ const DEGREES_TO_RADIANS = Math.PI / 180;
 function rotateBox(
   bbox: BBox,
   coordinates: Polygon["coordinates"],
-  rotation: number
+  rotation: number,
 ): Polygon["coordinates"] {
   const center = [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2];
 
@@ -105,7 +105,7 @@ export function getGroundOverlay(
   node: Element,
   styleMap: StyleMap,
   schema: Schema,
-  options: KMLOptions
+  options: KMLOptions,
 ): Feature<Polygon | null> | null {
   const box = getGroundOverlayBox(node);
 
@@ -138,7 +138,7 @@ export function getGroundOverlay(
       extractIconHref(node),
       extractExtendedData(node, schema),
       extractTimeSpan(node),
-      extractTimeStamp(node)
+      extractTimeStamp(node),
     ),
   };
 

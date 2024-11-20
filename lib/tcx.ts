@@ -113,7 +113,7 @@ function getLap(node: Element): Feature | null {
     Object.fromEntries(getProperties(node, LAP_ATTRIBUTES)),
     get(node, "Name", (nameElement) => {
       return { name: nodeVal(nameElement) };
-    })
+    }),
   );
 
   for (const segment of segments) {
@@ -135,7 +135,7 @@ function getLap(node: Element): Feature | null {
       } else {
         if (!properties[property]) {
           properties[property] = track.map((track) =>
-            Array(track.length).fill(null)
+            Array(track.length).fill(null),
           );
         }
         properties[property][i] = extendedProperties[property];
@@ -156,7 +156,7 @@ function getLap(node: Element): Feature | null {
         ? {
             heart: track.length === 1 ? heartRates[0] : heartRates,
           }
-        : {}
+        : {},
     );
   }
 

@@ -16,18 +16,18 @@ function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
   return geometries.length === 0
     ? null
     : geometries.length === 1
-    ? geometries[0]
-    : {
-        type: "GeometryCollection",
-        geometries,
-      };
+      ? geometries[0]
+      : {
+          type: "GeometryCollection",
+          geometries,
+        };
 }
 
 export function getPlacemark(
   node: Element,
   styleMap: StyleMap,
   schema: Schema,
-  options: KMLOptions
+  options: KMLOptions,
 ): Feature<Geometry | null> | null {
   const { coordTimes, geometries } = getGeometry(node);
 
@@ -61,7 +61,7 @@ export function getPlacemark(
               times: coordTimes.length === 1 ? coordTimes[0] : coordTimes,
             },
           }
-        : {}
+        : {},
     ),
   };
 
