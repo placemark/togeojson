@@ -1,7 +1,7 @@
 import type { Feature, Geometry } from "geojson";
 
 export function $(element: Element | Document, tagName: string): Element[] {
-  return Array.from(element.getElementsByTagName(tagName));
+	return Array.from(element.getElementsByTagName(tagName));
 }
 
 export type P = NonNullable<Feature["properties"]>;
@@ -10,96 +10,96 @@ export type F = Feature<Geometry | null>;
 export type StyleMap = { [key: string]: P };
 
 export function normalizeId(id: string) {
-  return id[0] === "#" ? id : `#${id}`;
+	return id[0] === "#" ? id : `#${id}`;
 }
 
 export function $ns(
-  element: Element | Document,
-  tagName: string,
-  ns: string
+	element: Element | Document,
+	tagName: string,
+	ns: string,
 ): Element[] {
-  return Array.from(element.getElementsByTagNameNS(ns, tagName));
+	return Array.from(element.getElementsByTagNameNS(ns, tagName));
 }
 
 /**
  * get the content of a text node, if any
  */
 export function nodeVal(node: Element | null) {
-  node?.normalize();
-  return (node && node.textContent) || "";
+	node?.normalize();
+	return node?.textContent || "";
 }
 
 /**
  * Get one Y child of X, if any, otherwise null
  */
 export function get1(
-  node: Element,
-  tagName: string,
-  callback?: (elem: Element) => unknown
+	node: Element,
+	tagName: string,
+	callback?: (elem: Element) => unknown,
 ) {
-  const n = node.getElementsByTagName(tagName);
-  const result = n.length ? n[0] : null;
-  if (result && callback) callback(result);
-  return result;
+	const n = node.getElementsByTagName(tagName);
+	const result = n.length ? n[0] : null;
+	if (result && callback) callback(result);
+	return result;
 }
 
 export function get(
-  node: Element | null,
-  tagName: string,
-  callback?: (elem: Element, properties: P) => P
+	node: Element | null,
+	tagName: string,
+	callback?: (elem: Element, properties: P) => P,
 ) {
-  const properties: Feature["properties"] = {};
-  if (!node) return properties;
-  const n = node.getElementsByTagName(tagName);
-  const result = n.length ? n[0] : null;
-  if (result && callback) {
-    return callback(result, properties);
-  }
-  return properties;
+	const properties: Feature["properties"] = {};
+	if (!node) return properties;
+	const n = node.getElementsByTagName(tagName);
+	const result = n.length ? n[0] : null;
+	if (result && callback) {
+		return callback(result, properties);
+	}
+	return properties;
 }
 
 export function val1(
-  node: Element,
-  tagName: string,
-  callback: (val: string) => P | void
+	node: Element,
+	tagName: string,
+	callback: (val: string) => P | undefined,
 ): P {
-  const val = nodeVal(get1(node, tagName));
-  if (val && callback) return callback(val) || {};
-  return {};
+	const val = nodeVal(get1(node, tagName));
+	if (val && callback) return callback(val) || {};
+	return {};
 }
 
 export function $num(
-  node: Element,
-  tagName: string,
-  callback: (val: number) => Feature["properties"]
+	node: Element,
+	tagName: string,
+	callback: (val: number) => Feature["properties"],
 ) {
-  const val = parseFloat(nodeVal(get1(node, tagName)));
-  if (isNaN(val)) return undefined;
-  if (val && callback) return callback(val) || {};
-  return {};
+	const val = Number.parseFloat(nodeVal(get1(node, tagName)));
+	if (Number.isNaN(val)) return undefined;
+	if (val && callback) return callback(val) || {};
+	return {};
 }
 
 export function num1(
-  node: Element,
-  tagName: string,
-  callback?: (val: number) => unknown
+	node: Element,
+	tagName: string,
+	callback?: (val: number) => unknown,
 ) {
-  const val = parseFloat(nodeVal(get1(node, tagName)));
-  if (isNaN(val)) return undefined;
-  if (callback) callback(val);
-  return val;
+	const val = Number.parseFloat(nodeVal(get1(node, tagName)));
+	if (Number.isNaN(val)) return undefined;
+	if (callback) callback(val);
+	return val;
 }
 
 export function getMulti(node: Element, propertyNames: string[]): P {
-  const properties: P = {};
-  for (const property of propertyNames) {
-    val1(node, property, (val) => {
-      properties[property] = val;
-    });
-  }
-  return properties;
+	const properties: P = {};
+	for (const property of propertyNames) {
+		val1(node, property, (val) => {
+			properties[property] = val;
+		});
+	}
+	return properties;
 }
 
 export function isElement(node: Node | null): node is Element {
-  return node?.nodeType === 1;
+	return node?.nodeType === 1;
 }

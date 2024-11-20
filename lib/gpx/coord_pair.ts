@@ -1,31 +1,31 @@
-import { Position } from "geojson";
-import { num1, get1, nodeVal } from "../shared";
-import { ExtendedValues, getExtensions } from "./extensions";
+import type { Position } from "geojson";
+import { get1, nodeVal, num1 } from "../shared";
+import { type ExtendedValues, getExtensions } from "./extensions";
 
 interface CoordPair {
-  coordinates: Position;
-  time: string | null;
-  extendedValues: ExtendedValues;
+	coordinates: Position;
+	time: string | null;
+	extendedValues: ExtendedValues;
 }
 
 export function coordPair(node: Element): CoordPair | null {
-  const ll = [
-    parseFloat(node.getAttribute("lon") || ""),
-    parseFloat(node.getAttribute("lat") || ""),
-  ];
+	const ll = [
+		Number.parseFloat(node.getAttribute("lon") || ""),
+		Number.parseFloat(node.getAttribute("lat") || ""),
+	];
 
-  if (isNaN(ll[0]) || isNaN(ll[1])) {
-    return null;
-  }
+	if (Number.isNaN(ll[0]) || Number.isNaN(ll[1])) {
+		return null;
+	}
 
-  num1(node, "ele", (val) => {
-    ll.push(val);
-  });
+	num1(node, "ele", (val) => {
+		ll.push(val);
+	});
 
-  const time = get1(node, "time");
-  return {
-    coordinates: ll,
-    time: time ? nodeVal(time) : null,
-    extendedValues: getExtensions(get1(node, "extensions")),
-  };
+	const time = get1(node, "time");
+	return {
+		coordinates: ll,
+		time: time ? nodeVal(time) : null,
+		extendedValues: getExtensions(get1(node, "extensions")),
+	};
 }
