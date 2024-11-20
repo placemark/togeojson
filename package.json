@@ -15,7 +15,9 @@
 		"require": "./dist/togeojson.cjs",
 		"default": "./dist/togeojson.es.mjs"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"test": "vitest run",
 		"lint": "biome check",
@@ -37,6 +39,7 @@
 		"rollup-plugin-dts": "^4.2.2",
 		"rollup-plugin-terser": "^7.0.2",
 		"standard-version": "^9.5.0",
+		"tslib": "^2.8.1",
 		"typedoc": "^0.22.17",
 		"typescript": "^4.7.4",
 		"vitest": "^0.25.2"
