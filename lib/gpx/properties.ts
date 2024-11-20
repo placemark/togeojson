@@ -1,6 +1,6 @@
-import { $, getMulti, nodeVal } from "../shared";
+import { $, getMulti, nodeVal, type NS } from "../shared";
 
-export function extractProperties(node: Element) {
+export function extractProperties(ns: NS, node: Element) {
 	const properties = getMulti(node, [
 		"name",
 		"cmt",
@@ -10,16 +10,8 @@ export function extractProperties(node: Element) {
 		"keywords",
 	]);
 
-	const extensions = Array.from(
-		node.getElementsByTagNameNS(
-			"http://www.garmin.com/xmlschemas/GpxExtensions/v3",
-			"*",
-		),
-	).concat(
-		Array.from(node.getElementsByTagNameNS("http://www.opencpn.org", "*")),
-	);
-	for (const child of extensions) {
-		if (child.parentNode?.parentNode === node) {
+	for (const [n, url] of ns) {
+		for (const child of Array.from(node.getElementsByTagNameNS(url, "*"))) {
 			properties[child.tagName.replace(":", "_")] = nodeVal(child);
 		}
 	}
