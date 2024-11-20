@@ -31,7 +31,7 @@ export function coord(value: string): Position[] {
 }
 
 function gxCoords(
-  node: Element,
+  node: Element
 ): { geometry: Point | LineString; times: string[] } | null {
   let elems = $(node, "coord");
   if (elems.length === 0) {

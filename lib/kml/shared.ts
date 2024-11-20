@@ -28,7 +28,7 @@ export function extractExtendedData(node: Element, schema: Schema) {
   return get(node, "ExtendedData", (extendedData, properties) => {
     for (const data of $(extendedData, "Data")) {
       properties[data.getAttribute("name") || ""] = nodeVal(
-        get1(data, "value"),
+        get1(data, "value")
       );
     }
     for (const simpleData of $(extendedData, "SimpleData")) {

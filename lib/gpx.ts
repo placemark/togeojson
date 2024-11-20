@@ -58,7 +58,7 @@ function getRoute(ns: NS, node: Element): Feature<LineString> | undefined {
     properties: Object.assign(
       { _gpxType: "rte" },
       extractProperties(ns, node),
-      getLineStyle(get1(node, "extensions")),
+      getLineStyle(get1(node, "extensions"))
     ),
     geometry: {
       type: "LineString",
@@ -69,7 +69,7 @@ function getRoute(ns: NS, node: Element): Feature<LineString> | undefined {
 
 function getTrack(
   ns: NS,
-  node: Element,
+  node: Element
 ): Feature<LineString | MultiLineString> | null {
   const segments = $(node, "trkseg");
   const track = [];
@@ -98,7 +98,7 @@ function getTrack(
             times: multi ? times : times[0],
           },
         }
-      : {},
+      : {}
   );
 
   for (const line of extractedLines) {
@@ -113,7 +113,7 @@ function getTrack(
       if (multi) {
         if (!props[name]) {
           props[name] = extractedLines.map((line) =>
-            new Array(line.line.length).fill(null),
+            new Array(line.line.length).fill(null)
           );
         }
         props[name][i] = val;
@@ -145,7 +145,7 @@ function getTrack(
 function getPoint(ns: NS, node: Element): Feature<Point> | null {
   const properties: Feature["properties"] = Object.assign(
     extractProperties(ns, node),
-    getMulti(node, ["sym"]),
+    getMulti(node, ["sym"])
   );
   const pair = coordPair(node);
   if (!pair) return null;

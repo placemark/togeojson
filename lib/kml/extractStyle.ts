@@ -40,7 +40,7 @@ export function extractIcon(node: Element) {
           };
         return {};
       }),
-      extractIconHref(iconStyle),
+      extractIconHref(iconStyle)
     );
   });
 }
@@ -49,7 +49,7 @@ export function extractLabel(node: Element) {
   return get(node, "LabelStyle", (labelStyle) => {
     return Object.assign(
       getColor(labelStyle, "label"),
-      numericProperty(labelStyle, "scale", "label-scale"),
+      numericProperty(labelStyle, "scale", "label-scale")
     );
   });
 }
@@ -58,7 +58,7 @@ export function extractLine(node: Element) {
   return get(node, "LineStyle", (lineStyle) => {
     return Object.assign(
       getColor(lineStyle, "stroke"),
-      numericProperty(lineStyle, "width", "stroke-width"),
+      numericProperty(lineStyle, "width", "stroke-width")
     );
   });
 }
@@ -73,7 +73,7 @@ export function extractPoly(node: Element) {
       }),
       val1(polyStyle, "outline", (outline) => {
         if (outline === "0") return { "stroke-opacity": 0 };
-      }),
+      })
     );
   });
 }
@@ -84,6 +84,6 @@ export function extractStyle(node: Element) {
     extractPoly(node),
     extractLine(node),
     extractLabel(node),
-    extractIcon(node),
+    extractIcon(node)
   );
 }

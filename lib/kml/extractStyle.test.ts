@@ -29,8 +29,8 @@ describe("extractStyle", () => {
 <BalloonStyle>
 <displayMode>hide</displayMode>
 </BalloonStyle>
-</Style>`),
-      ),
+</Style>`)
+      )
     ).toMatchInlineSnapshot(`
       {
         "fill": "#ffee58",
@@ -68,8 +68,8 @@ describe("extractStyle", () => {
       <BalloonStyle>
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
-    </Style>`),
-      ),
+    </Style>`)
+      )
     ).toMatchInlineSnapshot(`
       {
         "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png",

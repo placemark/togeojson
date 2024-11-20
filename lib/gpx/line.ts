@@ -13,7 +13,7 @@ export function getLineStyle(node: Element | null) {
       $num(lineStyle, "width", (width) => {
         // GPX width is in mm, convert to px with 96 px per inch
         return { "stroke-width": (width * 96) / 25.4 };
-      }),
+      })
     );
     return val;
   });

@@ -21,8 +21,8 @@ export function extractProperties(ns: NS, node: Element) {
     properties.links = links.map((link) =>
       Object.assign(
         { href: link.getAttribute("href") },
-        getMulti(link, ["text", "type"]),
-      ),
+        getMulti(link, ["text", "type"])
+      )
     );
   }
 

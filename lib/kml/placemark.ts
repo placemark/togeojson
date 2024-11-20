@@ -27,7 +27,7 @@ export function getPlacemark(
   node: Element,
   styleMap: StyleMap,
   schema: Schema,
-  options: KMLOptions,
+  options: KMLOptions
 ): Feature<Geometry | null> | null {
   const { coordTimes, geometries } = getGeometry(node);
 
@@ -61,7 +61,7 @@ export function getPlacemark(
               times: coordTimes.length === 1 ? coordTimes[0] : coordTimes,
             },
           }
-        : {},
+        : {}
     ),
   };
 

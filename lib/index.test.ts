@@ -30,7 +30,7 @@ describe("toGeoJSON", () => {
         expect(
           tj.kmlWithFolders(dom, {
             skipNullGeometry: true,
-          }),
+          })
         ).toMatchSnapshot();
       }
     });
@@ -42,17 +42,17 @@ describe("mini cases", () => {
     expect(
       tj.kml(parse(path.join(d, "null_geometry.kml")), {
         skipNullGeometry: true,
-      }).features,
+      }).features
     ).toHaveLength(0);
     expect(
       tj.kml(parse(path.join(d, "null_geometry.kml")), {
         skipNullGeometry: false,
-      }).features,
+      }).features
     ).toHaveLength(1);
   });
   it("folder nesting", () => {
     expect(
-      tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml"))),
+      tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml")))
     ).toMatchInlineSnapshot(`
         {
           "children": [

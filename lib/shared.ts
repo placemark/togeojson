@@ -18,7 +18,7 @@ export function normalizeId(id: string) {
 export function $ns(
   element: Element | Document,
   tagName: string,
-  ns: string,
+  ns: string
 ): Element[] {
   return Array.from(element.getElementsByTagNameNS(ns, tagName));
 }
@@ -37,7 +37,7 @@ export function nodeVal(node: Element | null) {
 export function get1(
   node: Element,
   tagName: string,
-  callback?: (elem: Element) => unknown,
+  callback?: (elem: Element) => unknown
 ) {
   const n = node.getElementsByTagName(tagName);
   const result = n.length ? n[0] : null;
@@ -48,7 +48,7 @@ export function get1(
 export function get(
   node: Element | null,
   tagName: string,
-  callback?: (elem: Element, properties: P) => P,
+  callback?: (elem: Element, properties: P) => P
 ) {
   const properties: Feature["properties"] = {};
   if (!node) return properties;
@@ -63,7 +63,7 @@ export function get(
 export function val1(
   node: Element,
   tagName: string,
-  callback: (val: string) => P | void,
+  callback: (val: string) => P | void
 ): P {
   const val = nodeVal(get1(node, tagName));
   if (val && callback) return callback(val) || {};
@@ -73,7 +73,7 @@ export function val1(
 export function $num(
   node: Element,
   tagName: string,
-  callback: (val: number) => Feature["properties"],
+  callback: (val: number) => Feature["properties"]
 ) {
   const val = parseFloat(nodeVal(get1(node, tagName)));
   if (isNaN(val)) return undefined;
@@ -84,7 +84,7 @@ export function $num(
 export function num1(
   node: Element,
   tagName: string,
-  callback?: (val: number) => unknown,
+  callback?: (val: number) => unknown
 ) {
   const val = parseFloat(nodeVal(get1(node, tagName)));
   if (isNaN(val)) return undefined;

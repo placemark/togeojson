@@ -178,7 +178,7 @@ export function kmlWithFolders(
   node: Document,
   options: KMLOptions = {
     skipNullGeometry: false,
-  },
+  }
 ): Root {
   const styleMap = buildStyleMap(node);
   const schema = buildSchema(node);
@@ -192,7 +192,7 @@ export function kmlWithFolders(
   function traverse(
     node: Document | ChildNode | Element,
     pointer: TreeContainer,
-    options: KMLOptions,
+    options: KMLOptions
   ) {
     if (isElement(node)) {
       switch (node.tagName) {
@@ -242,7 +242,7 @@ export function* kmlGen(
   node: Document,
   options: KMLOptions = {
     skipNullGeometry: false,
-  },
+  }
 ): Generator<F> {
   const styleMap = buildStyleMap(node);
   const schema = buildSchema(node);
@@ -270,7 +270,7 @@ export function kml(
   node: Document,
   options: KMLOptions = {
     skipNullGeometry: false,
-  },
+  }
 ): FeatureCollection<Geometry | null> {
   return {
     type: "FeatureCollection",
