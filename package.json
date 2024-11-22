@@ -41,6 +41,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "standard-version": "^9.5.0",
     "typedoc": "^0.22.17",
+    "@biomejs/biome": "^1.9.4",
     "typescript": "^4.7.4",
     "vitest": "^0.25.2"
   },
@@ -63,8 +64,5 @@
   ],
   "engines": {
     "node": "*"
-  },
-  "dependencies": {
-    "@biomejs/biome": "^1.9.4"
   }
 }
