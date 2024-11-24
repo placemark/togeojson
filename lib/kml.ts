@@ -1,18 +1,18 @@
+import type { FeatureCollection, Geometry } from "geojson";
 import { extractStyle } from "./kml/extractStyle";
-import { getPlacemark } from "./kml/placemark";
 import { getGroundOverlay } from "./kml/ground_overlay";
-import { FeatureCollection, Geometry } from "geojson";
+import { getPlacemark } from "./kml/placemark";
+import { type Schema, typeConverters } from "./kml/shared";
 import {
   $,
-  StyleMap,
-  P,
-  F,
-  val1,
-  nodeVal,
+  type F,
+  type P,
+  type StyleMap,
   isElement,
+  nodeVal,
   normalizeId,
+  val1,
 } from "./shared";
-import { Schema, typeConverters } from "./kml/shared";
 
 /**
  * Options to customize KML output.
@@ -102,8 +102,7 @@ function buildSchema(node: Document): Schema {
   const schema: Schema = {};
   for (const field of $(node, "SimpleField")) {
     schema[field.getAttribute("name") || ""] =
-      typeConverters[field.getAttribute("type") || ""] ||
-      typeConverters["string"];
+      typeConverters[field.getAttribute("type") || ""] || typeConverters.string;
   }
   return schema;
 }

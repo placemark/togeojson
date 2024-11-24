@@ -1,6 +1,6 @@
-import { terser } from "rollup-plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import { terser } from "rollup-plugin-terser";
 
 const input = "./lib/index.ts";
 const sourcemap = true;

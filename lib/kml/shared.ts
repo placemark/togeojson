@@ -1,11 +1,11 @@
 import {
+  $,
+  type P,
+  type StyleMap,
   get,
   get1,
   nodeVal,
-  $,
   normalizeId,
-  P,
-  StyleMap,
   val1,
 } from "../shared";
 

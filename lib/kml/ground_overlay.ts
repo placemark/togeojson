@@ -1,16 +1,16 @@
-import { Feature, Polygon } from "geojson";
-import { StyleMap, get1, num1, getMulti } from "../shared";
+import type { Feature, Polygon } from "geojson";
+import type { KMLOptions } from "lib/kml";
+import { type StyleMap, get1, getMulti, num1 } from "../shared";
+import { extractIconHref, extractStyle } from "./extractStyle";
+import { coord, fixRing, getCoordinates } from "./geometry";
 import {
+  type Schema,
   extractCascadedStyle,
   extractExtendedData,
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
-  Schema,
 } from "./shared";
-import { extractIconHref, extractStyle } from "./extractStyle";
-import { coord, fixRing, getCoordinates } from "./geometry";
-import { KMLOptions } from "lib/kml";
 
 interface BoxGeometry {
   bbox?: BBox;
@@ -48,7 +48,7 @@ function rotateBox(
     coordinates[0].map((coordinate) => {
       const dy = coordinate[1] - center[1];
       const dx = coordinate[0] - center[0];
-      const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+      const distance = Math.sqrt(dy ** 2 + dx ** 2);
       const angle = Math.atan2(dy, dx) + rotation * DEGREES_TO_RADIANS;
 
       return [

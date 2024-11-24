@@ -1,5 +1,5 @@
-import { Position, Point, LineString, Geometry } from "geojson";
-import { $, $ns, nodeVal, get1, isElement } from "../shared";
+import type { Geometry, LineString, Point, Position } from "geojson";
+import { $, $ns, get1, isElement, nodeVal } from "../shared";
 
 const removeSpace = /\s*/g;
 const trimSpace = /^\s*|\s*$/g;
@@ -12,8 +12,8 @@ export function coord1(value: string): Position {
   return value
     .replace(removeSpace, "")
     .split(",")
-    .map(parseFloat)
-    .filter((num) => !isNaN(num))
+    .map(Number.parseFloat)
+    .filter((num) => !Number.isNaN(num))
     .slice(0, 3);
 }
 
@@ -39,7 +39,7 @@ function gxCoords(
   }
 
   const coordinates = elems.map((elem) => {
-    return nodeVal(elem).split(" ").map(parseFloat);
+    return nodeVal(elem).split(" ").map(Number.parseFloat);
   });
 
   if (coordinates.length === 0) {

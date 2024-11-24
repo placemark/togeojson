@@ -15,14 +15,12 @@
     "require": "./dist/togeojson.cjs",
     "default": "./dist/togeojson.es.mjs"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "test": "vitest run",
-    "lint": "eslint",
+    "lint": "biome check",
     "doc": "typedoc --options ./typedoc.json && cp CNAME docs/CNAME",
-    "prepare": "rollup -c rollup.config.js",
+    "prepare": "rollup -c rollup.config.mjs",
     "release": "standard-version"
   },
   "peerDependencies": {
@@ -31,21 +29,17 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@placemarkio/check-geojson": "^0.1.12",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@types/geojson": "^7946.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/geojson": "^7946.0.14",
     "@vitest/coverage-c8": "^0.25.2",
-    "@xmldom/xmldom": "^0.8.2",
-    "eslint": "^8.18.0",
-    "prettier": "^2.7.1",
-    "rollup": "^2.75.7",
-    "rollup-plugin-dts": "^4.2.2",
+    "@xmldom/xmldom": "^0.9.5",
+    "rollup": "^4.27.4",
+    "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-terser": "^7.0.2",
     "standard-version": "^9.5.0",
-    "typedoc": "^0.22.17",
-    "typescript": "^4.7.4",
-    "vitest": "^0.25.2"
+    "typedoc": "^0.26.11",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.5"
   },
   "repository": {
     "type": "git",
