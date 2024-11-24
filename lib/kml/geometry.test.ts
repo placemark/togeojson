@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { coord, coord1, fixRing } from "./geometry";
 
 describe("coord1", () => {

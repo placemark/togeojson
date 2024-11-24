@@ -25,6 +25,6 @@ function abbreviateName(name: string) {
 }
 
 function parseNumeric(val: string) {
-  const num = parseFloat(val);
-  return isNaN(num) ? val : num;
+  const num = Number.parseFloat(val);
+  return Number.isNaN(num) ? val : num;
 }

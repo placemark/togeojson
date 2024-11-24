@@ -1,4 +1,4 @@
-import { P, get, num1, nodeVal, val1 } from "../shared";
+import { type P, get, nodeVal, num1, val1 } from "../shared";
 import { fixColor } from "./fixColor";
 
 function numericProperty(node: Element, source: string, target: string): P {
@@ -29,11 +29,11 @@ export function extractIcon(node: Element) {
       numericProperty(iconStyle, "scale", "icon-scale"),
       numericProperty(iconStyle, "heading", "icon-heading"),
       get(iconStyle, "hotSpot", (hotspot) => {
-        const left = parseFloat(hotspot.getAttribute("x") || "");
-        const top = parseFloat(hotspot.getAttribute("y") || "");
+        const left = Number.parseFloat(hotspot.getAttribute("x") || "");
+        const top = Number.parseFloat(hotspot.getAttribute("y") || "");
         const xunits = hotspot.getAttribute("xunits") || "";
         const yunits = hotspot.getAttribute("yunits") || "";
-        if (!isNaN(left) && !isNaN(top))
+        if (!Number.isNaN(left) && !Number.isNaN(top))
           return {
             "icon-offset": [left, top],
             "icon-offset-units": [xunits, yunits],

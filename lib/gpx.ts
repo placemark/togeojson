@@ -1,15 +1,15 @@
 import type {
-  FeatureCollection,
   Feature,
-  Point,
-  MultiLineString,
+  FeatureCollection,
   LineString,
+  MultiLineString,
+  Point,
   Position,
 } from "geojson";
-import { getLineStyle } from "./gpx/line";
 import { coordPair } from "./gpx/coord_pair";
+import { getLineStyle } from "./gpx/line";
 import { extractProperties } from "./gpx/properties";
-import { P, $, get1, getMulti, type NS } from "./shared";
+import { $, type NS, type P, get1, getMulti } from "./shared";
 
 /**
  * Extract points from a trkseg or rte element.
@@ -29,7 +29,7 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
     if (c.time) times.push(c.time);
     for (const [name, val] of c.extendedValues) {
       const plural =
-        name === "heart" ? name : name.replace("gpxtpx:", "") + "s";
+        name === "heart" ? name : `${name.replace("gpxtpx:", "")}s`;
       if (!extendedValues[plural]) {
         extendedValues[plural] = Array(pts.length).fill(null);
       }
@@ -80,7 +80,7 @@ function getTrack(
     const line = getPoints(segment, "trkpt");
     if (line) {
       extractedLines.push(line);
-      if (line.times && line.times.length) times.push(line.times);
+      if (line.times?.length) times.push(line.times);
     }
   }
 

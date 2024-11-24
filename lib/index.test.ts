@@ -1,14 +1,17 @@
-import { describe, it, expect } from "vitest";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { check } from "@placemarkio/check-geojson";
-import * as tj from "./index";
 import xmldom from "@xmldom/xmldom";
+import { describe, expect, it } from "vitest";
+import * as tj from "./index";
 
 const d = "./test/data/";
 
 function parse(file: string) {
-  return new xmldom.DOMParser().parseFromString(fs.readFileSync(file, "utf8"));
+  return new xmldom.DOMParser().parseFromString(
+    fs.readFileSync(file, "utf8"),
+    "text/xml"
+  ) as unknown as Document;
 }
 
 describe("toGeoJSON", () => {

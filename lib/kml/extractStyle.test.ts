@@ -1,9 +1,10 @@
-import { extractStyle } from "./extractStyle";
-import { describe, it, expect } from "vitest";
 import xmldom from "@xmldom/xmldom";
+import { describe, expect, it } from "vitest";
+import { extractStyle } from "./extractStyle";
 
 function parse(xml: string): Element {
-  return new xmldom.DOMParser().parseFromString(xml).firstChild as Element;
+  return new xmldom.DOMParser().parseFromString(xml, "text/xml")
+    .firstChild as Element;
 }
 
 describe("extractStyle", () => {

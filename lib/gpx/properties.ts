@@ -1,4 +1,4 @@
-import { $, getMulti, nodeVal, type NS } from "../shared";
+import { $, type NS, getMulti, nodeVal } from "../shared";
 
 export function extractProperties(ns: NS, node: Element) {
   const properties = getMulti(node, [

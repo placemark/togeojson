@@ -1,16 +1,16 @@
-import { Feature, Geometry } from "geojson";
-import { StyleMap, getMulti } from "../shared";
+import type { Feature, Geometry } from "geojson";
+import type { KMLOptions } from "lib/kml";
+import { type StyleMap, getMulti } from "../shared";
+import { extractStyle } from "./extractStyle";
+import { getGeometry } from "./geometry";
 import {
+  type Schema,
   extractCascadedStyle,
   extractExtendedData,
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
-  Schema,
 } from "./shared";
-import { extractStyle } from "./extractStyle";
-import { getGeometry } from "./geometry";
-import { KMLOptions } from "lib/kml";
 
 function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
   return geometries.length === 0

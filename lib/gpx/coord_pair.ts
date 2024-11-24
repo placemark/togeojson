@@ -1,6 +1,6 @@
-import { Position } from "geojson";
-import { num1, get1, nodeVal } from "../shared";
-import { ExtendedValues, getExtensions } from "./extensions";
+import type { Position } from "geojson";
+import { get1, nodeVal, num1 } from "../shared";
+import { type ExtendedValues, getExtensions } from "./extensions";
 
 interface CoordPair {
   coordinates: Position;
@@ -10,11 +10,11 @@ interface CoordPair {
 
 export function coordPair(node: Element): CoordPair | null {
   const ll = [
-    parseFloat(node.getAttribute("lon") || ""),
-    parseFloat(node.getAttribute("lat") || ""),
+    Number.parseFloat(node.getAttribute("lon") || ""),
+    Number.parseFloat(node.getAttribute("lat") || ""),
   ];
 
-  if (isNaN(ll[0]) || isNaN(ll[1])) {
+  if (Number.isNaN(ll[0]) || Number.isNaN(ll[1])) {
     return null;
   }
 

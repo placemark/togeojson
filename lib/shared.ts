@@ -28,7 +28,7 @@ export function $ns(
  */
 export function nodeVal(node: Element | null) {
   node?.normalize();
-  return (node && node.textContent) || "";
+  return node?.textContent || "";
 }
 
 /**
@@ -63,7 +63,7 @@ export function get(
 export function val1(
   node: Element,
   tagName: string,
-  callback: (val: string) => P | void
+  callback: (val: string) => P | undefined | void
 ): P {
   const val = nodeVal(get1(node, tagName));
   if (val && callback) return callback(val) || {};
@@ -75,8 +75,8 @@ export function $num(
   tagName: string,
   callback: (val: number) => Feature["properties"]
 ) {
-  const val = parseFloat(nodeVal(get1(node, tagName)));
-  if (isNaN(val)) return undefined;
+  const val = Number.parseFloat(nodeVal(get1(node, tagName)));
+  if (Number.isNaN(val)) return undefined;
   if (val && callback) return callback(val) || {};
   return {};
 }
@@ -86,8 +86,8 @@ export function num1(
   tagName: string,
   callback?: (val: number) => unknown
 ) {
-  const val = parseFloat(nodeVal(get1(node, tagName)));
-  if (isNaN(val)) return undefined;
+  const val = Number.parseFloat(nodeVal(get1(node, tagName)));
+  if (Number.isNaN(val)) return undefined;
   if (callback) callback(val);
   return val;
 }

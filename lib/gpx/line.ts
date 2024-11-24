@@ -1,4 +1,4 @@
-import { get, P, val1, $num } from "../shared";
+import { $num, type P, get, val1 } from "../shared";
 
 export function getLineStyle(node: Element | null) {
   return get(node, "line", (lineStyle) => {

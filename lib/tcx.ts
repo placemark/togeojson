@@ -1,5 +1,5 @@
-import { Feature, FeatureCollection, Position } from "geojson";
-import { P, $, get, num1, nodeVal, get1 } from "./shared";
+import type { Feature, FeatureCollection, Position } from "geojson";
+import { $, type P, get, get1, nodeVal, num1 } from "./shared";
 
 type PropertyMapping = readonly [string, string][];
 
@@ -37,8 +37,8 @@ function getProperties(node: Element, attributeNames: PropertyMapping) {
         elem = elements[0];
       }
     }
-    const val = parseFloat(nodeVal(elem));
-    if (!isNaN(val)) {
+    const val = Number.parseFloat(nodeVal(elem));
+    if (!Number.isNaN(val)) {
       properties.push([alias, val]);
     }
   }
@@ -50,24 +50,24 @@ function coordPair(node: Element) {
   const ll = [num1(node, "LongitudeDegrees"), num1(node, "LatitudeDegrees")];
   if (
     ll[0] === undefined ||
-    isNaN(ll[0]) ||
+    Number.isNaN(ll[0]) ||
     ll[1] === undefined ||
-    isNaN(ll[1])
+    Number.isNaN(ll[1])
   ) {
     return null;
   }
   const heartRate = get1(node, "HeartRateBpm");
   const time = nodeVal(get1(node, "Time"));
   get1(node, "AltitudeMeters", (alt) => {
-    const a = parseFloat(nodeVal(alt));
-    if (!isNaN(a)) {
+    const a = Number.parseFloat(nodeVal(alt));
+    if (!Number.isNaN(a)) {
       ll.push(a);
     }
   });
   return {
     coordinates: ll as number[],
     time: time || null,
-    heartRate: heartRate ? parseFloat(nodeVal(heartRate)) : null,
+    heartRate: heartRate ? Number.parseFloat(nodeVal(heartRate)) : null,
     extensions: getProperties(node, TRACKPOINT_ATTRIBUTES),
   };
 }
@@ -108,7 +108,7 @@ function getLap(node: Element): Feature | null {
   const times = [];
   const heartRates = [];
   const allExtendedProperties = [];
-  let line;
+  let line: any;
   const properties: P = Object.assign(
     Object.fromEntries(getProperties(node, LAP_ATTRIBUTES)),
     get(node, "Name", (nameElement) => {
