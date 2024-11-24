@@ -16,11 +16,11 @@ function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
   return geometries.length === 0
     ? null
     : geometries.length === 1
-    ? geometries[0]
-    : {
-        type: "GeometryCollection",
-        geometries,
-      };
+      ? geometries[0]
+      : {
+          type: "GeometryCollection",
+          geometries,
+        };
 }
 
 export function getPlacemark(

@@ -9,7 +9,7 @@ import type {
 import { getLineStyle } from "./gpx/line";
 import { coordPair } from "./gpx/coord_pair";
 import { extractProperties } from "./gpx/properties";
-import { P, $, get1, getMulti } from "./shared";
+import { P, $, get1, getMulti, type NS } from "./shared";
 
 /**
  * Extract points from a trkseg or rte element.
@@ -50,14 +50,14 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
  * Extract a LineString geometry from a rte
  * element.
  */
-function getRoute(node: Element): Feature<LineString> | undefined {
+function getRoute(ns: NS, node: Element): Feature<LineString> | undefined {
   const line = getPoints(node, "rtept");
   if (!line) return;
   return {
     type: "Feature",
     properties: Object.assign(
       { _gpxType: "rte" },
-      extractProperties(node),
+      extractProperties(ns, node),
       getLineStyle(get1(node, "extensions"))
     ),
     geometry: {
@@ -67,7 +67,10 @@ function getRoute(node: Element): Feature<LineString> | undefined {
   };
 }
 
-function getTrack(node: Element): Feature<LineString | MultiLineString> | null {
+function getTrack(
+  ns: NS,
+  node: Element
+): Feature<LineString | MultiLineString> | null {
   const segments = $(node, "trkseg");
   const track = [];
   const times = [];
@@ -87,7 +90,7 @@ function getTrack(node: Element): Feature<LineString | MultiLineString> | null {
 
   const properties: Feature["properties"] = Object.assign(
     { _gpxType: "trk" },
-    extractProperties(node),
+    extractProperties(ns, node),
     getLineStyle(get1(node, "extensions")),
     times.length
       ? {
@@ -139,9 +142,9 @@ function getTrack(node: Element): Feature<LineString | MultiLineString> | null {
  * Extract a point, if possible, from a given node,
  * which is usually a wpt or trkpt
  */
-function getPoint(node: Element): Feature<Point> | null {
+function getPoint(ns: NS, node: Element): Feature<Point> | null {
   const properties: Feature["properties"] = Object.assign(
-    extractProperties(node),
+    extractProperties(ns, node),
     getMulti(node, ["sym"])
   );
   const pair = coordPair(node);
@@ -162,18 +165,31 @@ function getPoint(node: Element): Feature<Point> | null {
  * that yields output feature by feature.
  */
 export function* gpxGen(node: Document): Generator<Feature> {
+  const GPXX = "gpxx";
+  const GPXX_URI = "http://www.garmin.com/xmlschemas/GpxExtensions/v3";
+  // Namespaces
+  const ns: NS = [[GPXX, GPXX_URI]];
+  const attrs = node.getElementsByTagName("gpx")[0]?.attributes;
+  if (attrs) {
+    for (const attr of Array.from(attrs)) {
+      if (attr.name?.startsWith("xmlns:") && attr.value !== GPXX_URI) {
+        ns.push([attr.name, attr.value]);
+      }
+    }
+  }
+
   for (const track of $(node, "trk")) {
-    const feature = getTrack(track);
+    const feature = getTrack(ns, track);
     if (feature) yield feature;
   }
 
   for (const route of $(node, "rte")) {
-    const feature = getRoute(route);
+    const feature = getRoute(ns, route);
     if (feature) yield feature;
   }
 
   for (const waypoint of $(node, "wpt")) {
-    const point = getPoint(waypoint);
+    const point = getPoint(ns, waypoint);
     if (point) yield point;
   }
 }

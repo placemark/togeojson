@@ -9,6 +9,8 @@ export type F = Feature<Geometry | null>;
 
 export type StyleMap = { [key: string]: P };
 
+export type NS = [string, string][];
+
 export function normalizeId(id: string) {
   return id[0] === "#" ? id : `#${id}`;
 }

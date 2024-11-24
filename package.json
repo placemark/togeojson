@@ -1,6 +1,6 @@
 {
   "name": "@tmcw/togeojson",
-  "version": "5.8.1",
+  "version": "6.0.0-0",
   "description": "convert KML and GPX to GeoJSON",
   "source": "lib/index.ts",
   "umd:main": "dist/togeojson.umd.js",
@@ -29,6 +29,7 @@
     "@types/geojson": "*"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@placemarkio/check-geojson": "^0.1.12",
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/geojson": "^7946.0.8",

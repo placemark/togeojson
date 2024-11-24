@@ -51,8 +51,9 @@ describe("mini cases", () => {
     ).toHaveLength(1);
   });
   it("folder nesting", () => {
-    expect(tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml"))))
-      .toMatchInlineSnapshot(`
+    expect(
+      tj.kmlWithFolders(parse(path.join(d, "inline_style_mini.kml")))
+    ).toMatchInlineSnapshot(`
         {
           "children": [
             {
