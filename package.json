@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@tmcw/togeojson",
   "version": "6.0.0-0",
   "description": "convert KML and GPX to GeoJSON",
@@ -24,6 +25,7 @@
     "release": "standard-version"
   },
   "peerDependencies": {
+    "@xmldom/xmldom": "^0.9.5",
     "@types/geojson": "*"
   },
   "devDependencies": {

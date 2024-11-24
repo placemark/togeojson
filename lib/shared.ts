@@ -63,7 +63,7 @@ export function get(
 export function val1(
   node: Element,
   tagName: string,
-  callback: (val: string) => P | undefined
+  callback: (val: string) => P | undefined | void
 ): P {
   const val = nodeVal(get1(node, tagName));
   if (val && callback) return callback(val) || {};

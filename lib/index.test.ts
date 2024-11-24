@@ -11,7 +11,7 @@ function parse(file: string) {
   return new xmldom.DOMParser().parseFromString(
     fs.readFileSync(file, "utf8"),
     "text/xml"
-  );
+  ) as unknown as Document;
 }
 
 describe("toGeoJSON", () => {
