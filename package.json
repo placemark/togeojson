@@ -16,9 +16,7 @@
     "require": "./dist/togeojson.cjs",
     "default": "./dist/togeojson.es.mjs"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "test": "vitest run",
     "lint": "biome check",
