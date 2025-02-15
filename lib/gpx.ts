@@ -1,3 +1,4 @@
+import type { Document as XDocument } from "@xmldom/xmldom";
 import type {
   Feature,
   FeatureCollection,
@@ -164,12 +165,13 @@ function getPoint(ns: NS, node: Element): Feature<Point> | null {
  * a [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
  * that yields output feature by feature.
  */
-export function* gpxGen(node: Document): Generator<Feature> {
+export function* gpxGen(node: Document | XDocument): Generator<Feature> {
+  const n = node as Document;
   const GPXX = "gpxx";
   const GPXX_URI = "http://www.garmin.com/xmlschemas/GpxExtensions/v3";
   // Namespaces
   const ns: NS = [[GPXX, GPXX_URI]];
-  const attrs = node.getElementsByTagName("gpx")[0]?.attributes;
+  const attrs = n.getElementsByTagName("gpx")[0]?.attributes;
   if (attrs) {
     for (const attr of Array.from(attrs)) {
       if (attr.name?.startsWith("xmlns:") && attr.value !== GPXX_URI) {
@@ -178,17 +180,17 @@ export function* gpxGen(node: Document): Generator<Feature> {
     }
   }
 
-  for (const track of $(node, "trk")) {
+  for (const track of $(n, "trk")) {
     const feature = getTrack(ns, track);
     if (feature) yield feature;
   }
 
-  for (const route of $(node, "rte")) {
+  for (const route of $(n, "rte")) {
     const feature = getRoute(ns, route);
     if (feature) yield feature;
   }
 
-  for (const waypoint of $(node, "wpt")) {
+  for (const waypoint of $(n, "wpt")) {
     const point = getPoint(ns, waypoint);
     if (point) yield point;
   }
@@ -205,7 +207,7 @@ export function* gpxGen(node: Document): Generator<Feature> {
  * addition of a `_gpxType` property on each `LineString` feature that indicates whether
  * the feature was encoded as a route (`rte`) or track (`trk`) in the GPX document.
  */
-export function gpx(node: Document): FeatureCollection {
+export function gpx(node: Document | XDocument): FeatureCollection {
   return {
     type: "FeatureCollection",
     features: Array.from(gpxGen(node)),

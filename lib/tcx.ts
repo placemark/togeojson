@@ -1,3 +1,4 @@
+import type { Document as XDocument } from "@xmldom/xmldom";
 import type { Feature, FeatureCollection, Position } from "geojson";
 import { $, type P, get, get1, nodeVal, num1 } from "./shared";
 
@@ -181,13 +182,13 @@ function getLap(node: Element): Feature | null {
  * first argument, `doc`, must be a TCX
  * document as an XML DOM - not as a string.
  */
-export function* tcxGen(node: Document): Generator<Feature> {
-  for (const lap of $(node, "Lap")) {
+export function* tcxGen(node: Document | XDocument): Generator<Feature> {
+  for (const lap of $(node as Document, "Lap")) {
     const feature = getLap(lap);
     if (feature) yield feature;
   }
 
-  for (const course of $(node, "Courses")) {
+  for (const course of $(node as Document, "Courses")) {
     const feature = getLap(course);
     if (feature) yield feature;
   }
@@ -197,7 +198,7 @@ export function* tcxGen(node: Document): Generator<Feature> {
  * Convert a TCX document to GeoJSON. The first argument, `doc`, must be a TCX
  * document as an XML DOM - not as a string.
  */
-export function tcx(node: Document): FeatureCollection {
+export function tcx(node: Document | XDocument): FeatureCollection {
   return {
     type: "FeatureCollection",
     features: Array.from(tcxGen(node)),

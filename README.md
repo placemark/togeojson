@@ -58,6 +58,12 @@ with Polygon geometries. They have two defined properties:
 
 Both `gx:LatLonQuad` and `LatLonBox`-based ground overlays are supported.
 
+## TypeScript
+
+Install the `@types/geojson` package alongside this for its types
+to work. This will also use types from `@xmldom/xmldom` as
+input types if it's available.
+
 ## CLI
 
 Use [@tmcw/togeojson-cli](https://github.com/tmcw/togeojson-cli) to use this

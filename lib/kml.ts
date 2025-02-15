@@ -1,4 +1,5 @@
 import type { FeatureCollection, Geometry } from "geojson";
+import type { Document as XDocument } from "@xmldom/xmldom";
 import { extractStyle } from "./kml/extractStyle";
 import { getGroundOverlay } from "./kml/ground_overlay";
 import { getPlacemark } from "./kml/placemark";
@@ -174,13 +175,14 @@ function getFolder(node: Element): Folder {
  * on which map framework you're using.
  */
 export function kmlWithFolders(
-  node: Document,
+  node: Document | XDocument,
   options: KMLOptions = {
     skipNullGeometry: false,
   }
 ): Root {
-  const styleMap = buildStyleMap(node);
-  const schema = buildSchema(node);
+  const n = node as Document;
+  const styleMap = buildStyleMap(n);
+  const schema = buildSchema(n);
 
   // atomic geospatial types supported by KML - MultiGeometry is
   // handled separately
@@ -227,7 +229,7 @@ export function kmlWithFolders(
     }
   }
 
-  traverse(node, tree, options);
+  traverse(n, tree, options);
 
   return tree;
 }
@@ -238,18 +240,19 @@ export function kmlWithFolders(
  * that yields output feature by feature.
  */
 export function* kmlGen(
-  node: Document,
+  node: Document | XDocument,
   options: KMLOptions = {
     skipNullGeometry: false,
   }
 ): Generator<F> {
-  const styleMap = buildStyleMap(node);
-  const schema = buildSchema(node);
-  for (const placemark of $(node, "Placemark")) {
+  const n = node as Document;
+  const styleMap = buildStyleMap(n);
+  const schema = buildSchema(n);
+  for (const placemark of $(n, "Placemark")) {
     const feature = getPlacemark(placemark, styleMap, schema, options);
     if (feature) yield feature;
   }
-  for (const groundOverlay of $(node, "GroundOverlay")) {
+  for (const groundOverlay of $(n, "GroundOverlay")) {
     const feature = getGroundOverlay(groundOverlay, styleMap, schema, options);
     if (feature) yield feature;
   }
@@ -266,13 +269,13 @@ export function* kmlGen(
  * or use it directly in libraries.
  */
 export function kml(
-  node: Document,
+  node: Document | XDocument,
   options: KMLOptions = {
     skipNullGeometry: false,
   }
 ): FeatureCollection<Geometry | null> {
   return {
     type: "FeatureCollection",
-    features: Array.from(kmlGen(node, options)),
+    features: Array.from(kmlGen(node as Document, options)),
   };
 }
