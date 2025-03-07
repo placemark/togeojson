@@ -1,5 +1,5 @@
-import type { FeatureCollection, Geometry } from "geojson";
 import type { Document as XDocument } from "@xmldom/xmldom";
+import type { FeatureCollection, Geometry } from "geojson";
 import { extractStyle } from "./kml/extractStyle";
 import { getGroundOverlay } from "./kml/ground_overlay";
 import { getPlacemark } from "./kml/placemark";
