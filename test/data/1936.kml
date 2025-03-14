@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>
+      <![CDATA[S10 Stargard - Wałcz - Piła]]>
+    </name>
+    <Style>
+      <ListStyle>
+        <listItemType>checkHideChildren</listItemType>
+      </ListStyle>
+    </Style>
+    <NetworkLink>
+      <TimeStamp>
+        <when>2023</when>
+      </TimeStamp>
+      <Region>
+        <LatLonAltBox>
+          <north>53.357038</north>
+          <south>53.180102</south>
+          <east>16.775049</east>
+          <west>15.086756</west>
+        </LatLonAltBox>
+        <Lod>
+          <minLodPixels>128</minLodPixels>
+          <maxLodPixels>-1</maxLodPixels>
+        </Lod>
+      </Region>
+      <Link>
+        <viewRefreshMode>onRequest</viewRefreshMode>
+        <href>https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1</href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>
