@@ -5,3 +5,6 @@ node_modules/
 npm-debug.log
 .nyc_output
 package-lock.json
+/.vscode/
+/.idea/
+__snapshots__
