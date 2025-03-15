@@ -2,9 +2,9 @@ import type { Document as XDocument } from "@xmldom/xmldom";
 import type { FeatureCollection, Geometry } from "geojson";
 import { extractStyle } from "./kml/extractStyle";
 import { getGroundOverlay } from "./kml/ground_overlay";
+import { getNetworkLink } from "./kml/networklink";
 import { getPlacemark } from "./kml/placemark";
 import { type Schema, typeConverters } from "./kml/shared";
-import { getNetworkLink } from './kml/networklink';
 import {
   $,
   type F,
@@ -224,7 +224,7 @@ export function kmlWithFolders(
         case "NetworkLink": {
           networkLinks.push(node);
           const networkLink = getNetworkLink(node, styleMap, schema, options);
-          if(networkLink) {
+          if (networkLink) {
             pointer.children.push(networkLink);
           }
           break;
