@@ -27,7 +27,7 @@
       </Region>
       <Link>
         <viewRefreshMode>onRequest</viewRefreshMode>
-        <href>https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1</href>
+        <href>https://tiny.url</href>
       </Link>
     </NetworkLink>
   </Document>

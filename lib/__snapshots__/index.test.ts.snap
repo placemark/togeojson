@@ -21161,7 +21161,7 @@ exports[`toGeoJSON > networklink.kml 2`] = `
       },
       "properties": {
         "@geometry-type": "networklink",
-        "href": "https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1",
+        "href": "https://tiny.url",
         "lod": [
           128,
           -1,
@@ -21217,7 +21217,7 @@ exports[`toGeoJSON > networklink.kml 3`] = `
       },
       "properties": {
         "@geometry-type": "networklink",
-        "href": "https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1",
+        "href": "https://tiny.url",
         "lod": [
           128,
           -1,
