@@ -21,15 +21,15 @@ enum AltitudeMode {
     RELATIVE_TO_GROUND = "relativeToGround",
     CLAMP_TO_GROUND = "clampToGround",
     CLAMP_TO_SEAFLOOR = "clampToSeaFloor",
-    RELATIVE_TO_SEAFLOOR = "relativeToSeaFloor"
-};
+    RELATIVE_TO_SEAFLOOR = "relativeToSeaFloor",
+}
 
 type BBox = [number, number, number, number];
 
 type LOD = [number, number | null, number | null, number | null];
 interface IRegion {
-  coordinateBox: BoxGeometry | null,
-  lod: LOD | null
+    coordinateBox: BoxGeometry | null;
+    lod: LOD | null;
 }
 
 function getNetworkLinkRegion(node: Element): IRegion | null {
@@ -37,14 +37,12 @@ function getNetworkLinkRegion(node: Element): IRegion | null {
 
     if (region) {
         return {
-          coordinateBox: getLatLonAltBox(region),
-          lod: getLod(node)
+            coordinateBox: getLatLonAltBox(region),
+            lod: getLod(node),
         };
     }
     return null;
 }
-
-
 
 function getLod(node: Element): LOD | null {
     let resLOD: LOD | null = null;
@@ -74,14 +72,19 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
         const minAlt = num1(latLonAltBox, "minAltitude");
         const maxAlt = num1(latLonAltBox, "maxAltitude");
         function processAltitudeMode(mode: Element | null): AltitudeMode | null {
-            switch(mode?.textContent)
-            {
-              case AltitudeMode.ABSOLUTE: return AltitudeMode.ABSOLUTE;
-              case AltitudeMode.CLAMP_TO_GROUND: return AltitudeMode.CLAMP_TO_GROUND;
-              case AltitudeMode.CLAMP_TO_SEAFLOOR: return AltitudeMode.CLAMP_TO_SEAFLOOR;
-              case AltitudeMode.RELATIVE_TO_GROUND: return AltitudeMode.RELATIVE_TO_GROUND;
-              case AltitudeMode.RELATIVE_TO_SEAFLOOR: return AltitudeMode.RELATIVE_TO_SEAFLOOR;
-              default: break;
+            switch (mode?.textContent) {
+                case AltitudeMode.ABSOLUTE:
+                    return AltitudeMode.ABSOLUTE;
+                case AltitudeMode.CLAMP_TO_GROUND:
+                    return AltitudeMode.CLAMP_TO_GROUND;
+                case AltitudeMode.CLAMP_TO_SEAFLOOR:
+                    return AltitudeMode.CLAMP_TO_SEAFLOOR;
+                case AltitudeMode.RELATIVE_TO_GROUND:
+                    return AltitudeMode.RELATIVE_TO_GROUND;
+                case AltitudeMode.RELATIVE_TO_SEAFLOOR:
+                    return AltitudeMode.RELATIVE_TO_SEAFLOOR;
+                default:
+                    break;
             }
             return null;
         }
@@ -134,6 +137,41 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
     return null;
 }
 
+function getLinkObject(node: Element) {
+    /*
+    <Link id="ID">
+      <!-- specific to Link -->
+      <href>...</href>                      <!-- string -->
+      <refreshMode>onChange</refreshMode>
+        <!-- refreshModeEnum: onChange, onInterval, or onExpire -->
+      <refreshInterval>4</refreshInterval>  <!-- float -->
+      <viewRefreshMode>never</viewRefreshMode>
+        <!-- viewRefreshModeEnum: never, onStop, onRequest, onRegion -->
+      <viewRefreshTime>4</viewRefreshTime>  <!-- float -->
+      <viewBoundScale>1</viewBoundScale>    <!-- float -->
+      <viewFormat>BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]</viewFormat>
+                                            <!-- string -->
+      <httpQuery>...</httpQuery>            <!-- string -->
+    </Link>
+  */
+    let linkObj = get1(node, "Link");
+
+    if (linkObj) {
+        return getMulti(linkObj, [
+            "href",
+            "refreshMode",
+            "refreshInterval",
+            "viewRefreshMode",
+            "viewRefreshTime",
+            "viewBoundScale",
+            "viewFormat",
+            "httpQuery",
+        ]);
+    }
+
+    return {};
+}
+
 export function getNetworkLink(
     node: Element,
     styleMap: StyleMap,
@@ -157,7 +195,17 @@ export function getNetworkLink(
              * https://gist.github.com/tmcw/037a1cb6660d74a392e9da7446540f46
              */
             { "@geometry-type": "networklink" },
-            getMulti(node, ["name", "address", "visibility", "open", "phoneNumber", "description"]),
+            getMulti(node, [
+                "name",
+                "address",
+                "visibility",
+                "open",
+                "phoneNumber",
+                "styleUrl",
+                "refreshVisibility",
+                "flyToView",
+                "description",
+            ]),
             getMaybeHTMLDescription(node),
             extractCascadedStyle(node, styleMap),
             extractStyle(node),
@@ -165,6 +213,7 @@ export function getNetworkLink(
             extractExtendedData(node, schema),
             extractTimeSpan(node),
             extractTimeStamp(node),
+            getLinkObject(node),
             box?.lod ? { lod: box.lod } : {}
         ),
     };

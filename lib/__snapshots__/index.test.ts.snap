@@ -21161,6 +21161,7 @@ exports[`toGeoJSON > networklink.kml 2`] = `
       },
       "properties": {
         "@geometry-type": "networklink",
+        "href": "https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1",
         "lod": [
           128,
           -1,
@@ -21168,6 +21169,7 @@ exports[`toGeoJSON > networklink.kml 2`] = `
           null,
         ],
         "timestamp": "2023",
+        "viewRefreshMode": "onRequest",
       },
       "type": "Feature",
     },
@@ -21215,6 +21217,7 @@ exports[`toGeoJSON > networklink.kml 3`] = `
       },
       "properties": {
         "@geometry-type": "networklink",
+        "href": "https://mapwarper.net/layers/1936.kml?DBOX=15.086756,53.180102,16.775049,53.357038,1",
         "lod": [
           128,
           -1,
@@ -21222,6 +21225,7 @@ exports[`toGeoJSON > networklink.kml 3`] = `
           null,
         ],
         "timestamp": "2023",
+        "viewRefreshMode": "onRequest",
       },
       "type": "Feature",
     },
