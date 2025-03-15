@@ -45,12 +45,10 @@ function getNetworkLinkRegion(node: Element): IRegion | null {
 }
 
 function getLod(node: Element): LOD | null {
-    let resLOD: LOD | null = null;
-
     const lod = get1(node, "Lod");
 
     if (lod) {
-        resLOD = [
+        return [
             num1(lod, "minLodPixels") ?? -1,
             num1(lod, "maxLodPixels") ?? -1,
             num1(lod, "minFadeExtent") ?? null,
@@ -58,7 +56,7 @@ function getLod(node: Element): LOD | null {
         ];
     }
 
-    return resLOD;
+    return null;
 }
 
 function getLatLonAltBox(node: Element): BoxGeometry | null {
