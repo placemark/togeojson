@@ -21115,6 +21115,121 @@ exports[`toGeoJSON > multitrackgpx.gpx 1`] = `
 }
 `;
 
+exports[`toGeoJSON > networklink.kml 1`] = `
+{
+  "features": [],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON > networklink.kml 2`] = `
+{
+  "children": [
+    {
+      "bbox": [
+        15.086756,
+        53.180102,
+        16.775049,
+        53.357038,
+      ],
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              15.086756,
+              53.357038,
+            ],
+            [
+              16.775049,
+              53.357038,
+            ],
+            [
+              16.775049,
+              53.180102,
+            ],
+            [
+              15.086756,
+              53.180102,
+            ],
+            [
+              15.086756,
+              53.357038,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": {
+        "@geometry-type": "networklink",
+        "lod": [
+          128,
+          -1,
+          null,
+          null,
+        ],
+        "timestamp": "2023",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > networklink.kml 3`] = `
+{
+  "children": [
+    {
+      "bbox": [
+        15.086756,
+        53.180102,
+        16.775049,
+        53.357038,
+      ],
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              15.086756,
+              53.357038,
+            ],
+            [
+              16.775049,
+              53.357038,
+            ],
+            [
+              16.775049,
+              53.180102,
+            ],
+            [
+              15.086756,
+              53.180102,
+            ],
+            [
+              15.086756,
+              53.357038,
+            ],
+          ],
+        ],
+        "type": "Polygon",
+      },
+      "properties": {
+        "@geometry-type": "networklink",
+        "lod": [
+          128,
+          -1,
+          null,
+          null,
+        ],
+        "timestamp": "2023",
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > nogeomplacemark.kml 1`] = `
 {
   "features": [

@@ -10,42 +10,41 @@ import {
     extractTimeStamp,
     getMaybeHTMLDescription,
 } from "./shared";
-import { aL } from "vitest/dist/chunks/reporters.66aFHiyX";
 
 interface BoxGeometry {
     bbox?: BBox;
     geometry: Polygon;
 }
 
-class AltitudeMode {
-    static ABSOLUTE = new AltitudeMode("absolute");
-    static RELATIVE_TO_GROUND = new AltitudeMode("relativeToGround");
-    static CLAMP_TO_GROUND = new AltitudeMode("clampToGround");
-    static CLAMP_TO_SEAFLOOR = new AltitudeMode("clampToSeaFloor");
-    static RELATIVE_TO_SEAFLOOR = new AltitudeMode("relativeToSeaFloor");
-
-    #name: string;
-    constructor(name: string) {
-        this.#name = name;
-    }
-
-    toString() {
-        return this.#name;
-    }
-}
-
-function getNetworkLinkRegion(node: Element): BoxGeometry | null {
-    const region = get1(node, "Region");
-
-    if (region) {
-        return getLatLonAltBox(region);
-    }
-    return null;
-}
+enum AltitudeMode {
+    ABSOLUTE = "absolute",
+    RELATIVE_TO_GROUND = "relativeToGround",
+    CLAMP_TO_GROUND = "clampToGround",
+    CLAMP_TO_SEAFLOOR = "clampToSeaFloor",
+    RELATIVE_TO_SEAFLOOR = "relativeToSeaFloor"
+};
 
 type BBox = [number, number, number, number];
 
 type LOD = [number, number | null, number | null, number | null];
+interface IRegion {
+  coordinateBox: BoxGeometry | null,
+  lod: LOD | null
+}
+
+function getNetworkLinkRegion(node: Element): IRegion | null {
+    const region = get1(node, "Region");
+
+    if (region) {
+        return {
+          coordinateBox: getLatLonAltBox(region),
+          lod: getLod(node)
+        };
+    }
+    return null;
+}
+
+
 
 function getLod(node: Element): LOD | null {
     let resLOD: LOD | null = null;
@@ -56,8 +55,8 @@ function getLod(node: Element): LOD | null {
         resLOD = [
             num1(lod, "minLodPixels") ?? -1,
             num1(lod, "maxLodPixels") ?? -1,
-            num1(lod, "minFadeExtent") ?? 0,
-            num1(lod, "maxFadeExtent") ?? 0,
+            num1(lod, "minFadeExtent") ?? null,
+            num1(lod, "maxFadeExtent") ?? null,
         ];
     }
 
@@ -74,8 +73,16 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
         const south = num1(latLonAltBox, "south");
         const minAlt = num1(latLonAltBox, "minAltitude");
         const maxAlt = num1(latLonAltBox, "maxAltitude");
-        function processAltitudeMode(mode: Element | null) {
-            if (mode?.textContent) return new AltitudeMode(mode.textContent);
+        function processAltitudeMode(mode: Element | null): AltitudeMode | null {
+            switch(mode?.textContent)
+            {
+              case AltitudeMode.ABSOLUTE: return AltitudeMode.ABSOLUTE;
+              case AltitudeMode.CLAMP_TO_GROUND: return AltitudeMode.CLAMP_TO_GROUND;
+              case AltitudeMode.CLAMP_TO_SEAFLOOR: return AltitudeMode.CLAMP_TO_SEAFLOOR;
+              case AltitudeMode.RELATIVE_TO_GROUND: return AltitudeMode.RELATIVE_TO_GROUND;
+              case AltitudeMode.RELATIVE_TO_SEAFLOOR: return AltitudeMode.RELATIVE_TO_SEAFLOOR;
+              default: break;
+            }
             return null;
         }
         const altitudeMode =
@@ -135,7 +142,7 @@ export function getNetworkLink(
 ): Feature<Polygon | null> | null {
     const box = getNetworkLinkRegion(node);
 
-    const geometry = box?.geometry || null;
+    const geometry = box?.coordinateBox?.geometry || null;
 
     if (!geometry && options.skipNullGeometry) {
         return null;
@@ -157,12 +164,13 @@ export function getNetworkLink(
             extractIconHref(node),
             extractExtendedData(node, schema),
             extractTimeSpan(node),
-            extractTimeStamp(node)
+            extractTimeStamp(node),
+            box?.lod ? { lod: box.lod } : {}
         ),
     };
 
-    if (box?.bbox) {
-        feature.bbox = box.bbox;
+    if (box?.coordinateBox?.bbox) {
+        feature.bbox = box.coordinateBox.bbox;
     }
 
     if (feature.properties?.visibility !== undefined) {
