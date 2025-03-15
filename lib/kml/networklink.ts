@@ -87,8 +87,7 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
             return null;
         }
         const altitudeMode =
-            processAltitudeMode(get1(latLonAltBox, "altitudeMode")) ||
-            processAltitudeMode(get1(latLonAltBox, "gx:altitudeMode"));
+            processAltitudeMode(get1(latLonAltBox, "altitudeMode") || get1(latLonAltBox, "gx:altitudeMode"));
 
         if (altitudeMode) {
             switch (altitudeMode) {
