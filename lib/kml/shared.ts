@@ -83,31 +83,3 @@ export function extractCascadedStyle(node: Element, styleMap: StyleMap): P {
     return { styleUrl };
   });
 }
-
-export enum AltitudeMode {
-  ABSOLUTE = "absolute",
-  RELATIVE_TO_GROUND = "relativeToGround",
-  CLAMP_TO_GROUND = "clampToGround",
-  CLAMP_TO_SEAFLOOR = "clampToSeaFloor",
-  RELATIVE_TO_SEAFLOOR = "relativeToSeaFloor",
-}
-
-export function processAltitudeMode(mode: Element | null): AltitudeMode | null {
-  switch (mode?.textContent) {
-    case AltitudeMode.ABSOLUTE:
-      return AltitudeMode.ABSOLUTE;
-    case AltitudeMode.CLAMP_TO_GROUND:
-      return AltitudeMode.CLAMP_TO_GROUND;
-    case AltitudeMode.CLAMP_TO_SEAFLOOR:
-      return AltitudeMode.CLAMP_TO_SEAFLOOR;
-    case AltitudeMode.RELATIVE_TO_GROUND:
-      return AltitudeMode.RELATIVE_TO_GROUND;
-    case AltitudeMode.RELATIVE_TO_SEAFLOOR:
-      return AltitudeMode.RELATIVE_TO_SEAFLOOR;
-    default:
-      break;
-  }
-  return null;
-}
-
-export type BBox = [number, number, number, number];

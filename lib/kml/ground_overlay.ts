@@ -4,7 +4,6 @@ import { type StyleMap, get1, getMulti, num1 } from "../shared";
 import { extractIconHref, extractStyle } from "./extractStyle";
 import { coord, fixRing, getCoordinates } from "./geometry";
 import {
-  type BBox,
   type Schema,
   extractCascadedStyle,
   extractExtendedData,
@@ -33,6 +32,8 @@ function getGroundOverlayBox(node: Element): BoxGeometry | null {
 
   return getLatLonBox(node);
 }
+
+type BBox = [number, number, number, number];
 
 const DEGREES_TO_RADIANS = Math.PI / 180;
 
