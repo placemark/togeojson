@@ -60,8 +60,6 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
     const west = num1(latLonAltBox, "west");
     const east = num1(latLonAltBox, "east");
     const south = num1(latLonAltBox, "south");
-    const minAlt = num1(latLonAltBox, "minAltitude");
-    const maxAlt = num1(latLonAltBox, "maxAltitude");
     const altitudeMode = processAltitudeMode(
       get1(latLonAltBox, "altitudeMode") ||
         get1(latLonAltBox, "gx:altitudeMode")
