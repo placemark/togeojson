@@ -92,7 +92,7 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
       }
     } else {
       console.debug(
-        "Currently Unsupported Feature of KML for GeoJSON.  Please contact developers for Support of Altitude Mode."
+        "Encountered an unsupported feature of KML for togeojson: please contact developers for support of altitude mode."
       );
     }
   }
