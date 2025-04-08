@@ -64,7 +64,7 @@ function getLatLonAltBox(node: Element): BoxGeometry | null {
             get1(latLonAltBox, "altitudeMode") || get1(latLonAltBox, "gx:altitudeMode")
         );
 
-        if (!altitudeMode) {
+        if (altitudeMode) {
             console.debug(
                 "Encountered an unsupported feature of KML for togeojson: please contact developers for support of altitude mode."
             );
