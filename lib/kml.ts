@@ -266,6 +266,10 @@ export function* kmlGen(
     const feature = getGroundOverlay(groundOverlay, styleMap, schema, options);
     if (feature) yield feature;
   }
+  for (const networkLink of $(n, "NetworkLink")) {
+    const feature = getNetworkLink(networkLink, styleMap, schema, options);
+    if (feature) yield feature;
+  }
 }
 
 /**
