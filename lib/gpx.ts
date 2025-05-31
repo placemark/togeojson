@@ -102,15 +102,16 @@ function getTrack(
       : {}
   );
 
-  for (const line of extractedLines) {
+  for (let i = 0; i < extractedLines.length; i++) {
+    const line = extractedLines[i];
     track.push(line.line);
     if (!properties.coordinateProperties) {
       properties.coordinateProperties = {};
     }
     const props = properties.coordinateProperties;
-    const entries = Object.entries(line.extendedValues);
-    for (let i = 0; i < entries.length; i++) {
-      const [name, val] = entries[i];
+    // Generally extendedValues will be things like heart
+    // rate, and this is an array like { heart: [100, 101...] }
+    for (const [name, val] of Object.entries(line.extendedValues)) {
       if (multi) {
         if (!props[name]) {
           props[name] = extractedLines.map((line) =>
