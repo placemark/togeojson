@@ -1,0 +1,41 @@
+<gpx version="1.1" creator="Apple Watch" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><metadata><name>Friday Evening Run</name></metadata>
+<trk><name>Friday Evening Run</name><type>running</type>
+<trkseg>
+<trkpt lat="51.9020502" lon="4.0692787">
+<ele>6</ele><time>2025-05-02T15:51:15.692Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:cad>64</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>0</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9020593" lon="4.0691953">
+<ele>6</ele><time>2025-05-02T15:51:21.195Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:cad>65</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>0</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9021126" lon="4.0691527">
+<ele>6</ele><time>2025-05-02T15:51:23.195Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:cad>64</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>0</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9021668" lon="4.0691009">
+<ele>6</ele><time>2025-05-02T15:51:26.195Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:cad>64</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>170</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+</trkseg><trkseg>
+<trkpt lat="51.9035958" lon="4.0640552">
+<ele>7</ele><time>2025-05-02T15:55:03.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>121</gpxtpx:hr><gpxtpx:cad>61</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>89</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9035780" lon="4.0639776">
+<ele>7</ele><time>2025-05-02T15:55:04.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>121</gpxtpx:hr><gpxtpx:cad>59</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>89</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9035565" lon="4.0638956">
+<ele>7</ele><time>2025-05-02T15:55:06.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>121</gpxtpx:hr><gpxtpx:cad>59</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>90</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9035344" lon="4.0638124">
+<ele>7</ele><time>2025-05-02T15:55:08.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>121</gpxtpx:hr><gpxtpx:cad>57</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>90</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9035054" lon="4.0637464">
+<ele>7</ele><time>2025-05-02T15:55:10.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>121</gpxtpx:hr><gpxtpx:cad>67</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>212</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+</trkseg><trkseg>
+<trkpt lat="51.9015022" lon="4.0602465">
+<ele>6</ele><time>2025-05-02T16:33:47.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>171</gpxtpx:hr><gpxtpx:cad>74</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>193</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9015706" lon="4.0602397">
+<ele>6</ele><time>2025-05-02T16:33:50.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>170</gpxtpx:hr><gpxtpx:cad>75</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>193</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9016149" lon="4.0603059">
+<ele>6</ele><time>2025-05-02T16:33:52.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>170</gpxtpx:hr><gpxtpx:cad>76</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>193</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9016425" lon="4.0603813">
+<ele>6</ele><time>2025-05-02T16:33:55.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>169</gpxtpx:hr><gpxtpx:cad>81</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>200</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9016880" lon="4.0604404">
+<ele>6</ele><time>2025-05-02T16:33:58.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>167</gpxtpx:hr><gpxtpx:cad>80</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>200</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9016922" lon="4.0605157">
+<ele>6</ele><time>2025-05-02T16:34:00.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>167</gpxtpx:hr><gpxtpx:cad>76</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>209</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9017284" lon="4.0605888">
+<ele>6</ele><time>2025-05-02T16:34:02.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>167</gpxtpx:hr><gpxtpx:cad>82</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>209</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+<trkpt lat="51.9017577" lon="4.0606662">
+<ele>6</ele><time>2025-05-02T16:34:05.000Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>164</gpxtpx:hr><gpxtpx:cad>81</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions><extensions><gpxtpx:PowerExtension><gpxtpx:PowerInWatts>209</gpxtpx:PowerInWatts></gpxtpx:PowerExtension></extensions></trkpt>
+</trkseg></trk>
+</gpx>
