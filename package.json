@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@tmcw/togeojson",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "description": "convert KML and GPX to GeoJSON",
   "source": "lib/index.ts",
   "umd:main": "dist/togeojson.umd.js",
