@@ -48,7 +48,6 @@ function gxCoords(
 
   return {
     geometry:
-      // Two positions are a line. A single gx:coord stays a point.
       coordinates.length >= 2
         ? {
             type: "LineString",
