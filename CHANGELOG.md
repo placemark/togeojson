@@ -323,6 +323,12 @@ Other changes in this pass:
 
 
 
+## 7.1.3
+
+### Patch Changes
+
+- [#148](https://github.com/placemark/togeojson/pull/148) [`750deae`](https://github.com/placemark/togeojson/commit/750deae63d587181e7e6dd06e45a43d48206d80b) Thanks [@SashaMIT](https://github.com/SashaMIT)! - A gx:Track with two coordinates is a LineString. A track with one coordinate stays a Point.
+
 ## 0.16.0
 
 * Supports the `link` tag in GPX data.
