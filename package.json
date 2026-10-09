@@ -23,8 +23,7 @@
     "test": "vitest run",
     "lint": "biome check",
     "doc": "typedoc --options ./typedoc.json && cp CNAME docs/CNAME",
-    "prepare": "rollup -c rollup.config.mjs",
-    "release": "standard-version"
+    "prepare": "rollup -c rollup.config.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
