@@ -1,4 +1,6 @@
+import xmldom from "@xmldom/xmldom";
 import { describe, expect, it } from "vitest";
+import { kml } from "../kml";
 import { coord, coord1, fixRing } from "./geometry";
 
 describe("coord1", () => {
@@ -22,6 +24,33 @@ describe("coord", () => {
       [42, 24],
       [1, 2],
     ]);
+  });
+});
+
+describe("gx:Track", () => {
+  function track(coords: string[]) {
+    const body = coords.map((c) => `<gx:coord>${c}</gx:coord>`).join("");
+    return new xmldom.DOMParser().parseFromString(
+      `<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2"><Placemark><gx:Track>${body}</gx:Track></Placemark></kml>`,
+      "text/xml"
+    ) as unknown as Document;
+  }
+
+  it("keeps both positions of a two-point track", () => {
+    expect(kml(track(["0 0 0", "1 2 3"])).features[0].geometry).toEqual({
+      type: "LineString",
+      coordinates: [
+        [0, 0, 0],
+        [1, 2, 3],
+      ],
+    });
+  });
+
+  it("keeps a one-point track as a point", () => {
+    expect(kml(track(["4 5 6"])).features[0].geometry).toEqual({
+      type: "Point",
+      coordinates: [4, 5, 6],
+    });
   });
 });
 

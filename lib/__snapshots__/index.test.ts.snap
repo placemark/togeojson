@@ -215,11 +215,18 @@ exports[`toGeoJSON > addresses.kml 1`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5513698,
-          13.7987389,
-          0,
+          [
+            100.5513698,
+            13.7987389,
+            0,
+          ],
+          [
+            100.5515619,
+            13.7992727,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Moving",
@@ -427,11 +434,18 @@ exports[`toGeoJSON > addresses.kml 1`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5481932,
-          13.7562302,
-          0,
+          [
+            100.5481932,
+            13.7562302,
+            0,
+          ],
+          [
+            100.5403726,
+            13.7563681,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Driving",
@@ -484,11 +498,18 @@ exports[`toGeoJSON > addresses.kml 2`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5513698,
-          13.7987389,
-          0,
+          [
+            100.5513698,
+            13.7987389,
+            0,
+          ],
+          [
+            100.5515619,
+            13.7992727,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Moving",
@@ -696,11 +717,18 @@ exports[`toGeoJSON > addresses.kml 2`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5481932,
-          13.7562302,
-          0,
+          [
+            100.5481932,
+            13.7562302,
+            0,
+          ],
+          [
+            100.5403726,
+            13.7563681,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Driving",
@@ -739,11 +767,18 @@ exports[`toGeoJSON > addresses.kml 3`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5513698,
-          13.7987389,
-          0,
+          [
+            100.5513698,
+            13.7987389,
+            0,
+          ],
+          [
+            100.5515619,
+            13.7992727,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Moving",
@@ -867,11 +902,18 @@ exports[`toGeoJSON > addresses.kml 3`] = `
     {
       "geometry": {
         "coordinates": [
-          100.5481932,
-          13.7562302,
-          0,
+          [
+            100.5481932,
+            13.7562302,
+            0,
+          ],
+          [
+            100.5403726,
+            13.7563681,
+            0,
+          ],
         ],
-        "type": "Point",
+        "type": "LineString",
       },
       "properties": {
         "Category": "Driving",

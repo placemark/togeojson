@@ -48,7 +48,7 @@ function gxCoords(
 
   return {
     geometry:
-      coordinates.length > 2
+      coordinates.length >= 2
         ? {
             type: "LineString",
             coordinates,
