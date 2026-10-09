@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^3.0.3",
     "@placemarkio/check-geojson": "^0.1.12",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
