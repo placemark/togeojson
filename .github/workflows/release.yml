@@ -36,6 +36,6 @@ jobs:
         id: changesets
         uses: changesets/action@v2.1.0
         with:
-          publish-script: pnpm dlx @changesets/cli publish
+          publish-script: pnpm exec changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
