@@ -18102,6 +18102,147 @@ exports[`toGeoJSON > linestring.kml 3`] = `
 }
 `;
 
+exports[`toGeoJSON > linestring_spaces_in_tuples.kml 1`] = `
+{
+  "features": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                6.4763021843845,
+                46.21242731936,
+                1542,
+              ],
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+              [
+                6.4765312071225,
+                46.21260178211,
+                1531.84,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {},
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON > linestring_spaces_in_tuples.kml 2`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                6.4763021843845,
+                46.21242731936,
+                1542,
+              ],
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+              [
+                6.4765312071225,
+                46.21260178211,
+                1531.84,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {},
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`toGeoJSON > linestring_spaces_in_tuples.kml 3`] = `
+{
+  "children": [
+    {
+      "geometry": {
+        "geometries": [
+          {
+            "coordinates": [
+              [
+                6.4763021843845,
+                46.21242731936,
+                1542,
+              ],
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+            ],
+            "type": "LineString",
+          },
+          {
+            "coordinates": [
+              [
+                6.4764188270461,
+                46.21251024405,
+                1537.12,
+              ],
+              [
+                6.4765312071225,
+                46.21260178211,
+                1531.84,
+              ],
+            ],
+            "type": "LineString",
+          },
+        ],
+        "type": "GeometryCollection",
+      },
+      "properties": {},
+      "type": "Feature",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`toGeoJSON > literal_color.kml 1`] = `
 {
   "features": [

@@ -4,6 +4,7 @@ import { $, $ns, get1, isElement, nodeVal } from "../shared";
 const removeSpace = /\s*/g;
 const trimSpace = /^\s*|\s*$/g;
 const splitSpace = /\s+/;
+const spaceAroundComma = /\s*,\s*/g;
 
 /**
  * Get one coordinate from a coordinate array, if any
@@ -19,10 +20,16 @@ export function coord1(value: string): Position {
 
 /**
  * Get all coordinates from a coordinate array as [[],[]]
+ *
+ * Whitespace around commas is removed before splitting tuples: the KML
+ * spec forbids spaces inside a tuple, but some exporters (Therion, for
+ * example) write "6.47, 46.21, 1542". Valid data never has a comma next to
+ * whitespace, so it is not affected.
  */
 export function coord(value: string): Position[] {
   return value
     .replace(trimSpace, "")
+    .replace(spaceAroundComma, ",")
     .split(splitSpace)
     .map(coord1)
     .filter((coord) => {

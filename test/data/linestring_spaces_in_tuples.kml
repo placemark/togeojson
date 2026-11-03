@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<name>Therion KML export</name>
+<Placemark>
+<MultiGeometry>
+<LineString>
+<coordinates>
+	    6.4763021843845,   46.21242731936, 1542.000000000
+	    6.4764188270461,   46.21251024405, 1537.120000000
+</coordinates>
+</LineString>
+<LineString>
+<coordinates>
+	    6.4764188270461,   46.21251024405, 1537.120000000
+	    6.4765312071225 ,46.21260178211 ,1531.840000000
+</coordinates>
+</LineString>
+</MultiGeometry>
+</Placemark>
+</Document>
+</kml>
