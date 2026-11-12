@@ -24,6 +24,13 @@ export function $ns(
 }
 
 /**
+ * True if any of the per-coordinate arrays has a value that is not null
+ */
+export function hasValues(arrays: unknown[][]) {
+  return arrays.some((values) => values.some((value) => value !== null));
+}
+
+/**
  * get the content of a text node, if any
  */
 export function nodeVal(node: Element | null) {

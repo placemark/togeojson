@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TrainingCenterDatabase xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2" xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2024-01-01T00:00:00Z</Id>
+      <!-- One track: the first trackpoints have no position yet (no GPS lock), and heart rate drops out -->
+      <Lap StartTime="2024-01-01T00:00:00Z">
+        <Track>
+          <Trackpoint>
+            <Time>2024-01-01T00:00:00Z</Time>
+            <HeartRateBpm><Value>99</Value></HeartRateBpm>
+            <Cadence>59</Cadence>
+            <Extensions><ns3:TPX><ns3:Speed>1.9</ns3:Speed><ns3:Watts>190</ns3:Watts></ns3:TPX></Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:00:01Z</Time>
+            <HeartRateBpm><Value>100</Value></HeartRateBpm>
+            <Cadence>60</Cadence>
+            <Extensions><ns3:TPX><ns3:Speed>2.0</ns3:Speed><ns3:Watts>200</ns3:Watts></ns3:TPX></Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:00:02Z</Time>
+            <Position><LatitudeDegrees>50</LatitudeDegrees><LongitudeDegrees>10</LongitudeDegrees></Position>
+            <HeartRateBpm><Value>101</Value></HeartRateBpm>
+            <Cadence>61</Cadence>
+            <Extensions><ns3:TPX><ns3:Speed>2.1</ns3:Speed><ns3:Watts>210</ns3:Watts></ns3:TPX></Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:00:03Z</Time>
+            <Position><LatitudeDegrees>50</LatitudeDegrees><LongitudeDegrees>10.001</LongitudeDegrees></Position>
+            <Cadence>62</Cadence>
+            <Extensions><ns3:TPX><ns3:Speed>2.2</ns3:Speed></ns3:TPX></Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Position><LatitudeDegrees>50</LatitudeDegrees><LongitudeDegrees>10.002</LongitudeDegrees></Position>
+            <HeartRateBpm><Value>103</Value></HeartRateBpm>
+            <Extensions><ns3:TPX><ns3:Watts>230</ns3:Watts></ns3:TPX></Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:00:05Z</Time>
+            <Position><LatitudeDegrees>50</LatitudeDegrees><LongitudeDegrees>10.003</LongitudeDegrees></Position>
+            <HeartRateBpm><Value>104</Value></HeartRateBpm>
+            <Cadence>64</Cadence>
+            <Extensions><ns3:TPX><ns3:Speed>2.4</ns3:Speed><ns3:Watts>240</ns3:Watts></ns3:TPX></Extensions>
+          </Trackpoint>
+        </Track>
+      </Lap>
+      <!-- Two tracks: only the second one has heart rate, cadence and times -->
+      <Lap StartTime="2024-01-01T00:01:00Z">
+        <Track>
+          <Trackpoint>
+            <Position><LatitudeDegrees>51</LatitudeDegrees><LongitudeDegrees>11</LongitudeDegrees></Position>
+          </Trackpoint>
+          <Trackpoint>
+            <Position><LatitudeDegrees>51</LatitudeDegrees><LongitudeDegrees>11.001</LongitudeDegrees></Position>
+          </Trackpoint>
+        </Track>
+        <Track>
+          <Trackpoint>
+            <Time>2024-01-01T00:01:10Z</Time>
+            <HeartRateBpm><Value>110</Value></HeartRateBpm>
+            <Cadence>70</Cadence>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:01:11Z</Time>
+            <Position><LatitudeDegrees>52</LatitudeDegrees><LongitudeDegrees>12</LongitudeDegrees></Position>
+            <HeartRateBpm><Value>111</Value></HeartRateBpm>
+            <Cadence>71</Cadence>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2024-01-01T00:01:12Z</Time>
+            <Position><LatitudeDegrees>52</LatitudeDegrees><LongitudeDegrees>12.001</LongitudeDegrees></Position>
+            <HeartRateBpm><Value>112</Value></HeartRateBpm>
+            <Cadence>72</Cadence>
+          </Trackpoint>
+        </Track>
+      </Lap>
+      <!-- Two tracks, but the first has only one point, so the lap is a LineString -->
+      <Lap StartTime="2024-01-01T00:02:00Z">
+        <Track>
+          <Trackpoint>
+            <Position><LatitudeDegrees>53</LatitudeDegrees><LongitudeDegrees>13</LongitudeDegrees></Position>
+            <Cadence>79</Cadence>
+          </Trackpoint>
+        </Track>
+        <Track>
+          <Trackpoint>
+            <Position><LatitudeDegrees>54</LatitudeDegrees><LongitudeDegrees>14</LongitudeDegrees></Position>
+            <Cadence>80</Cadence>
+          </Trackpoint>
+          <Trackpoint>
+            <Position><LatitudeDegrees>54</LatitudeDegrees><LongitudeDegrees>14.001</LongitudeDegrees></Position>
+            <Cadence>81</Cadence>
+          </Trackpoint>
+        </Track>
+      </Lap>
+    </Activity>
+  </Activities>
+</TrainingCenterDatabase>

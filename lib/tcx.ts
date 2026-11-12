@@ -1,6 +1,6 @@
 import type { Document as XDocument } from "@xmldom/xmldom";
 import type { Feature, FeatureCollection, Position } from "geojson";
-import { $, type P, get, get1, nodeVal, num1 } from "./shared";
+import { $, type P, get, get1, hasValues, nodeVal, num1 } from "./shared";
 
 type PropertyMapping = readonly [string, string][];
 
@@ -57,7 +57,7 @@ function coordPair(node: Element) {
   ) {
     return null;
   }
-  const heartRate = get1(node, "HeartRateBpm");
+  const heartRate = Number.parseFloat(nodeVal(get1(node, "HeartRateBpm")));
   const time = nodeVal(get1(node, "Time"));
   get1(node, "AltitudeMeters", (alt) => {
     const a = Number.parseFloat(nodeVal(alt));
@@ -68,7 +68,7 @@ function coordPair(node: Element) {
   return {
     coordinates: ll as number[],
     time: time || null,
-    heartRate: heartRate ? Number.parseFloat(nodeVal(heartRate)) : null,
+    heartRate: Number.isNaN(heartRate) ? null : heartRate,
     extensions: getProperties(node, TRACKPOINT_ATTRIBUTES),
   };
 }
@@ -86,16 +86,23 @@ function getPoints(node: Element) {
     if (c === null) continue;
     line.push(c.coordinates);
     const { time, heartRate, extensions } = c;
-    if (time) times.push(time);
-    if (heartRate) heartRates.push(heartRate);
+    // Push null for missing values, so that every array has one
+    // entry per coordinate.
+    times.push(time);
+    heartRates.push(heartRate);
     for (const [alias, value] of extensions) {
       if (!extendedProperties[alias]) {
         extendedProperties[alias] = Array(pts.length).fill(null);
       }
-      extendedProperties[alias][i] = value;
+      extendedProperties[alias][line.length - 1] = value;
     }
   }
   if (line.length < 2) return null;
+  // Trackpoints without a position are skipped, so cut the
+  // extension arrays down to the number of coordinates.
+  for (const alias in extendedProperties) {
+    extendedProperties[alias].length = line.length;
+  }
   return Object.assign(result, {
     line: line,
     times: times,
@@ -109,7 +116,6 @@ function getLap(node: Element): Feature | null {
   const times = [];
   const heartRates = [];
   const allExtendedProperties = [];
-  let line: any;
   const properties: P = Object.assign(
     Object.fromEntries(getProperties(node, LAP_ATTRIBUTES)),
     get(node, "Name", (nameElement) => {
@@ -118,21 +124,19 @@ function getLap(node: Element): Feature | null {
   );
 
   for (const segment of segments) {
-    line = getPoints(segment);
+    const line = getPoints(segment);
     if (line) {
       track.push(line.line);
-      if (line.times.length) times.push(line.times);
-      if (line.heartRates.length) heartRates.push(line.heartRates);
+      times.push(line.times);
+      heartRates.push(line.heartRates);
       allExtendedProperties.push(line.extendedProperties);
     }
   }
   for (let i = 0; i < allExtendedProperties.length; i++) {
     const extendedProperties = allExtendedProperties[i];
     for (const property in extendedProperties) {
-      if (segments.length === 1) {
-        if (line) {
-          properties[property] = line.extendedProperties[property];
-        }
+      if (track.length === 1) {
+        properties[property] = extendedProperties[property];
       } else {
         if (!properties[property]) {
           properties[property] = track.map((track) =>
@@ -146,14 +150,16 @@ function getLap(node: Element): Feature | null {
 
   if (track.length === 0) return null;
 
-  if (times.length || heartRates.length) {
+  const hasTimes = hasValues(times);
+  const hasHeartRates = hasValues(heartRates);
+  if (hasTimes || hasHeartRates) {
     properties.coordinateProperties = Object.assign(
-      times.length
+      hasTimes
         ? {
             times: track.length === 1 ? times[0] : times,
           }
         : {},
-      heartRates.length
+      hasHeartRates
         ? {
             heart: track.length === 1 ? heartRates[0] : heartRates,
           }
