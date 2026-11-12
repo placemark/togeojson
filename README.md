@@ -38,9 +38,12 @@ also encodes parts of KML, GPX, and TCX files that otherwise would be lost.
 
 - Line properties: `totalTimeSeconds`, `distanceMeters`, `maxSpeed`,
   `avgHeartRate`, `maxHeartRate`, `avgSpeed`, `avgWatts`, `maxWatts`
+- Per-point properties: `heartRates`, `cadences`, `speeds`, `watts`
 
 This also emits the [geojson-coordinate-properties](https://github.com/mapbox/geojson-coordinate-properties) format
 to include time and other attributes that apply to each coordinate of a LineString.
+These arrays, and the TCX per-point properties, have one entry for each coordinate,
+in the same order. A point that has no value gets `null`.
 
 ## Ground overlays
 

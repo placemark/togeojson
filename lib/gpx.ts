@@ -10,7 +10,7 @@ import type {
 import { coordPair } from "./gpx/coord_pair";
 import { getLineStyle } from "./gpx/line";
 import { extractProperties } from "./gpx/properties";
-import { $, type NS, type P, get1, getMulti } from "./shared";
+import { $, type NS, type P, get1, getMulti, hasValues } from "./shared";
 
 /**
  * Extract points from a trkseg or rte element.
@@ -27,18 +27,26 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
       continue;
     }
     line.push(c.coordinates);
-    if (c.time) times.push(c.time);
+    // Push null for missing values, so that every array has one
+    // entry per coordinate.
+    times.push(c.time || null);
     for (const [name, val] of c.extendedValues) {
       const plural =
         name === "heart" ? name : `${name.replace("gpxtpx:", "")}s`;
       if (!extendedValues[plural]) {
         extendedValues[plural] = Array(pts.length).fill(null);
       }
-      extendedValues[plural][i] = val;
+      extendedValues[plural][line.length - 1] = val;
     }
   }
 
   if (line.length < 2) return; // Invalid line in GeoJSON
+
+  // Points without a position are skipped, so cut the
+  // extension arrays down to the number of coordinates.
+  for (const name in extendedValues) {
+    extendedValues[name].length = line.length;
+  }
 
   return {
     line: line,
@@ -81,7 +89,7 @@ function getTrack(
     const line = getPoints(segment, "trkpt");
     if (line) {
       extractedLines.push(line);
-      if (line.times?.length) times.push(line.times);
+      times.push(line.times);
     }
   }
 
@@ -93,7 +101,7 @@ function getTrack(
     { _gpxType: "trk" },
     extractProperties(ns, node),
     getLineStyle(get1(node, "extensions")),
-    times.length
+    hasValues(times)
       ? {
           coordinateProperties: {
             times: multi ? times : times[0],
