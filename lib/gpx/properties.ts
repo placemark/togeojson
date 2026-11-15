@@ -1,7 +1,43 @@
-import { $, type NS, getMulti, nodeVal } from "../shared";
+import { type NS, type P, isElement, nodeVal } from "../shared";
+
+/**
+ * Tags inside these elements belong to a track or route point,
+ * not to the track or route itself.
+ */
+const POINT_CONTAINERS = ["trkseg", "rtept"];
+
+function children(node: Element, tagName: string): Element[] {
+  return Array.from(node.childNodes).filter(
+    (child): child is Element => isElement(child) && child.tagName === tagName
+  );
+}
+
+function childValues(node: Element, propertyNames: string[]): P {
+  const properties: P = {};
+  for (const property of propertyNames) {
+    const val = nodeVal(children(node, property)[0] || null);
+    if (val) properties[property] = val;
+  }
+  return properties;
+}
+
+/**
+ * True if `child` sits inside a point or segment of `node`.
+ */
+function isInPoint(node: Element, child: Element) {
+  for (
+    let parent = child.parentNode;
+    parent && parent !== node;
+    parent = parent.parentNode
+  ) {
+    if (isElement(parent) && POINT_CONTAINERS.includes(parent.localName))
+      return true;
+  }
+  return false;
+}
 
 export function extractProperties(ns: NS, node: Element) {
-  const properties = getMulti(node, [
+  const properties = childValues(node, [
     "name",
     "cmt",
     "desc",
@@ -12,16 +48,17 @@ export function extractProperties(ns: NS, node: Element) {
 
   for (const [n, url] of ns) {
     for (const child of Array.from(node.getElementsByTagNameNS(url, "*"))) {
+      if (isInPoint(node, child)) continue;
       properties[child.tagName.replace(":", "_")] = nodeVal(child)?.trim();
     }
   }
 
-  const links = $(node, "link");
+  const links = children(node, "link");
   if (links.length) {
     properties.links = links.map((link) =>
       Object.assign(
         { href: link.getAttribute("href") },
-        getMulti(link, ["text", "type"])
+        childValues(link, ["text", "type"])
       )
     );
   }
