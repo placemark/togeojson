@@ -12002,7 +12002,6 @@ exports[`toGeoJSON > garmin_connect.tcx 1`] = `
           74,
           69,
           70,
-          null,
           68,
           49,
           52,
@@ -12644,7 +12643,6 @@ exports[`toGeoJSON > garmin_connect.tcx 1`] = `
           5.224999904632568,
           5.151000022888184,
           5.317999839782715,
-          null,
           5.440000057220459,
           5.169000148773193,
           4.310999870300293,
@@ -12964,7 +12962,6 @@ exports[`toGeoJSON > garmin_connect.tcx 1`] = `
           62,
           62,
           98,
-          null,
           1,
           42,
           0,
@@ -13214,6 +13211,111 @@ exports[`toGeoJSON > gdal.gpx 1`] = `
         "type": "Point",
       },
       "properties": {},
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
+}
+`;
+
+exports[`toGeoJSON > gpx_missing_values.gpx 1`] = `
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            10,
+            50,
+          ],
+          [
+            10.001,
+            50,
+          ],
+          [
+            10.002,
+            50,
+          ],
+          [
+            10.003,
+            50,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "properties": {
+        "_gpxType": "trk",
+        "coordinateProperties": {
+          "cads": [
+            60,
+            62,
+            63,
+            64,
+          ],
+          "heart": [
+            100,
+            102,
+            null,
+            104,
+          ],
+          "times": [
+            "2024-01-01T00:00:00Z",
+            null,
+            "2024-01-01T00:00:03Z",
+            "2024-01-01T00:00:04Z",
+          ],
+        },
+        "gpxtpx_TrackPointExtension": "10464",
+        "gpxtpx_cad": "64",
+        "gpxtpx_hr": "104",
+        "name": "missing values",
+        "time": "2024-01-01T00:00:00Z",
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              11,
+              51,
+            ],
+            [
+              11.001,
+              51,
+            ],
+          ],
+          [
+            [
+              12,
+              52,
+            ],
+            [
+              12.001,
+              52,
+            ],
+          ],
+        ],
+        "type": "MultiLineString",
+      },
+      "properties": {
+        "_gpxType": "trk",
+        "coordinateProperties": {
+          "times": [
+            [
+              null,
+              null,
+            ],
+            [
+              "2024-01-01T00:01:00Z",
+              "2024-01-01T00:01:01Z",
+            ],
+          ],
+        },
+        "name": "times in second segment",
+        "time": "2024-01-01T00:01:00Z",
+      },
       "type": "Feature",
     },
   ],
@@ -30381,6 +30483,156 @@ exports[`toGeoJSON > styles.kml 3`] = `
     },
   ],
   "type": "root",
+}
+`;
+
+exports[`toGeoJSON > tcx_missing_values.tcx 1`] = `
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            10,
+            50,
+          ],
+          [
+            10.001,
+            50,
+          ],
+          [
+            10.002,
+            50,
+          ],
+          [
+            10.003,
+            50,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "properties": {
+        "cadences": [
+          61,
+          62,
+          null,
+          64,
+        ],
+        "coordinateProperties": {
+          "heart": [
+            101,
+            null,
+            103,
+            104,
+          ],
+          "times": [
+            "2024-01-01T00:00:02Z",
+            "2024-01-01T00:00:03Z",
+            null,
+            "2024-01-01T00:00:05Z",
+          ],
+        },
+        "speeds": [
+          2.1,
+          2.2,
+          null,
+          2.4,
+        ],
+        "watts": [
+          210,
+          null,
+          230,
+          240,
+        ],
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              11,
+              51,
+            ],
+            [
+              11.001,
+              51,
+            ],
+          ],
+          [
+            [
+              12,
+              52,
+            ],
+            [
+              12.001,
+              52,
+            ],
+          ],
+        ],
+        "type": "MultiLineString",
+      },
+      "properties": {
+        "cadences": [
+          [
+            null,
+            null,
+          ],
+          [
+            71,
+            72,
+          ],
+        ],
+        "coordinateProperties": {
+          "heart": [
+            [
+              null,
+              null,
+            ],
+            [
+              111,
+              112,
+            ],
+          ],
+          "times": [
+            [
+              null,
+              null,
+            ],
+            [
+              "2024-01-01T00:01:11Z",
+              "2024-01-01T00:01:12Z",
+            ],
+          ],
+        },
+      },
+      "type": "Feature",
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            14,
+            54,
+          ],
+          [
+            14.001,
+            54,
+          ],
+        ],
+        "type": "LineString",
+      },
+      "properties": {
+        "cadences": [
+          80,
+          81,
+        ],
+      },
+      "type": "Feature",
+    },
+  ],
+  "type": "FeatureCollection",
 }
 `;
 

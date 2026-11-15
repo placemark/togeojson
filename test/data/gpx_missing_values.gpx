@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx creator="togeojson test" version="1.1"
+	xmlns="http://www.topografix.com/GPX/1/1"
+	xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+	<!-- One segment: a point with no time, a point with no position, and a heart rate dropout -->
+	<trk>
+		<name>missing values</name>
+		<trkseg>
+			<trkpt lat="50" lon="10">
+				<time>2024-01-01T00:00:00Z</time>
+				<extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>100</gpxtpx:hr><gpxtpx:cad>60</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions>
+			</trkpt>
+			<trkpt>
+				<time>2024-01-01T00:00:01Z</time>
+				<extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>199</gpxtpx:hr><gpxtpx:cad>199</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions>
+			</trkpt>
+			<trkpt lat="50" lon="10.001">
+				<extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>102</gpxtpx:hr><gpxtpx:cad>62</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions>
+			</trkpt>
+			<trkpt lat="50" lon="10.002">
+				<time>2024-01-01T00:00:03Z</time>
+				<extensions><gpxtpx:TrackPointExtension><gpxtpx:cad>63</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions>
+			</trkpt>
+			<trkpt lat="50" lon="10.003">
+				<time>2024-01-01T00:00:04Z</time>
+				<extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>104</gpxtpx:hr><gpxtpx:cad>64</gpxtpx:cad></gpxtpx:TrackPointExtension></extensions>
+			</trkpt>
+		</trkseg>
+	</trk>
+	<!-- Two segments: only the second one has times -->
+	<trk>
+		<name>times in second segment</name>
+		<trkseg>
+			<trkpt lat="51" lon="11"></trkpt>
+			<trkpt lat="51" lon="11.001"></trkpt>
+		</trkseg>
+		<trkseg>
+			<trkpt lat="52" lon="12"><time>2024-01-01T00:01:00Z</time></trkpt>
+			<trkpt lat="52" lon="12.001"><time>2024-01-01T00:01:01Z</time></trkpt>
+		</trkseg>
+	</trk>
+</gpx>
