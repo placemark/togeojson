@@ -11,6 +11,7 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
+  isFalse,
   processAltitudeMode,
 } from "./shared";
 
@@ -185,7 +186,9 @@ export function getNetworkLink(
   }
 
   if (feature.properties?.visibility !== undefined) {
-    feature.properties.visibility = feature.properties.visibility !== "0";
+    feature.properties.visibility = !isFalse(
+      String(feature.properties.visibility)
+    );
   }
 
   const id = node.getAttribute("id");

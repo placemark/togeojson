@@ -13,6 +13,14 @@ export type TypeConverter = (x: string) => unknown;
 export type Schema = { [key: string]: TypeConverter };
 
 const toNumber: TypeConverter = (x) => Number(x);
+
+/**
+ * True if an xsd:boolean value is false ("0" or "false").
+ * KML elements such as visibility, fill and outline use this type.
+ */
+export function isFalse(value: string) {
+  return ["false", "0"].includes(value.trim().toLowerCase());
+}
 export const typeConverters: Record<string, TypeConverter> = {
   string: (x) => x,
   int: toNumber,
