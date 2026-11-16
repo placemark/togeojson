@@ -41,6 +41,48 @@ describe("toGeoJSON", () => {
 });
 
 describe("mini cases", () => {
+  it("gpx properties only come from the feature's own tags", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:ex="http://example.com/ex">
+        <wpt lat="1" lon="2">
+          <link href="http://example.com/a.jpg"><text>photo</text><type>image/jpeg</type></link>
+        </wpt>
+        <trk>
+          <extensions><ex:id>track</ex:id></extensions>
+          <trkseg>
+            <trkpt lat="1" lon="2">
+              <name>first point</name>
+              <time>2024-01-01T00:00:00Z</time>
+              <link href="http://example.com/point"/>
+              <extensions><ex:id>point</ex:id></extensions>
+            </trkpt>
+            <trkpt lat="1" lon="3"><desc>second point</desc></trkpt>
+          </trkseg>
+        </trk>
+        <rte>
+          <name>route</name>
+          <rtept lat="1" lon="2"><cmt>first rtept</cmt><type>stop</type></rtept>
+          <rtept lat="1" lon="3"/>
+        </rte>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [track, route, waypoint] = tj.gpx(dom).features;
+    expect(track.properties).toEqual({
+      _gpxType: "trk",
+      ex_id: "track",
+      coordinateProperties: {
+        times: ["2024-01-01T00:00:00Z", null],
+        "ex:ids": ["point", null],
+      },
+    });
+    expect(route.properties).toEqual({ _gpxType: "rte", name: "route" });
+    expect(waypoint.properties).toEqual({
+      links: [
+        { href: "http://example.com/a.jpg", text: "photo", type: "image/jpeg" },
+      ],
+    });
+  });
   it("skip null geometries", () => {
     expect(
       tj.kml(parse(path.join(d, "null_geometry.kml")), {
