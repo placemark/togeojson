@@ -194,7 +194,8 @@ export function* tcxGen(node: Document | XDocument): Generator<Feature> {
     if (feature) yield feature;
   }
 
-  for (const course of $(node as Document, "Courses")) {
+  // Each Course is its own route, so it gets its own feature.
+  for (const course of $(node as Document, "Course")) {
     const feature = getLap(course);
     if (feature) yield feature;
   }
