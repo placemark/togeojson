@@ -21,7 +21,8 @@ export const typeConverters: Record<string, TypeConverter> = {
   ushort: toNumber,
   float: toNumber,
   double: toNumber,
-  bool: (x) => Boolean(x),
+  // xsd:boolean: "true" or "1" is true, "false" or "0" is false
+  bool: (x) => ["true", "1"].includes(x.trim().toLowerCase()),
 };
 
 export function extractExtendedData(node: Element, schema: Schema) {
