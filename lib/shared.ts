@@ -84,7 +84,7 @@ export function $num(
 ) {
   const val = Number.parseFloat(nodeVal(get1(node, tagName)));
   if (Number.isNaN(val)) return undefined;
-  if (val && callback) return callback(val) || {};
+  if (callback) return callback(val) || {};
   return {};
 }
 

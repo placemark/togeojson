@@ -83,6 +83,27 @@ describe("mini cases", () => {
       ],
     });
   });
+  it("gpx line style keeps an opacity or width of 0", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1">
+        <trk>
+          <extensions>
+            <line xmlns="http://www.topografix.com/GPX/gpx_style/0/2">
+              <color>893380</color><opacity>0</opacity><width>0.0</width>
+            </line>
+          </extensions>
+          <trkseg><trkpt lat="1" lon="2"/><trkpt lat="1" lon="3"/></trkseg>
+        </trk>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [track] = tj.gpx(dom).features;
+    expect(track.properties).toMatchObject({
+      stroke: "#893380",
+      "stroke-opacity": 0,
+      "stroke-width": 0,
+    });
+  });
   it("skip null geometries", () => {
     expect(
       tj.kml(parse(path.join(d, "null_geometry.kml")), {
