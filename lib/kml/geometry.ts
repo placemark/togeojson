@@ -2,7 +2,6 @@ import type { Geometry, LineString, Point, Position } from "geojson";
 import { $, $ns, get1, isElement, nodeVal } from "../shared";
 
 const removeSpace = /\s*/g;
-const trimSpace = /^\s*|\s*$/g;
 const splitSpace = /\s+/;
 
 /**
@@ -22,7 +21,7 @@ export function coord1(value: string): Position {
  */
 export function coord(value: string): Position[] {
   return value
-    .replace(trimSpace, "")
+    .trim()
     .split(splitSpace)
     .map(coord1)
     .filter((coord) => {
@@ -39,7 +38,7 @@ function gxCoords(
   }
 
   const coordinates = elems.map((elem) => {
-    return nodeVal(elem).split(" ").map(Number.parseFloat);
+    return nodeVal(elem).trim().split(splitSpace).map(Number.parseFloat);
   });
 
   if (coordinates.length === 0) {
