@@ -39,7 +39,10 @@ function gxCoords(
   }
 
   const coordinates = elems.map((elem) => {
-    return nodeVal(elem).split(" ").map(Number.parseFloat);
+    return nodeVal(elem)
+      .replace(trimSpace, "")
+      .split(splitSpace)
+      .map(Number.parseFloat);
   });
 
   if (coordinates.length === 0) {

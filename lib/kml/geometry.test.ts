@@ -46,6 +46,19 @@ describe("gx:Track", () => {
     });
   });
 
+  it("reads coordinates with extra whitespace", () => {
+    expect(
+      kml(track(["\n  1 2 3\n", "4  5\t6", " 7 8 "])).features[0].geometry
+    ).toEqual({
+      type: "LineString",
+      coordinates: [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8],
+      ],
+    });
+  });
+
   it("keeps a one-point track as a point", () => {
     expect(kml(track(["4 5 6"])).features[0].geometry).toEqual({
       type: "Point",
