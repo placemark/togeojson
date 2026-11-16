@@ -323,6 +323,18 @@ Other changes in this pass:
 
 
 
+## 7.1.4
+
+### Patch Changes
+
+- [#159](https://github.com/placemark/togeojson/pull/159) [`f3ef56d`](https://github.com/placemark/togeojson/commit/f3ef56d824fd06f4b9262f3607f6474d87cc6219) Thanks [@bardrop](https://github.com/bardrop)! - TCX and GPX per-point arrays (`times`, `heart`, `cadences`, `watts`, `speeds`, and GPX extensions) now have one entry for each coordinate. Missing values are `null`, and points without a position no longer leave an entry behind.
+
+- [#161](https://github.com/placemark/togeojson/pull/161) [`407e50f`](https://github.com/placemark/togeojson/commit/407e50f83f4607d0f4ba324ed56b78e841cb903c) Thanks [@bardrop](https://github.com/bardrop)! - GPX `trk` and `rte` features no longer take `name`, `cmt`, `desc`, `type`, `time`, `keywords`, links and extension values from their points. A `wpt` link's `type` no longer shows up as the waypoint's `type`.
+
+- [#162](https://github.com/placemark/togeojson/pull/162) [`9eb7195`](https://github.com/placemark/togeojson/commit/9eb71956e7add22c2dec6e95262b3a850dc759db) Thanks [@bardrop](https://github.com/bardrop)! - KML `SimpleData` values of a `bool` `SimpleField` now follow `xsd:boolean`: `0` and `false` are `false`. Before, any non-empty value, including `0` and `false`, became `true`.
+
+- [#163](https://github.com/placemark/togeojson/pull/163) [`fce7b77`](https://github.com/placemark/togeojson/commit/fce7b772f8f5e6d1105d33cf0feff8b7d55f934f) Thanks [@bardrop](https://github.com/bardrop)! - A TCX file with several `Course` elements now gives one feature per course. Before, all courses were merged into one `MultiLineString` feature that took its name and lap values from the first course.
+
 ## 7.1.3
 
 ### Patch Changes
