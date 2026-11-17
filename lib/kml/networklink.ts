@@ -11,8 +11,8 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
-  isFalse,
   processAltitudeMode,
+  toBoolean,
 } from "./shared";
 
 interface BoxGeometry {
@@ -186,7 +186,7 @@ export function getNetworkLink(
   }
 
   if (feature.properties?.visibility !== undefined) {
-    feature.properties.visibility = !isFalse(
+    feature.properties.visibility = toBoolean(
       String(feature.properties.visibility)
     );
   }

@@ -15,12 +15,13 @@ export type Schema = { [key: string]: TypeConverter };
 const toNumber: TypeConverter = (x) => Number(x);
 
 /**
- * True if an xsd:boolean value is false ("0" or "false").
- * KML elements such as visibility, fill and outline use this type.
+ * Read an xsd:boolean: "true" or "1" is true, "false" or "0" is false.
+ * Used for SimpleData of type bool and for visibility, fill and outline.
  */
-export function isFalse(value: string) {
-  return ["false", "0"].includes(value.trim().toLowerCase());
+export function toBoolean(value: string) {
+  return ["true", "1"].includes(value.trim().toLowerCase());
 }
+
 export const typeConverters: Record<string, TypeConverter> = {
   string: (x) => x,
   int: toNumber,
@@ -29,8 +30,7 @@ export const typeConverters: Record<string, TypeConverter> = {
   ushort: toNumber,
   float: toNumber,
   double: toNumber,
-  // xsd:boolean: "true" or "1" is true, "false" or "0" is false
-  bool: (x) => ["true", "1"].includes(x.trim().toLowerCase()),
+  bool: toBoolean,
 };
 
 export function extractExtendedData(node: Element, schema: Schema) {

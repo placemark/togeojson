@@ -10,7 +10,7 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
-  isFalse,
+  toBoolean,
 } from "./shared";
 
 function geometryListToGeometry(geometries: Geometry[]): Geometry | null {
@@ -67,7 +67,7 @@ export function getPlacemark(
   };
 
   if (feature.properties?.visibility !== undefined) {
-    feature.properties.visibility = !isFalse(
+    feature.properties.visibility = toBoolean(
       String(feature.properties.visibility)
     );
   }

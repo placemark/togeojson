@@ -1,6 +1,6 @@
 import { type P, get, nodeVal, num1, val1 } from "../shared";
 import { fixColor } from "./fixColor";
-import { isFalse } from "./shared";
+import { toBoolean } from "./shared";
 
 function numericProperty(node: Element, source: string, target: string): P {
   const properties: P = {};
@@ -70,10 +70,10 @@ export function extractPoly(node: Element) {
       properties,
       get(polyStyle, "color", (elem) => fixColor(nodeVal(elem), "fill")),
       val1(polyStyle, "fill", (fill) => {
-        if (isFalse(fill)) return { "fill-opacity": 0 };
+        if (!toBoolean(fill)) return { "fill-opacity": 0 };
       }),
       val1(polyStyle, "outline", (outline) => {
-        if (isFalse(outline)) return { "stroke-opacity": 0 };
+        if (!toBoolean(outline)) return { "stroke-opacity": 0 };
       })
     );
   });
