@@ -11,6 +11,7 @@ import {
   extractTimeSpan,
   extractTimeStamp,
   getMaybeHTMLDescription,
+  toBoolean,
 } from "./shared";
 
 interface BoxGeometry {
@@ -146,7 +147,9 @@ export function getGroundOverlay(
   }
 
   if (feature.properties?.visibility !== undefined) {
-    feature.properties.visibility = feature.properties.visibility !== "0";
+    feature.properties.visibility = toBoolean(
+      String(feature.properties.visibility)
+    );
   }
 
   const id = node.getAttribute("id");

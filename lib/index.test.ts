@@ -104,6 +104,47 @@ describe("mini cases", () => {
       "stroke-width": 0,
     });
   });
+  it("kml boolean elements read false and 0 as false", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+        <Placemark>
+          <name>hidden</name>
+          <visibility>false</visibility>
+          <Style><PolyStyle><fill>false</fill><outline> 0 </outline></PolyStyle></Style>
+          <Point><coordinates>1,2</coordinates></Point>
+        </Placemark>
+        <Placemark>
+          <name>shown</name>
+          <visibility>true</visibility>
+          <Style><PolyStyle><fill>true</fill><outline>1</outline></PolyStyle></Style>
+          <Point><coordinates>1,2</coordinates></Point>
+        </Placemark>
+        <Placemark>
+          <name>hidden too</name>
+          <visibility>0</visibility>
+          <Point><coordinates>1,2</coordinates></Point>
+        </Placemark>
+        <GroundOverlay>
+          <visibility>false</visibility>
+          <LatLonBox><north>1</north><south>0</south><east>1</east><west>0</west></LatLonBox>
+        </GroundOverlay>
+      </Document></kml>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [hidden, shown, hiddenToo, overlay] = tj.kml(dom).features;
+    expect(hidden.properties).toEqual({
+      name: "hidden",
+      visibility: false,
+      "fill-opacity": 0,
+      "stroke-opacity": 0,
+    });
+    expect(shown.properties).toEqual({ name: "shown", visibility: true });
+    expect(hiddenToo.properties).toEqual({
+      name: "hidden too",
+      visibility: false,
+    });
+    expect(overlay.properties?.visibility).toBe(false);
+  });
   it("skip null geometries", () => {
     expect(
       tj.kml(parse(path.join(d, "null_geometry.kml")), {

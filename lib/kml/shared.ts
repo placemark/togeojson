@@ -13,6 +13,15 @@ export type TypeConverter = (x: string) => unknown;
 export type Schema = { [key: string]: TypeConverter };
 
 const toNumber: TypeConverter = (x) => Number(x);
+
+/**
+ * Read an xsd:boolean: "true" or "1" is true, "false" or "0" is false.
+ * Used for SimpleData of type bool and for visibility, fill and outline.
+ */
+export function toBoolean(value: string) {
+  return ["true", "1"].includes(value.trim().toLowerCase());
+}
+
 export const typeConverters: Record<string, TypeConverter> = {
   string: (x) => x,
   int: toNumber,
@@ -21,8 +30,7 @@ export const typeConverters: Record<string, TypeConverter> = {
   ushort: toNumber,
   float: toNumber,
   double: toNumber,
-  // xsd:boolean: "true" or "1" is true, "false" or "0" is false
-  bool: (x) => ["true", "1"].includes(x.trim().toLowerCase()),
+  bool: toBoolean,
 };
 
 export function extractExtendedData(node: Element, schema: Schema) {
