@@ -323,6 +323,18 @@ Other changes in this pass:
 
 
 
+## 7.1.5
+
+### Patch Changes
+
+- [#167](https://github.com/placemark/togeojson/pull/167) [`7c2672f`](https://github.com/placemark/togeojson/commit/7c2672fb44af40d4e7f058eea81bf675ac7b4e41) Thanks [@bardrop](https://github.com/bardrop)! - Keep a GPX line style `opacity` or `width` of 0 instead of dropping it
+
+- [#164](https://github.com/placemark/togeojson/pull/164) [`54ba68a`](https://github.com/placemark/togeojson/commit/54ba68ac4844c692408b1d7c9abfa872360ac922) Thanks [@bardrop](https://github.com/bardrop)! - Read gx:coord values that have extra spaces, tabs or newlines instead of turning them into NaN
+
+- [#166](https://github.com/placemark/togeojson/pull/166) [`208ff89`](https://github.com/placemark/togeojson/commit/208ff89ed43c5a65f2f3a93c1dfe87e85c7dc1b7) Thanks [@bardrop](https://github.com/bardrop)! - Read `false` as false in KML `visibility`, `fill` and `outline`, not only `0`
+
+- [#168](https://github.com/placemark/togeojson/pull/168) [`a34e5f5`](https://github.com/placemark/togeojson/commit/a34e5f554b3715912165fd0c545349e8294afc17) Thanks [@bardrop](https://github.com/bardrop)! - Keep KML `coordinateProperties.times` aligned with the geometries when a gx:Track in a MultiTrack or MultiGeometry has no `<when>` values
+
 ## 7.1.4
 
 ### Patch Changes
