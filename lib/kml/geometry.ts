@@ -83,6 +83,10 @@ export function getCoordinates(node: Element) {
 
 interface GeometriesAndTimes {
   geometries: Geometry[];
+  /**
+   * One entry per geometry, in the same order: the gx:Track `when`
+   * values, or an empty array for a geometry without times.
+   */
   coordTimes: string[][];
 }
 
@@ -110,6 +114,7 @@ export function getGeometry(node: Element): GeometriesAndTimes {
               type: "Point",
               coordinates,
             });
+            coordTimes.push([]);
           }
           break;
         }
@@ -121,6 +126,7 @@ export function getGeometry(node: Element): GeometriesAndTimes {
               type: "LineString",
               coordinates,
             });
+            coordTimes.push([]);
           }
           break;
         }
@@ -137,6 +143,7 @@ export function getGeometry(node: Element): GeometriesAndTimes {
               type: "Polygon",
               coordinates: coords,
             });
+            coordTimes.push([]);
           }
           break;
         }
@@ -146,7 +153,7 @@ export function getGeometry(node: Element): GeometriesAndTimes {
           if (!gx) break;
           const { times, geometry } = gx;
           geometries.push(geometry);
-          if (times.length) coordTimes.push(times);
+          coordTimes.push(times);
           break;
         }
       }
