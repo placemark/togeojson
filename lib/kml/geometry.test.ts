@@ -67,6 +67,56 @@ describe("gx:Track", () => {
   });
 });
 
+describe("coordinate times", () => {
+  function placemark(body: string) {
+    return kml(
+      new xmldom.DOMParser().parseFromString(
+        `<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2"><Placemark>${body}</Placemark></kml>`,
+        "text/xml"
+      ) as unknown as Document
+    ).features[0].properties;
+  }
+
+  const untimed =
+    "<gx:Track><gx:coord>0 0</gx:coord><gx:coord>1 1</gx:coord></gx:Track>";
+  const timed =
+    "<gx:Track><when>2020-01-01T00:00:00Z</when><when>2020-01-01T00:01:00Z</when><gx:coord>2 2</gx:coord><gx:coord>3 3</gx:coord></gx:Track>";
+
+  it("keeps times on the right track when an earlier track has none", () => {
+    expect(
+      placemark(`<gx:MultiTrack>${untimed}${timed}</gx:MultiTrack>`)
+        ?.coordinateProperties
+    ).toEqual({
+      times: [[], ["2020-01-01T00:00:00Z", "2020-01-01T00:01:00Z"]],
+    });
+  });
+
+  it("keeps times on the right track when a later track has none", () => {
+    expect(
+      placemark(`<gx:MultiTrack>${timed}${untimed}</gx:MultiTrack>`)
+        ?.coordinateProperties
+    ).toEqual({
+      times: [["2020-01-01T00:00:00Z", "2020-01-01T00:01:00Z"], []],
+    });
+  });
+
+  it("keeps times on the right geometry next to a LineString", () => {
+    expect(
+      placemark(
+        `<MultiGeometry><LineString><coordinates>5,5 6,6</coordinates></LineString>${timed}</MultiGeometry>`
+      )?.coordinateProperties
+    ).toEqual({
+      times: [[], ["2020-01-01T00:00:00Z", "2020-01-01T00:01:00Z"]],
+    });
+  });
+
+  it("adds no times when no track has any", () => {
+    expect(
+      placemark(`<gx:MultiTrack>${untimed}${untimed}</gx:MultiTrack>`)
+    ).not.toHaveProperty("coordinateProperties");
+  });
+});
+
 describe("fixRing", () => {
   it("completes a ring if necessary", () => {
     expect(

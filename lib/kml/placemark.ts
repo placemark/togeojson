@@ -55,7 +55,7 @@ export function getPlacemark(
       extractExtendedData(node, schema),
       extractTimeSpan(node),
       extractTimeStamp(node),
-      coordTimes.length
+      coordTimes.some((times) => times.length)
         ? {
             coordinateProperties: {
               times: coordTimes.length === 1 ? coordTimes[0] : coordTimes,
