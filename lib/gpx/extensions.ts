@@ -8,9 +8,16 @@ export function getExtensions(node: Element | null): ExtendedValues {
   for (const child of Array.from(node.childNodes)) {
     if (!isElement(child)) continue;
     const name = abbreviateName(child.nodeName);
-    if (name === "gpxtpx:TrackPointExtension") {
-      // loop again for nested garmin extensions (eg. "gpxtpx:hr")
-      values = values.concat(getExtensions(child));
+    if (child.localName === "TrackPointExtension") {
+      // loop again for nested garmin extensions (eg. "gpxtpx:hr"). The
+      // prefix differs between apps (gpxtpx: from Strava, ns3: from
+      // Garmin Connect), so match on the local name.
+      values = values.concat(
+        getExtensions(child).map(([name, val]) => [
+          abbreviateName(name.replace(/^[^:]*:/, "gpxtpx:")),
+          val,
+        ])
+      );
     } else {
       // push custom extension (eg. "power")
       const val = nodeVal(child);

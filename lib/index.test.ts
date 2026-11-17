@@ -83,6 +83,29 @@ describe("mini cases", () => {
       ],
     });
   });
+  it("gpx reads a TrackPointExtension under any prefix", () => {
+    // Garmin Connect writes ns3: where Strava writes gpxtpx:
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1"
+        xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+        <trk><trkseg>
+          <trkpt lat="1" lon="2"><extensions><ns3:TrackPointExtension>
+            <ns3:atemp>21.0</ns3:atemp><ns3:hr>140</ns3:hr><ns3:cad>85</ns3:cad>
+          </ns3:TrackPointExtension></extensions></trkpt>
+          <trkpt lat="1" lon="3"><extensions><ns3:TrackPointExtension>
+            <ns3:atemp>22.0</ns3:atemp><ns3:hr>141</ns3:hr><ns3:cad>86</ns3:cad>
+          </ns3:TrackPointExtension></extensions></trkpt>
+        </trkseg></trk>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [track] = tj.gpx(dom).features;
+    expect(track.properties?.coordinateProperties).toEqual({
+      atemps: [21, 22],
+      heart: [140, 141],
+      cads: [85, 86],
+    });
+  });
   it("gpx line style keeps an opacity or width of 0", () => {
     const dom = new xmldom.DOMParser().parseFromString(
       `<gpx xmlns="http://www.topografix.com/GPX/1/1">
