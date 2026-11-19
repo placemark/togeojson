@@ -10,6 +10,7 @@ import {
   type F,
   type P,
   type StyleMap,
+  get1,
   isElement,
   nodeVal,
   normalizeId,
@@ -90,12 +91,15 @@ function buildStyleMap(node: Document): StyleMap {
   }
   for (const map of $(node, "StyleMap")) {
     const id = normalizeId(map.getAttribute("id") || "");
-    val1(map, "styleUrl", (styleUrl) => {
-      styleUrl = normalizeId(styleUrl);
-      if (styleMap[styleUrl]) {
-        styleMap[id] = styleMap[styleUrl];
-      }
-    });
+    for (const pair of $(map, "Pair")) {
+      if (nodeVal(get1(pair, "key")) !== "normal") continue;
+      val1(pair, "styleUrl", (styleUrl) => {
+        styleUrl = normalizeId(styleUrl);
+        if (styleMap[styleUrl]) {
+          styleMap[id] = styleMap[styleUrl];
+        }
+      });
+    }
   }
   return styleMap;
 }

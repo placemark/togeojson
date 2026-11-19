@@ -1,6 +1,15 @@
 import type { Document as XDocument } from "@xmldom/xmldom";
 import type { Feature, FeatureCollection, Position } from "geojson";
-import { $, type P, get, get1, hasValues, nodeVal, num1 } from "./shared";
+import {
+  $,
+  type P,
+  get,
+  get1,
+  hasValues,
+  isWithin,
+  nodeVal,
+  num1,
+} from "./shared";
 
 type PropertyMapping = readonly [string, string][];
 
@@ -31,7 +40,10 @@ function getProperties(node: Element, attributeNames: PropertyMapping) {
   const properties = [];
 
   for (const [tag, alias] of attributeNames) {
-    let elem = get1(node, tag);
+    let elem =
+      Array.from(node.getElementsByTagName(tag)).find(
+        (candidate) => !isWithin(node, candidate, ["Track"])
+      ) || null;
     if (!elem) {
       const elements = node.getElementsByTagNameNS(EXTENSIONS_NS, tag);
       if (elements.length) {

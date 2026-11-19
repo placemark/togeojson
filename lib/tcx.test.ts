@@ -53,4 +53,21 @@ describe("tcx courses", () => {
       },
     ]);
   });
+  it("does not use a trackpoint's DistanceMeters as the lap's own", () => {
+    const doc =
+      parse(`<TrainingCenterDatabase xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2">
+      <Activities><Activity><Lap>
+        <TotalTimeSeconds>100</TotalTimeSeconds>
+        <Track><Trackpoint>
+          <Position><LatitudeDegrees>1</LatitudeDegrees><LongitudeDegrees>2</LongitudeDegrees></Position>
+          <DistanceMeters>12.5</DistanceMeters>
+        </Trackpoint><Trackpoint>
+          <Position><LatitudeDegrees>2</LatitudeDegrees><LongitudeDegrees>3</LongitudeDegrees></Position>
+          <DistanceMeters>25</DistanceMeters>
+        </Trackpoint></Track>
+      </Lap></Activity></Activities>
+    </TrainingCenterDatabase>`);
+    const { features } = tcx(doc);
+    expect(features[0].properties).toEqual({ totalTimeSeconds: 100 });
+  });
 });
