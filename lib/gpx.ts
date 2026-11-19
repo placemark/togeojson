@@ -31,8 +31,9 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
     // entry per coordinate.
     times.push(c.time || null);
     for (const [name, val] of c.extendedValues) {
+      const stripped = name.replace("gpxtpx:", "");
       const plural =
-        name === "heart" ? name : `${name.replace("gpxtpx:", "")}s`;
+        name === "heart" || stripped.endsWith("s") ? stripped : `${stripped}s`;
       if (!extendedValues[plural]) {
         extendedValues[plural] = Array(pts.length).fill(null);
       }
@@ -62,12 +63,17 @@ function getPoints(node: Element, pointname: "trkpt" | "rtept") {
 function getRoute(ns: NS, node: Element): Feature<LineString> | undefined {
   const line = getPoints(node, "rtept");
   if (!line) return;
+  const coordinateProperties: P = { ...line.extendedValues };
+  if (hasValues([line.times])) {
+    coordinateProperties.times = line.times;
+  }
   return {
     type: "Feature",
     properties: Object.assign(
       { _gpxType: "rte" },
       extractProperties(ns, node),
-      getLineStyle(get1(node, "extensions"))
+      getLineStyle(get1(node, "extensions")),
+      Object.keys(coordinateProperties).length ? { coordinateProperties } : {}
     ),
     geometry: {
       type: "LineString",

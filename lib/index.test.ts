@@ -83,6 +83,65 @@ describe("mini cases", () => {
       ],
     });
   });
+  it("gpx reads a TrackPointExtension under any prefix", () => {
+    // Garmin Connect writes ns3: where Strava writes gpxtpx:
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1"
+        xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+        <trk><trkseg>
+          <trkpt lat="1" lon="2"><extensions><ns3:TrackPointExtension>
+            <ns3:atemp>21.0</ns3:atemp><ns3:hr>140</ns3:hr><ns3:cad>85</ns3:cad>
+          </ns3:TrackPointExtension></extensions></trkpt>
+          <trkpt lat="1" lon="3"><extensions><ns3:TrackPointExtension>
+            <ns3:atemp>22.0</ns3:atemp><ns3:hr>141</ns3:hr><ns3:cad>86</ns3:cad>
+          </ns3:TrackPointExtension></extensions></trkpt>
+        </trkseg></trk>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [track] = tj.gpx(dom).features;
+    expect(track.properties?.coordinateProperties).toEqual({
+      atemps: [21, 22],
+      heart: [140, 141],
+      cads: [85, 86],
+    });
+  });
+  it("gpx does not glue an extension wrapper's text to its own children", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1"
+        xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <trk>
+          <extensions><gpxx:TrackExtension><gpxx:DisplayColor>Magenta</gpxx:DisplayColor></gpxx:TrackExtension></extensions>
+          <trkseg><trkpt lat="1" lon="2"/><trkpt lat="1" lon="3"/></trkseg>
+        </trk>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [track] = tj.gpx(dom).features;
+    expect(track.properties).toMatchObject({ gpxx_DisplayColor: "Magenta" });
+    expect(track.properties).not.toHaveProperty("gpxx_TrackExtension");
+  });
+  it("gpx route keeps per-point time and extension values", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<gpx xmlns="http://www.topografix.com/GPX/1/1"
+        xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+        <rte>
+          <rtept lat="1" lon="2"><time>2024-01-01T00:00:00Z</time>
+            <extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>140</gpxtpx:hr></gpxtpx:TrackPointExtension></extensions>
+          </rtept>
+          <rtept lat="1" lon="3"><time>2024-01-01T00:01:00Z</time>
+            <extensions><gpxtpx:TrackPointExtension><gpxtpx:hr>141</gpxtpx:hr></gpxtpx:TrackPointExtension></extensions>
+          </rtept>
+        </rte>
+      </gpx>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [route] = tj.gpx(dom).features;
+    expect(route.properties?.coordinateProperties).toEqual({
+      times: ["2024-01-01T00:00:00Z", "2024-01-01T00:01:00Z"],
+      heart: [140, 141],
+    });
+  });
   it("gpx line style keeps an opacity or width of 0", () => {
     const dom = new xmldom.DOMParser().parseFromString(
       `<gpx xmlns="http://www.topografix.com/GPX/1/1">
@@ -103,6 +162,25 @@ describe("mini cases", () => {
       "stroke-opacity": 0,
       "stroke-width": 0,
     });
+  });
+  it("kml StyleMap uses the normal Pair regardless of order", () => {
+    const dom = new xmldom.DOMParser().parseFromString(
+      `<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+        <Style id="hi"><IconStyle><color>ff0000ff</color></IconStyle></Style>
+        <Style id="lo"><IconStyle><color>ff00ff00</color></IconStyle></Style>
+        <StyleMap id="sm">
+          <Pair><key>highlight</key><styleUrl>#hi</styleUrl></Pair>
+          <Pair><key>normal</key><styleUrl>#lo</styleUrl></Pair>
+        </StyleMap>
+        <Placemark>
+          <styleUrl>#sm</styleUrl>
+          <Point><coordinates>1,2</coordinates></Point>
+        </Placemark>
+      </Document></kml>`,
+      "text/xml"
+    ) as unknown as Document;
+    const [placemark] = tj.kml(dom).features;
+    expect(placemark.properties).toMatchObject({ "icon-color": "#00ff00" });
   });
   it("kml boolean elements read false and 0 as false", () => {
     const dom = new xmldom.DOMParser().parseFromString(

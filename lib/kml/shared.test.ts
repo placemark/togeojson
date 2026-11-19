@@ -31,3 +31,13 @@ describe("SimpleData with a bool SimpleField", () => {
     expect(flags).toEqual([true, true, false, false, true, true, false, false]);
   });
 });
+
+describe("SimpleData with a numeric SimpleField", () => {
+  it("reads a blank value as null, not 0", () => {
+    const values = ["0", "4.2", "", "  "];
+    const flags = kml(schemaKml("double", values)).features.map(
+      (f) => f.properties?.flag
+    );
+    expect(flags).toEqual([0, 4.2, null, null]);
+  });
+});

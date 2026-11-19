@@ -112,3 +112,21 @@ export function getMulti(node: Element, propertyNames: string[]): P {
 export function isElement(node: Node | null): node is Element {
   return node?.nodeType === 1;
 }
+
+/**
+ * True if `child` has an ancestor named one of `tagNames`, not counting `node` itself.
+ */
+export function isWithin(
+  node: Element,
+  child: Element,
+  tagNames: string[]
+): boolean {
+  for (
+    let parent = child.parentNode;
+    parent && parent !== node;
+    parent = parent.parentNode
+  ) {
+    if (isElement(parent) && tagNames.includes(parent.localName)) return true;
+  }
+  return false;
+}
