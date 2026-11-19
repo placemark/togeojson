@@ -36,8 +36,11 @@ const LAP_ATTRIBUTES: PropertyMapping = [
   ["MaxWatts", "maxWatts"],
 ];
 
-function getProperties(node: Element, attributeNames: PropertyMapping) {
-  const properties = [];
+function getProperties(
+  node: Element,
+  attributeNames: PropertyMapping
+): [string, number][] {
+  const properties: [string, number][] = [];
 
   for (const [tag, alias] of attributeNames) {
     let elem =
@@ -57,6 +60,21 @@ function getProperties(node: Element, attributeNames: PropertyMapping) {
   }
 
   return properties;
+}
+
+// Only totals are safe to sum across a Course's Laps; max/average fields
+// have no single correct course-wide value, so they're dropped instead.
+const SUMMABLE_LAP_ALIASES = new Set(["totalTimeSeconds", "distanceMeters"]);
+
+function sumLapProperties(laps: Element[]): [string, number][] {
+  const totals = new Map<string, number>();
+  for (const lap of laps) {
+    for (const [alias, value] of getProperties(lap, LAP_ATTRIBUTES)) {
+      if (!SUMMABLE_LAP_ALIASES.has(alias)) continue;
+      totals.set(alias, (totals.get(alias) || 0) + value);
+    }
+  }
+  return Array.from(totals);
 }
 
 function coordPair(node: Element) {
@@ -128,8 +146,13 @@ function getLap(node: Element): Feature | null {
   const times = [];
   const heartRates = [];
   const allExtendedProperties = [];
+  const laps = $(node, "Lap");
   const properties: P = Object.assign(
-    Object.fromEntries(getProperties(node, LAP_ATTRIBUTES)),
+    Object.fromEntries(
+      laps.length > 1
+        ? sumLapProperties(laps)
+        : getProperties(node, LAP_ATTRIBUTES)
+    ),
     get(node, "Name", (nameElement) => {
       return { name: nodeVal(nameElement) };
     })

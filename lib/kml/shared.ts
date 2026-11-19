@@ -12,7 +12,7 @@ import {
 export type TypeConverter = (x: string) => unknown;
 export type Schema = { [key: string]: TypeConverter };
 
-const toNumber: TypeConverter = (x) => Number(x);
+const toNumber: TypeConverter = (x) => (x.trim() === "" ? null : Number(x));
 
 /**
  * Read an xsd:boolean: "true" or "1" is true, "false" or "0" is false.

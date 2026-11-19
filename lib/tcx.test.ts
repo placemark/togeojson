@@ -70,4 +70,21 @@ describe("tcx courses", () => {
     const { features } = tcx(doc);
     expect(features[0].properties).toEqual({ totalTimeSeconds: 100 });
   });
+  it("sums totals across a course's laps instead of only using the first", () => {
+    const doc =
+      parse(`<TrainingCenterDatabase xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2">
+      <Courses><Course>
+        <Name>Split Course</Name>
+        <Lap><TotalTimeSeconds>100</TotalTimeSeconds><DistanceMeters>1000</DistanceMeters><MaximumSpeed>5</MaximumSpeed></Lap>
+        <Lap><TotalTimeSeconds>50</TotalTimeSeconds><DistanceMeters>500</DistanceMeters><MaximumSpeed>8</MaximumSpeed></Lap>
+        <Track>${trackpoint(1, 2)}${trackpoint(2, 3)}</Track>
+      </Course></Courses>
+    </TrainingCenterDatabase>`);
+    const { features } = tcx(doc);
+    expect(features[0].properties).toEqual({
+      name: "Split Course",
+      totalTimeSeconds: 150,
+      distanceMeters: 1500,
+    });
+  });
 });
