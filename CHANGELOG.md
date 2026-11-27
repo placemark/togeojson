@@ -323,6 +323,34 @@ Other changes in this pass:
 
 
 
+## 7.1.5
+
+### Patch Changes
+
+- [#167](https://github.com/placemark/togeojson/pull/167) [`7c2672f`](https://github.com/placemark/togeojson/commit/7c2672fb44af40d4e7f058eea81bf675ac7b4e41) Thanks [@bardrop](https://github.com/bardrop)! - Keep a GPX line style `opacity` or `width` of 0 instead of dropping it
+
+- [#170](https://github.com/placemark/togeojson/pull/170) [`d53a4e1`](https://github.com/placemark/togeojson/commit/d53a4e153be30cdfcb79b6fa28f7bffff31caff7) Thanks [@tmcw](https://github.com/tmcw)! - Keep per-point `time` and extension values (heart rate, cadence, etc.) on GPX routes instead of dropping them, matching how tracks already work. Also stop doubling a trailing `s` when pluralizing an extension name that already ends in one (eg. `opencpn:waypoint_range_rings`).
+
+- [#170](https://github.com/placemark/togeojson/pull/170) [`d53a4e1`](https://github.com/placemark/togeojson/commit/d53a4e153be30cdfcb79b6fa28f7bffff31caff7) Thanks [@tmcw](https://github.com/tmcw)! - Read Garmin TrackPointExtension values (heart rate, cadence, temperature) under any namespace prefix, such as the `ns3:` that Garmin Connect writes
+
+- [#164](https://github.com/placemark/togeojson/pull/164) [`54ba68a`](https://github.com/placemark/togeojson/commit/54ba68ac4844c692408b1d7c9abfa872360ac922) Thanks [@bardrop](https://github.com/bardrop)! - Read gx:coord values that have extra spaces, tabs or newlines instead of turning them into NaN
+
+- [#166](https://github.com/placemark/togeojson/pull/166) [`208ff89`](https://github.com/placemark/togeojson/commit/208ff89ed43c5a65f2f3a93c1dfe87e85c7dc1b7) Thanks [@bardrop](https://github.com/bardrop)! - Read `false` as false in KML `visibility`, `fill` and `outline`, not only `0`
+
+- [#170](https://github.com/placemark/togeojson/pull/170) [`d53a4e1`](https://github.com/placemark/togeojson/commit/d53a4e153be30cdfcb79b6fa28f7bffff31caff7) Thanks [@tmcw](https://github.com/tmcw)! - Fix two more cases of silently incorrect data:
+  
+  - KML: a blank `SimpleData` value for a numeric Schema field (eg `int`/`double`) is now read as `null` instead of being fabricated as `0`.
+  - TCX: a Course with multiple Laps now sums `TotalTimeSeconds`/`DistanceMeters` across all its laps instead of silently reporting only the first lap's totals as if they covered the whole course. Max/average lap fields have no single correct course-wide value, so they're dropped rather than misattributed to one lap.
+
+- [#168](https://github.com/placemark/togeojson/pull/168) [`a34e5f5`](https://github.com/placemark/togeojson/commit/a34e5f554b3715912165fd0c545349e8294afc17) Thanks [@bardrop](https://github.com/bardrop)! - Keep KML `coordinateProperties.times` aligned with the geometries when a gx:Track in a MultiTrack or MultiGeometry has no `<when>` values
+
+- [#170](https://github.com/placemark/togeojson/pull/170) [`d53a4e1`](https://github.com/placemark/togeojson/commit/d53a4e153be30cdfcb79b6fa28f7bffff31caff7) Thanks [@tmcw](https://github.com/tmcw)! - Fix four cases where parsing produced silently incorrect data instead of just missing data:
+  
+  - GPX: a custom extension wrapper (eg. `gpxx:TrackExtension`, `gpxx:RouteExtension`) on a waypoint, route, or track no longer leaks its children's concatenated text as its own property value.
+  - KML: `StyleMap` now resolves the `normal` style by reading each `Pair`'s `key`, instead of assuming the first `styleUrl` found is the normal one (which broke when `highlight` was listed first).
+  - KML: a malformed coordinate tuple (eg. a non-numeric latitude) is now dropped entirely instead of having its invalid component silently shifted out, which previously relabeled a different value as latitude/longitude.
+  - TCX: a Lap's own `TotalTimeSeconds`/`DistanceMeters`/etc. are no longer silently replaced by a nested Trackpoint's value of the same name when the Lap itself is missing that field.
+
 ## 7.1.4
 
 ### Patch Changes
