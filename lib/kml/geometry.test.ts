@@ -9,8 +9,8 @@ describe("coord1", () => {
     expect(coord1("2,2")).toEqual([2, 2]);
     expect(coord1("2,2,4")).toEqual([2, 2, 4]);
   });
-  it("removes nans", () => {
-    expect(coord1("a,24")).toEqual([24]);
+  it("rejects a tuple with an invalid component", () => {
+    expect(coord1("a,24")).toEqual([]);
   });
 });
 

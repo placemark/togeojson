@@ -8,12 +8,15 @@ const splitSpace = /\s+/;
  * Get one coordinate from a coordinate array, if any
  */
 export function coord1(value: string): Position {
-  return value
+  const parts = value
     .replace(removeSpace, "")
     .split(",")
     .map(Number.parseFloat)
-    .filter((num) => !Number.isNaN(num))
     .slice(0, 3);
+  if (parts.length < 2 || parts.some(Number.isNaN)) {
+    return [];
+  }
+  return parts;
 }
 
 /**

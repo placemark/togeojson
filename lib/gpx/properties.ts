@@ -1,4 +1,4 @@
-import { type NS, type P, isElement, nodeVal } from "../shared";
+import { type NS, type P, isElement, isWithin, nodeVal } from "../shared";
 
 /**
  * Tags inside these elements belong to a track or route point,
@@ -21,21 +21,6 @@ function childValues(node: Element, propertyNames: string[]): P {
   return properties;
 }
 
-/**
- * True if `child` sits inside a point or segment of `node`.
- */
-function isInPoint(node: Element, child: Element) {
-  for (
-    let parent = child.parentNode;
-    parent && parent !== node;
-    parent = parent.parentNode
-  ) {
-    if (isElement(parent) && POINT_CONTAINERS.includes(parent.localName))
-      return true;
-  }
-  return false;
-}
-
 export function extractProperties(ns: NS, node: Element) {
   const properties = childValues(node, [
     "name",
@@ -48,7 +33,8 @@ export function extractProperties(ns: NS, node: Element) {
 
   for (const [n, url] of ns) {
     for (const child of Array.from(node.getElementsByTagNameNS(url, "*"))) {
-      if (isInPoint(node, child)) continue;
+      if (isWithin(node, child, POINT_CONTAINERS)) continue;
+      if (Array.from(child.childNodes).some(isElement)) continue;
       properties[child.tagName.replace(":", "_")] = nodeVal(child)?.trim();
     }
   }
